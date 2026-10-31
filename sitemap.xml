@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://qw-sa.github.io/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://qw-sa.github.io/map/</loc></url>
+  <url><loc>https://qw-sa.github.io/compliance-rega.html</loc></url>
+  <url><loc>https://qw-sa.github.io/compliance-cma.html</loc></url>
 </urlset>
