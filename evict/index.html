@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هل يحق للمؤجر إخلاؤك؟</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' rx='88' fill='%23fdf6ec'/%3E%3Cpath d='M200 70 L320 168 L320 300 L80 300 L80 168 Z' fill='%230e3b2e' stroke='%230e3b2e' stroke-width='20' stroke-linejoin='round'/%3E%3Ccircle cx='200' cy='178' r='21' fill='%23f08a2c'/%3E%3Crect x='181' y='213' width='38' height='97' rx='10' fill='%23f08a2c'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://qw-sa.github.io/evict/">
+<meta name="description" content="أداة تفاعلية: اختر حالتك وتعرف هل يحق للمؤجر إخلاؤك نظاماً، وبأي شرط، ومواعيد الإشعار، وخطوات إيجار وناجز.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="معلومة عقارية">
+<meta property="og:title" content="هل يحق للمؤجر إخلاؤك؟ افحص حالتك">
+<meta property="og:description" content="أداة تفاعلية: اختر حالتك وتعرف هل يحق للمؤجر إخلاؤك نظاماً، وبأي شرط، ومواعيد الإشعار، وخطوات إيجار وناجز.">
+<meta property="og:url" content="https://qw-sa.github.io/evict/">
+<meta property="og:image" content="https://qw-sa.github.io/evict/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@malomhagaryh">
+<meta name="twitter:title" content="هل يحق للمؤجر إخلاؤك؟ افحص حالتك">
+<meta name="twitter:description" content="أداة تفاعلية: اختر حالتك وتعرف هل يحق للمؤجر إخلاؤك نظاماً، وبأي شرط، ومواعيد الإشعار، وخطوات إيجار وناجز.">
+<meta name="twitter:image" content="https://qw-sa.github.io/evict/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Readex+Pro:wght@500;700&display=swap">
+<style>
+/* Layout: one column, three steps down the page (choose your case -> answer -> verdict stamped like a deed), then the full reference index */
+:root{
+  --bg:#edf1f5; --sheet:#ffffff; --ink:#13223a; --muted:#56647c; --line:#d5dce7;
+  --accent:#0f5c8c; --accent-soft:#e2eef6;
+  --ok:#17744f; --ok-soft:#e1f2ea; --cond:#9a6410; --cond-soft:#f8eed9; --no:#b0281c; --no-soft:#f8e4e1; --need:#5b4bb0; --need-soft:#ebe8f8;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c131d; --sheet:#141e2b; --ink:#e3e9f2; --muted:#9ba8bb; --line:#2a3748;
+  --accent:#5fb0e3; --accent-soft:#17304a;
+  --ok:#5fd09c; --ok-soft:#133126; --cond:#e7b65a; --cond-soft:#342814; --no:#f2877b; --no-soft:#3a1c19; --need:#a99bf2; --need-soft:#26213f;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c131d; --sheet:#141e2b; --ink:#e3e9f2; --muted:#9ba8bb; --line:#2a3748;
+  --accent:#5fb0e3; --accent-soft:#17304a;
+  --ok:#5fd09c; --ok-soft:#133126; --cond:#e7b65a; --cond-soft:#342814; --no:#f2877b; --no-soft:#3a1c19; --need:#a99bf2; --need-soft:#26213f;
+  color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{direction:rtl}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;margin:0}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.35;margin:0;font-weight:700}
+h1{font-size:clamp(1.8rem,6vw,2.6rem)}
+h2{font-size:1.35rem}
+h3{font-size:1.05rem}
+p{margin:0}
+a{color:var(--accent)}
+ul,ol{margin:0;padding-inline-start:1.3em;display:grid;gap:4px}
+
+.top{padding-block:28px 8px;display:grid;gap:14px}
+.acct{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.acct .logo{width:46px;height:46px;flex:none;border-radius:12px;border:1px solid var(--line)}
+.acct .nm{display:grid;line-height:1.3}
+.acct .nm b{font-family:var(--f-display);font-size:1.05rem}
+.acct .nm a{font-size:.85rem;color:var(--muted);text-decoration:none;direction:ltr;text-align:end}
+.acct .nm a:hover{color:var(--accent)}
+.acct .kind{margin-inline-start:auto;font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.follow{display:flex;align-items:center;gap:10px}
+.follow .logo{width:32px;height:32px;border-radius:8px;flex:none}
+.headline{display:flex;gap:16px;align-items:center}
+.rate{flex:none;width:84px;height:84px;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:center;font-family:var(--f-display);font-size:1.9rem;font-weight:700;color:var(--accent);background:var(--sheet)}
+.lead{color:var(--muted);max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;font-size:.85rem}
+.facts span{background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+
+main{display:grid;gap:20px;padding-block:18px 36px}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(16px,4vw,26px);display:grid;gap:14px;min-width:0}
+.step{display:flex;gap:10px;align-items:baseline}
+.step b{font-family:var(--f-display);color:var(--accent);font-size:.9rem;flex:none}
+.sub{color:var(--muted);font-size:.93rem}
+
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px}
+.case{font:inherit;color:var(--ink);text-align:start;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;line-height:1.45;display:grid;gap:2px}
+.case small{color:var(--muted);font-size:.78rem}
+.case:hover{border-color:var(--accent)}
+.case[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.case[aria-pressed="true"] small{color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.qs{display:grid;gap:14px}
+.q{display:grid;gap:8px;padding-top:14px;border-top:1px dashed var(--line)}
+.q:first-child{border-top:0;padding-top:0}
+.q .ql{font-weight:500}
+.hint{font-size:.82rem;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.93rem;background:var(--bg);line-height:1.4}
+.opts input{accent-color:var(--accent);margin:0}
+.opts label:has(input:checked){border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:500}
+.opts label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.stamp{width:118px;height:118px;border-radius:50%;border:3px double currentColor;display:grid;place-items:center;text-align:center;font-family:var(--f-display);font-weight:700;font-size:1.25rem;line-height:1.2;transform:rotate(-9deg);padding:8px}
+.stamp small{display:block;font-size:.7rem;font-weight:500;margin-top:2px}
+.s-ok{color:var(--ok)} .s-cond{color:var(--cond)} .s-no{color:var(--no)} .s-need{color:var(--need)}
+.vt{display:grid;gap:6px;min-width:0}
+.ref{font-size:.8rem;color:var(--muted)}
+.box{border-radius:10px;padding:12px 14px;display:grid;gap:6px}
+.box h3{font-size:.95rem}
+.b-keep{background:var(--cond-soft)}
+.b-keep h3{color:var(--cond)}
+.b-proof{background:var(--accent-soft)}
+.b-proof h3{color:var(--accent)}
+.b-warn{background:var(--no-soft)}
+.b-warn h3{color:var(--no)}
+.calc{display:grid;gap:10px;border-top:1px dashed var(--line);padding-top:14px}
+.calc label{font-weight:500}
+.money{position:relative;max-width:280px}
+.money input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 12px;padding-inline-end:52px;width:100%;font-variant-numeric:tabular-nums}
+.money em{position:absolute;inset-inline-end:12px;top:50%;transform:translateY(-50%);font-style:normal;color:var(--muted);font-size:.85rem}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.fig{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.fig span{display:block;font-size:.8rem;color:var(--muted)}
+.fig b{font-family:var(--f-display);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.share{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-size:.9rem;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer}
+.btn:hover{background:var(--accent-soft)}
+#copied{font-size:.85rem;color:var(--ok)}
+
+.index{display:grid;gap:8px}
+.item{border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:grid;gap:4px}
+.item .row1{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.item a{font-size:.85rem;white-space:nowrap}
+.tag{font-size:.75rem;border-radius:999px;padding:1px 10px;font-weight:500}
+.t-ok{background:var(--ok-soft);color:var(--ok)} .t-cond{background:var(--cond-soft);color:var(--cond)} .t-no{background:var(--no-soft);color:var(--no)} .t-need{background:var(--need-soft);color:var(--need)}
+.search input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 12px;width:100%}
+.steps-list{counter-reset:s;list-style:none;padding:0;gap:10px}
+.steps-list li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.steps-list li::before{content:counter(s);font-family:var(--f-display);width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.85rem}
+footer{color:var(--muted);font-size:.82rem;padding-block:0 32px;display:grid;gap:6px}
+@media (max-width:480px){.verdict{grid-template-columns:1fr}.stamp{width:100px;height:100px;font-size:1.1rem}.headline{align-items:flex-start}.rate{width:64px;height:64px;font-size:1.45rem}}
+@media (prefers-reduced-motion:no-preference){.stamp{transition:transform .25s ease}.stamp.pop{animation:pop .35s ease}@keyframes pop{0%{transform:rotate(-9deg) scale(1.15)}100%{transform:rotate(-9deg) scale(1)}}}
+</style>
+<style>
+.dates{display:flex;flex-wrap:wrap;gap:12px}
+.dates label{display:grid;gap:4px;font-weight:500;font-size:.93rem}
+.dates input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:200px}
+.fig b{font-size:1.05rem}
+.calc h3{font-size:1rem}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <div class="acct"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><rect width="400" height="400" rx="88" fill="#fdf6ec"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#0e3b2e" stroke="#0e3b2e" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><div class="nm"><b>معلومة عقارية</b><a href="https://x.com/malomhagaryh" target="_blank" rel="noopener">@malomhagaryh</a></div><span class="kind">دليل مبسّط</span></div>
+  <div class="headline">
+    <div class="rate" aria-hidden="true"><svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 42V8h22v34"/><path d="M32 12l6 3v27"/><path d="M6 42h36"/><circle cx="26" cy="26" r="1.6" fill="currentColor"/></svg></div>
+    <h1>هل يحق للمؤجر إخلاؤك؟</h1>
+  </div>
+  <p class="lead">المؤجر يبي يطلعك، أو رفض يجدد، أو باع العقار، أو وصلك أمر إخلاء؟ اختر حالتك وجاوب على سؤالين، وتعرف هل يحق له نظاماً، وبأي شرط، ووش تسوي في إيجار وناجز. والمؤجر يستفيد منها بعد: يعرف متى يحق له ومتى يخالف.</p>
+  <div class="facts"><span>أحكام ضبط العلاقة الإيجارية نافذة من 1447/04/04هـ</span><span>قيود رفض التجديد: الرياض فقط</span><span>نظام التنفيذ الجديد نافذ من 1448/05/17هـ</span><span>آخر مراجعة: ١٥ نوفمبر ٢٠٢٦م</span></div>
+</header>
+
+<main class="wrap">
+  <section class="sheet" aria-labelledby="h-step1">
+    <div class="step"><b>١</b><h2 id="h-step1">وش وضعك؟</h2></div>
+    <div class="cases" id="cases"></div>
+  </section>
+
+  <section class="sheet" aria-labelledby="h-step2">
+    <div class="step"><b>٢</b><h2 id="h-step2">جاوب على الأسئلة</h2></div>
+    <p class="sub" id="caseIntro"></p>
+    <div class="qs" id="qs"></div>
+  </section>
+
+  <section class="sheet" aria-labelledby="h-step3" aria-live="polite">
+    <div class="step"><b>٣</b><h2 id="h-step3">النتيجة</h2></div>
+    <div class="verdict">
+      <div class="stamp" id="stamp"></div>
+      <div class="vt"><h3 id="vTitle"></h3><p id="vWhy"></p><p class="ref" id="vRef"></p></div>
+    </div>
+    <div class="box b-keep" id="keepBox"><h3>وش تسوي</h3><ul id="keep"></ul></div>
+    <div class="box b-warn" id="warnBox"><h3>انتبه</h3><ul id="warn"></ul></div>
+    <div class="box b-proof"><h3>الخطوات في المنصة</h3><ol id="proof"></ol></div>
+    <div class="calc" id="calcBox">
+      <h3 id="calcTitle">احسب المواعيد</h3>
+      <div class="dates">
+        <label>تاريخ نهاية العقد<input id="dEnd" type="date"></label>
+        <label id="lNotice">تاريخ الإشعار بعدم التجديد (إن وصلك)<input id="dNotice" type="date"></label>
+      </div>
+      <div class="figs" id="figs"></div>
+      <p class="hint">التاريخ الهجري تقريبي (أم القرى). العبرة بالتواريخ المسجلة في عقدك في منصة إيجار.</p>
+    </div>
+    <div class="share"><button class="btn" id="copyBtn" type="button">انسخ رابط هذه الحالة</button><span id="copied" hidden>تم النسخ</span></div>
+  </section>
+
+  <section class="sheet" aria-labelledby="h-rules">
+    <h2 id="h-rules">القاعدة باختصار</h2>
+    <ol class="steps-list">
+      <li><span><b>العقد يتجدد تلقائياً</b> ما لم يُشعر أحد الطرفين الآخر بعدم التجديد قبل ٦٠ يوماً على الأقل من نهايته. وفي العقود السكنية رفعت الهيئة مدة الإشعار إلى ٣٦٥ يوماً.</span></li>
+      <li><span><b>في الرياض</b> لا يحق للمؤجر رفض التجديد وطلب الإخلاء إلا لثلاثة أسباب: عدم سداد الأجرة، أو عيوب هيكلية بتقرير رسمي، أو سكنه هو أو قريبه من الدرجة الأولى في العقار السكني.</span></li>
+      <li><span><b>أثناء مدة العقد</b> العقد ملزم للطرفين، ولا يُنهى إلا بالفسخ لإخلال بعد الإعذار، أو لعذر طارئ مع التعويض.</span></li>
+      <li><span><b>بيع العقار أو وفاة أحد الطرفين</b> لا ينهي العقد.</span></li>
+      <li><span><b>العقد غير المسجل في إيجار</b> لا تنظر فيه المحاكم، والمسجل سند تنفيذي يُنفذ مباشرة في ناجز.</span></li>
+      <li><span><b>المخالفة</b> غرامتها حتى أجرة ١٢ شهراً، ويُجدد العقد متى رغب المستأجر، مع حقه في التعويض.</span></li>
+    </ol>
+    <p class="hint">أسماء الشاشات في المنصات قد تتغير مع التحديثات، والعبرة بما يظهر لك فيها.</p>
+  </section>
+
+  <section class="sheet" aria-labelledby="h-index">
+    <h2 id="h-index">كل الحالات في مكان واحد</h2>
+    <div class="search"><input id="q" type="search" placeholder="ابحث: سداد، بيع، سكن شخصي، مزاد، ناجز..." aria-label="ابحث في الحالات"></div>
+    <div class="index" id="index"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p class="follow"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><rect width="400" height="400" rx="88" fill="#fdf6ec"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#0e3b2e" stroke="#0e3b2e" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><span>من حساب <b>معلومة عقارية</b> على X: <a href="https://x.com/malomhagaryh" target="_blank" rel="noopener" dir="ltr">@malomhagaryh</a>. تابعنا لمعلومة عقارية يومية مبسّطة.</span></p>
+  <p>المصادر: الأحكام النظامية الخاصة بضبط العلاقة بين المؤجر والمستأجر (المرسوم الملكي م/73 في 1447/04/02هـ) وضوابطها، وقرارا الهيئة العامة للعقار بمدة الإشعار ٣٦٥ يوماً (1447/07/02هـ و1447/09/07هـ)، وتوضيح برنامج إيجار بمنع إعادة التأجير ٣٦٥ يوماً، ونظام المعاملات المدنية (المواد ١٠٧ و٤١٥ و٤٢٣ و٤٢٨ و٤٣٤ و٤٣٥ و٤٤٠ إلى ٤٤٢)، ونظام التنفيذ (م/237 في 1447/11/03هـ) ولائحته، وقرارات مجلس الوزراء ١٣١ و٤٠٥ و٢٩٢ بشأن شبكة إيجار.</p>
+  <p>هذه الأداة توعوية مبسّطة وليست جهة رسمية ولا تغني عن المحامي. الفصل في النزاع للمحكمة أو لجنة المخالفات في الهيئة العامة للعقار.</p>
+</footer>
+
+<script>
+const S={ejar:"ادخل منصة إيجار <a href='https://www.ejar.sa' target='_blank' rel='noopener'>ejar.sa</a> بالنفاذ الوطني، وافتح عقدك وتأكد من تاريخ نهايته وحالة التجديد التلقائي وأي إشعار مسجل.",
+ report:"بلّغ الهيئة العامة للعقار عبر قنواتها الإلكترونية بالنموذج المخصص: اسمك وهويتك وجوالك، ونوع المخالفة وتاريخها ومكانها، وصورة العقد والإشعار.",
+ najiz:"المؤجر يقدم «طلب تنفيذ» في منصة ناجز <a href='https://najiz.sa' target='_blank' rel='noopener'>najiz.sa</a>، ويرفق عقد الإيجار المسجل بصفته سنداً تنفيذياً.",
+ court:"إذا لزم فسخ أو تعويض: ترفع الدعوى إلكترونياً في ناجز (صحيفة دعوى)، أو تلجأ للصلح والتحكيم في مركز التحكيم العقاري إذا اتفقتم عليه.",
+ pay:"ادفع الأجرة عن طريق إيجار أو بتحويل موثق، واحتفظ بالإيصالات، عشان ما ينقلب عليك سبب «عدم السداد».",
+ keep:"احتفظ بصورة العقد وكل إشعار ورسالة وصلتك، فهي دليلك أمام اللجنة أو المحكمة."};
+const FINE="المخالفة (رفض التجديد في غير الحالات النظامية) غرامتها حتى الأجرة الإجمالية لـ١٢ شهراً، ويُصحح بتجديد العقد متى رغب المستأجر، مع حقه في التعويض. وللمبلّغ مكافأة حتى ٢٠٪ من الغرامة.";
+const CITY={id:"city",q:"وين العقار؟",o:[["ruh","الرياض"],["other","مدينة ثانية"]]};
+const TYPE={id:"type",q:"نوع العقار؟",o:[["res","سكني"],["com","تجاري"]]};
+
+const CASES=[
+ {id:"noreason",t:"يبي يطلعني بدون سبب",s:"ما يبي يجدد، أو يبي يرفع الإيجار",tag:"ok",
+  intro:"العقد يتجدد تلقائياً، وفي الرياض المؤجر مقيّد بثلاثة أسباب فقط لرفض التجديد.",
+  qs:[CITY,TYPE,{id:"notice",q:"متى أشعرك بعدم التجديد؟",o:[["365","قبل نهاية العقد بسنة أو أكثر"],["60","بين ٦٠ يوماً وسنة"],["lt60","أقل من ٦٠ يوماً، أو ما أشعرني"]]}],
+  ex:{city:"ruh",type:"res",notice:"60"},calc:"notice",
+  eval(a){
+   if(a.city==="ruh") return {st:"ok",title:"لا يحق له في الرياض",why:"في الرياض لا يجوز للمؤجر الامتناع عن التجديد وطلب الإخلاء إلا لعدم السداد، أو لعيوب هيكلية بتقرير رسمي، أو لسكنه هو أو قريبه من الدرجة الأولى (في السكني). «ما أبي أجدد» أو «أبي أرفع الإيجار» ليست منها، ورفع الأجرة نفسه ممنوع في الرياض.",keep:["لا تخلي، العقد يتجدد بقوة النظام.","إذا أصرّ أو أجّرها لغيرك: بلّغ الهيئة العامة للعقار."],warn:[FINE]};
+   if(a.notice==="lt60") return {st:"ok",title:"لا يحق له هذه السنة",why:"العقد يتجدد تلقائياً ما لم يُشعرك المؤجر قبل ٦٠ يوماً على الأقل من نهايته"+(a.type==="res"?"، وفي السكني رفعت الهيئة مدة الإشعار إلى ٣٦٥ يوماً":"")+". الإشعار المتأخر ما يطلعك عند نهاية هذا العقد.",keep:["احتفظ بتاريخ الإشعار، فهو أساس حساب المدة."]};
+   if(a.notice==="60"&&a.type==="res") return {st:"need",title:"غالباً ما يكفي هذا الإشعار",why:"خارج الرياض للمؤجر عدم التجديد بلا سبب إذا أشعرك في المدة. لكن الهيئة رفعت مدة الإشعار في العقود السكنية إلى ٣٦٥ يوماً، وإذا أشعرك بأقل منها يتجدد العقد بالقدر اللازم لإكمال ٣٦٥ يوماً من تاريخ الإشعار. تأكد من مدة الإشعار المكتوبة في عقدك في إيجار.",keep:["احسب الموعد في الحاسبة تحت."]};
+   return {st:"no",title:"يحق له عند نهاية العقد",why:"خارج الرياض ما فيه قيد على أسباب رفض التجديد. إذا أشعرك في المدة النظامية فالعقد ينتهي في تاريخه، وعليك الإخلاء.",warn:["بقاؤك بعد النهاية دون حق يلزمك بأجرة المثل مع التعويض، وللمؤجر طلب الإخلاء في ناجز."],link:"expired"};
+  },
+  ref:"البندان رابعاً وسادساً وثامناً من الأحكام، وقرار الهيئة 1447/09/07هـ، والمادة ٤٣٥ من نظام المعاملات المدنية",
+  proof:[S.ejar,S.report,S.keep]},
+
+ {id:"nopay",t:"تأخرت في دفع الإيجار",s:"عليّ أقساط متأخرة",tag:"no",
+  intro:"عدم السداد من الأسباب النظامية لطلب الإخلاء في كل المدن، وعقد إيجار المسجل يُنفذ مباشرة.",
+  qs:[{id:"paid",q:"وضع السداد الآن؟",o:[["no","باقي عليّ متأخرات"],["late","سددت لكن متأخر"],["yes","سددت كل شيء في وقته"]]},
+      {id:"reg",q:"هل العقد مسجل في منصة إيجار؟",o:[["y","نعم"],["n","لا"]]}],
+  ex:{paid:"no",reg:"y"},
+  eval(a){
+   if(a.paid==="yes") return {st:"ok",title:"ما يستند على هذا السبب",why:"ما عليك متأخرات، فلا يحق للمؤجر طلب الإخلاء بسبب السداد. وإذا رفض استلام الأجرة منك فلك أن تطلب من المحكمة إلزامه باستيفائها.",keep:[S.pay]};
+   if(a.reg==="n") return {st:"need",title:"العقد غير المسجل يعقّد الموضوع على الطرفين",why:"العقد غير المسجل في إيجار ليس سنداً تنفيذياً ولا تنظر فيه المحاكم. المؤجر ملزم بتسجيله، ولك أنت طلب تسجيله. وبعد التسجيل يحق له المطالبة بالمتأخر وطلب الإخلاء.",link:"unregistered",keep:["سدد المتأخر بأسرع وقت وبطريقة موثقة."]};
+   if(a.paid==="late") return {st:"need",title:"قد يستند عليه المؤجر",why:"«تخلف المستأجر عن سداد الأجرة» سبب نظامي لرفض التجديد. التأخر ثم السداد قد يحتج به المؤجر، والفصل عند الخلاف للجنة المخالفات أو المحكمة. التزم بالمواعيد من الآن ووثّق كل دفعة.",keep:[S.pay]};
+   return {st:"no",title:"يحق له",why:"عدم السداد يجيز للمؤجر رفض التجديد وطلب الإخلاء حتى في الرياض. وعقد إيجار المسجل سند تنفيذي، فله طلب تنفيذه في ناجز بالأجرة المتأخرة وبالإخلاء وفق بنود العقد.",
+    keep:["سدد أو اتفق على جدولة مكتوبة قبل ما يوصل الأمر للتنفيذ.","إذا سددت خارج المحكمة، على المؤجر إنهاء طلب التنفيذ خلال يوم عمل، والمماطلة جريمة.","مستأجر سعودي عاجز بسبب سجن أو مرض أو وفاة أو ضعف القدرة المادية؟ تُشكل لجنة تبت خلال ٣٠ يوماً من إشعار قاضي التنفيذ في السداد عنه أو توفير سكن بديل."],
+    warn:["بعد أمر الإخلاء أمامك ٥ أيام عمل، ثم الإخلاء بالقوة المختصة، والممتنع قد يُمنع من السفر ويُغرَّم حتى ١٠ آلاف يومياً."],link:"order"};
+  },
+  ref:"البند رابعاً من الأحكام، والمواد ٧ و١٠ و٤٢ من نظام التنفيذ، وقرارا مجلس الوزراء ١٣١ و٤٠٥",
+  proof:[S.ejar,S.najiz,S.pay]},
+
+ {id:"personal",t:"يبي يسكنه هو أو أحد عياله",s:"الاستخدام الشخصي أو لقريب",tag:"cond",
+  intro:"في الرياض: يجوز في العقار السكني فقط، للمالك أو قريبه من الدرجة الأولى، وبإشعار ٣٦٥ يوماً، ويُمنع تأجيره بعدها سنة.",
+  qs:[CITY,TYPE,{id:"who",q:"لمن يبيه؟",o:[["self","المالك نفسه"],["d1","أبوه أو أمه أو ولده أو بنته"],["sp","زوجته"],["far","أخوه أو أبعد"]]},
+      {id:"notice",q:"متى أشعرك؟",o:[["365","قبل نهاية العقد بسنة أو أكثر"],["less","أقل من سنة"]]}],
+  ex:{city:"ruh",type:"res",who:"d1",notice:"less"},calc:"personal",
+  eval(a){
+   if(a.city==="other") return {st:"no",title:"يحق له خارج الرياض بإشعار",why:"قيود أسباب رفض التجديد تخص الرياض. خارجها يحق للمؤجر عدم التجديد لأي سبب إذا أشعرك في المدة، وفي السكني مدة الإشعار ٣٦٥ يوماً بقرار الهيئة.",link:"noreason"};
+   if(a.type==="com") return {st:"ok",title:"لا يحق له",why:"سبب «الاستخدام الشخصي» نصّ عليه للعقار السكني فقط. في التجاري بالرياض يبقى له عدم السداد أو العيوب الهيكلية.",warn:[FINE]};
+   if(a.who==="far") return {st:"ok",title:"لا يحق له بهذا السبب",why:"الإخلاء لقريب محصور في الدرجة الأولى: الأب والأم والأبناء والبنات. الأخ والعم وغيرهم ما يدخلون.",warn:[FINE]};
+   const base={keep:["لا يجوز للمؤجر تأجير الوحدة لغيرك ٣٦٥ يوماً بعد انتهاء المهلة.","إذا أخلاك ثم أجّرها لغيره: بلّغ الهيئة، ولك التعويض. وإذا تعذر رجوعك لأن المستأجر الجديد حسن النية يُحال الطرفان للمحكمة."],warn:["ادعاء الاستخدام الشخصي كذباً مخالفة تصل غرامتها إلى أجرة ١٢ شهراً."]};
+   if(a.who==="sp") return {...base,st:"need",title:"تحتاج تأكيد",why:"النص: «لاستخدامه الشخصي أو لأحد أقاربه من الدرجة الأولى». سكن الزوجة مع زوجها استخدام شخصي، لكن سكنها منفردة محل تأكيد من الهيئة."};
+   if(a.notice==="less") return {...base,st:"cond",title:"يحق له، لكن بعد اكتمال ٣٦٥ يوماً",why:"إذا أشعرك بأقل من ٣٦٥ يوماً قبل نهاية العقد، يتجدد العقد بالقدر اللازم لإكمال ٣٦٥ يوماً من تاريخ الإشعار. احسب موعدك الفعلي تحت."};
+   return {...base,st:"no",title:"يحق له",why:"سبب نظامي في السكني بالرياض، والإشعار في مدته. عليك الإخلاء عند نهاية العقد."};
+  },
+  ref:"البند رابعاً من الأحكام، وقرارا الهيئة 1447/07/02هـ و1447/09/07هـ، وتوضيح برنامج إيجار، والبندان سادساً وسابعاً من ضوابط التصحيح",
+  proof:[S.ejar,"المؤجر يسجل إشعار عدم التجديد عبر إيجار ويحدد السبب، وتبدأ مهلة ٣٦٥ يوماً من تاريخه.",S.report]},
+
+ {id:"defects",t:"يقول العقار فيه خلل إنشائي",s:"عيوب هيكلية أو ترميم",tag:"cond",
+  intro:"العيوب الهيكلية التي تهدد سلامة العقار وساكنيه سبب للإخلاء، لكن بتقرير من جهة حكومية.",
+  qs:[CITY,{id:"rep",q:"وش عند المؤجر من إثبات؟",o:[["gov","تقرير فني من الجهة الحكومية المختصة"],["office","تقرير مكتب هندسي خاص"],["none","مجرد كلام، أو يبي يرمم بس"]]}],
+  ex:{city:"ruh",rep:"office"},
+  eval(a){
+   if(a.city==="other") return {st:"no",title:"خارج الرياض يحق له عدم التجديد بإشعار",why:"ما يحتاج سبب خارج الرياض، يكفي الإشعار في المدة. وإذا كان الخلل خطراً عاجلاً فلا يُنتظر.",link:"noreason"};
+   if(a.rep==="gov") return {st:"no",title:"يحق له",why:"وجود عيوب هيكلية تؤثر في سلامة العقار وساكنيه، بتقرير فني معتمد من الجهة الحكومية المختصة، سبب نظامي لرفض التجديد وطلب الإخلاء.",keep:["اطلب صورة التقرير وتأكد من الجهة المصدرة.","سلامتك أولاً: لا تتأخر في الإخلاء إذا كان التقرير يقرر خطراً."]};
+   if(a.rep==="office") return {st:"need",title:"التقرير الخاص قد لا يكفي",why:"النص يشترط تقريراً فنياً «معتمداً من الجهة الحكومية المختصة». تقرير المكتب الخاص وحده لا يحقق الشرط غالباً."};
+   return {st:"ok",title:"لا يحق له",why:"الرغبة في الترميم أو التطوير ليست من الأسباب. والإصلاح الضروري يُعلمك به قبل البدء بمدة معقولة، ولك طلب الفسخ أو إنقاص الأجرة إن أخلّ بانتفاعك.",warn:["الترميم الجوهري يعطي المؤجر حق الاعتراض على الأجرة المثبتة، لكن بشرط أن يكون العقار شاغراً، فما يبرر إخراجك.",FINE]};
+  },
+  ref:"البندان ثالثاً ورابعاً من الأحكام، والمادة ٤٣٤ من نظام المعاملات المدنية",
+  proof:[S.ejar,S.report,S.keep]},
+
+ {id:"midterm",t:"يبي يطلعني قبل نهاية العقد",s:"والعقد ما خلص",tag:"ok",
+  intro:"العقد ملزم للطرفين حتى نهاية مدته.",
+  qs:[{id:"why",q:"وش سببه؟",o:[["none","بدون سبب، أو لقى مستأجر بسعر أعلى"],["need","طرأ له عذر حقيقي مفاجئ"],["breach","يقول إني خالفت العقد"]]}],
+  ex:{why:"none"},
+  eval(a){
+   if(a.why==="breach") return {st:"cond",title:"حسب المخالفة",why:"إخلالك بالعقد قد يجيز له طلب الفسخ بعد إعذارك. افتح حالة المخالفة.",link:"misuse"};
+   if(a.why==="need") return {st:"cond",title:"عن طريق المحكمة ومع تعويضك",why:"لكل من الطرفين طلب الفسخ لعذر طارئ متعلق به، ويعوّض الآخر عن ضرره. وإذا كان الطالب المؤجر فلا تُجبر على تسليم العقار حتى تستوفي التعويض أو تحصل على ضمان كافٍ.",keep:["لا تسلّم المفتاح قبل حكم أو اتفاق مكتوب على التعويض."]};
+   return {st:"ok",title:"لا يحق له",why:"ما فيه سبب يفسخ العقد. والمؤجر ضامن لأي تعرض منه يمنعك من الانتفاع (قطع خدمات، تغيير أقفال، مضايقة)، ولك طلب الفسخ أو إنقاص الأجرة مع التعويض.",keep:["لا تخلي، وتواصل معه كتابياً.","أي تعرض فعلي: وثّقه وارفع دعوى في ناجز."]};
+  },
+  ref:"المواد ٤٢٣ و٤٤٠ و٤٤٢ من نظام المعاملات المدنية",
+  proof:[S.ejar,S.court,S.keep]},
+
+ {id:"misuse",t:"يقول إني خالفت العقد",s:"تأجير من الباطن، تغييرات، استخدام آخر",tag:"cond",
+  intro:"إخلال المستأجر بالتزامه يجيز للمؤجر طلب الفسخ، بعد إعذاره.",
+  qs:[{id:"what",q:"وش المخالفة؟",o:[["sub","أجّرته من الباطن بدون إذن"],["use","استخدام غير المتفق عليه"],["mod","تعديلات بدون إذن"],["dmg","ضرر بسبب تقصيري"]]},
+      {id:"warned",q:"هل أعذرك المؤجر (نبّهك رسمياً وطلب التصحيح)؟",o:[["y","نعم"],["n","لا"]]}],
+  ex:{what:"sub",warned:"n"},
+  eval(a){
+   const W={sub:"التأجير من الباطن أو التنازل عن العقد ممنوع إلا بإذن المؤجر أو إجازته.",use:"عليك استعمال العقار في حدود المنفعة المتفق عليها أو ما أُعد له.",mod:"لا يجوز التغيير في العقار إلا بإذن المؤجر أو إذا استلزمه إصلاح دون إضرار.",dmg:"عليك المحافظة على العقار محافظة الشخص المعتاد، والتعويض عما ينشأ عن تعديك أو تقصيرك."}[a.what];
+   if(a.warned==="n") return {st:"cond",title:"لازم يعذرك أولاً",why:W+" لكن طلب الفسخ يكون بعد إعذارك. صحّح المخالفة الآن قبل ما توصلك.",keep:["أزل المخالفة أو اطلب إذناً مكتوباً من المؤجر."]};
+   return {st:"no",title:"يحق له طلب الفسخ",why:W+" وبعد الإعذار للمؤجر طلب التنفيذ أو الفسخ مع التعويض عبر المحكمة، وللمحكمة رفض الفسخ إذا كان الإخلال قليل الأهمية.",keep:["صحّح فوراً ووثّق التصحيح، فهو يخفف أو يمنع الفسخ."]};
+  },
+  ref:"المواد ١٠٧ و٤٣٠ إلى ٤٣٣ و٤٣٧ من نظام المعاملات المدنية",
+  proof:[S.ejar,S.court,S.keep]},
+
+ {id:"expired",t:"انتهى عقدي وما تجدد",s:"وأنا باقي في العقار",tag:"no",
+  intro:"إذا انتهى العقد بإشعار صحيح فعليك الإخلاء، وبقاؤك يكلفك.",
+  qs:[{id:"ok",q:"هل وصلك إشعار عدم التجديد في المدة النظامية؟",o:[["y","نعم"],["n","لا، أو وصل متأخر"],["u","ما أدري"]]},
+      {id:"need",q:"عندك ضرورة ملحة للبقاء فترة؟",o:[["n","لا"],["y","نعم (ظرف قاهر)"]]}],
+  ex:{ok:"y",need:"n"},calc:"notice",
+  eval(a){
+   if(a.ok==="n") return {st:"ok",title:"العقد غالباً تجدد",why:"العقد يتجدد تلقائياً إذا ما أُشعرت في المدة. واستمرارك في الانتفاع برضا المؤجر يجدد العقد بشروطه.",link:"noreason"};
+   if(a.ok==="u") return {st:"need",title:"افتح عقدك في إيجار",why:"شوف تاريخ الإشعار المسجل وقارنه بتاريخ نهاية العقد في الحاسبة تحت."};
+   if(a.need==="y") return {st:"cond",title:"قد يمتد بقدر الضرورة",why:"إذا ثبتت ضرورة ملحة امتد العقد بقدرها، وتدفع أجرة المثل عن هذه المدة، ما لم يُتفق على غير ذلك. الإثبات عليك، والفصل للمحكمة."};
+   return {st:"no",title:"عليك الإخلاء",why:"العقد انتهى. بقاؤك دون حق يلزمك بأجرة المثل مع التعويض، وعليك رد العقار بحالته. وللمؤجر طلب تنفيذ الإخلاء في ناجز بعقد إيجار المسجل.",link:"order"};
+  },
+  ref:"المواد ٤١٥ و٤٣٥ و٤٤٠ من نظام المعاملات المدنية، والبند ثامناً من الأحكام",
+  proof:[S.ejar,S.najiz,S.keep]},
+
+ {id:"sold",t:"المالك باع العقار",s:"بيع عادي أو مزاد تنفيذ",tag:"ok",
+  intro:"بيع العقار لا يسقط عقد الإيجار.",
+  qs:[{id:"how",q:"كيف انباع؟",o:[["sale","بيع عادي"],["auction","مزاد تنفيذ (حجز على المالك)"]]},{id:"reg",q:"هل عقدك مسجل في إيجار؟",o:[["y","نعم"],["n","لا"]]}],
+  ex:{how:"auction",reg:"y"},
+  eval(a){
+   if(a.how==="sale"&&a.reg==="y") return {st:"ok",title:"عقدك باقٍ",why:"يصح بيع العقار المؤجر ولا يؤثر في حقوق المستأجر. المالك الجديد يحل محل القديم، ويطبق عليه نفس قيود رفض التجديد."};
+   if(a.how==="sale") return {st:"need",title:"حقك باقٍ لكن إثباته أصعب",why:"البيع لا يؤثر في حقوقك، لكن العقد غير المسجل لا تنظر فيه المحاكم. اطلب تسجيله فوراً.",link:"unregistered"};
+   if(a.reg==="y") return {st:"ok",title:"لا يحق للمشتري إخلاؤك",why:"يجب على الشاغل إخلاء العقار إذا طلب ذلك من انتقل إليه، إلا إذا كان شاغلاً له بسند تنفيذي يتضمن حقاً في استغلاله، كعقد الإيجار المسجل في إيجار. وتكمل عقدك مع المالك الجديد.",keep:["أرسل للمالك الجديد صورة عقدك، وادفع له الأجرة من تاريخ انتقال الملكية."]};
+   return {st:"no",title:"يحق للمشتري طلب إخلائك",why:"عقدك غير المسجل ليس سنداً تنفيذياً، فإذا طلب المشتري من المزاد الإخلاء وامتنعت اتُخذت ضدك إجراءات التنفيذ المباشر.",link:"order"};
+  },
+  ref:"المادة ٤٢٨ من نظام المعاملات المدنية، والمادة ٣١ من نظام التنفيذ والمادة ٣٨ من لائحته",
+  proof:[S.ejar,S.keep]},
+
+ {id:"unregistered",t:"عقدي مو مسجل في إيجار",s:"عقد ورقي أو اتفاق شفهي",tag:"need",
+  intro:"التسجيل في إيجار واجب على المؤجر، ومن دونه يضعف موقف الطرفين.",
+  qs:[{id:"refuse",q:"المؤجر رافض يسجله؟",o:[["y","نعم"],["n","لا، بس ما سجلناه"]]}],
+  ex:{refuse:"y"},
+  eval(a){
+   return {st:"need",title:"سجّله قبل أي خطوة",why:"العقد غير المسجل في إيجار لا يُعد منتجاً لآثاره القضائية ولا تنظر المحاكم دعاواه، وليس سنداً تنفيذياً. "+(a.refuse==="y"?"المؤجر ملزم بالتسجيل، ولك أنت طلب تسجيله، وعدم التسجيل مخالفة غرامتها حتى أجرة ١٢ شهراً.":"اتفقوا وسجلوه في إيجار عن طريق وسيط مرخص."),
+    keep:["بعد التسجيل يصلك إشعار. إذا كانت البيانات غير صحيحة فلك الاعتراض خلال ٦٠ يوماً، وإلا عُدّت صحيحة."]};
+  },
+  ref:"البندان سابعاً وتاسعاً من الأحكام، وقرار مجلس الوزراء ٢٩٢ وتعميم وزير العدل 13/ت/8843",
+  proof:[S.ejar,"من خدمات المستأجر في إيجار اختر طلب تسجيل العقد وأرفق ما يثبت العلاقة الإيجارية، أو سجّله عبر وسيط عقاري مرخص.",S.report]},
+
+ {id:"death",t:"توفي المؤجر أو المستأجر",s:"الورثة وعقد الإيجار",tag:"ok",
+  intro:"العقد لا ينتهي بموت أحد الطرفين.",
+  qs:[{id:"who",q:"من المتوفى؟",o:[["landlord","المؤجر (المالك)"],["tenant","المستأجر"]]}],
+  ex:{who:"landlord"},
+  eval(a){
+   if(a.who==="landlord") return {st:"ok",title:"لا يحق للورثة إخلاؤك",why:"العقد باقٍ، والورثة يحلون محل مورثهم بنفس الشروط وقيود رفض التجديد."};
+   return {st:"cond",title:"العقد مستمر، مع حق فسخ محدود",why:"لا ينتهي العقد بموت المستأجر. ولورثته طلب الفسخ خلال مدة معقولة إذا صارت أعباؤه أثقل من مواردهم أو تجاوزت حاجتهم. وللمؤجر طلب الفسخ فقط إذا كان العقد مبنياً على اعتبارات شخصية في المستأجر."};
+  },
+  ref:"المادتان ٩٨ و٤٤١ من نظام المعاملات المدنية",
+  proof:[S.ejar,"لتعديل أطراف العقد بعد الوفاة: تواصل مع إيجار بصك حصر الورثة.",S.keep]},
+
+ {id:"order",t:"صدر عليّ أمر إخلاء",s:"من محكمة التنفيذ",tag:"no",
+  intro:"أمر الإخلاء يُنفذ مباشرة، والمهل قصيرة.",
+  qs:[{id:"stage",q:"وين وصلت؟",o:[["new","تبلغت بالأمر الآن"],["late","مرت ٥ أيام عمل وما طلعت"],["goods","طلعت وأغراضي باقية"]]},
+      {id:"fam",q:"في البيت كبار سن أو أطفال أو مرضى أو ذوو إعاقة؟",o:[["n","لا"],["y","نعم"]]}],
+  ex:{stage:"new",fam:"n"},calc:"order",
+  eval(a){
+   const fam=a.fam==="y"?["للإدارة المختصة عند الضرورة، مراعاةً لحال الشاغلين، تمديد المدة بما لا يتجاوز ٦٠ يوماً. والإخلاء يُراعى فيه حرمة الأسرة وتيسير مغادرة النساء والأطفال وكبار السن وذوي الإعاقة."]:[];
+   if(a.stage==="goods") return {st:"cond",title:"أغراضك محفوظة ١٥ يوماً",why:"تُحصر المنقولات وتُودع على نفقتك، وتُكلف بتسلمها خلال ١٥ يوماً من تبليغك، وإلا بيعت وأودع ثمنها لك بعد خصم مصاريف الحفظ والبيع.",keep:["تسلّمها خلال المهلة لتفادي البيع."]};
+   if(a.stage==="late") return {st:"no",title:"الإخلاء بالقوة",why:"إذا لم تُخلِ خلال ٥ أيام عمل من التبليغ تأمر المحكمة فوراً بالإخلاء بالقوة المختصة. وإذا تعذر: منع سفر وغرامة حتى ١٠ آلاف ريال يومياً (بحد ٥٠٠ ألف)، وبعد ٣٠ يوم عمل قد تأمر بالحبس حتى ١٨٠ يوماً.",keep:fam,warn:["الاعتراض على السند (منازعة التنفيذ) لا يوقف التنفيذ إلا إذا قرر المختص ذلك."]};
+   return {st:"no",title:"أمامك ٥ أيام عمل",why:"يجب الإخلاء خلال ٥ أيام عمل من التبليغ بأمر الإخلاء أو من الإعلان، وبعدها يُخلى العقار بالقوة ويُسلّم لطالب التنفيذ.",keep:fam.concat(["منازعة التنفيذ (صحة السند أو شروطه) تُنظر مستعجلة خلال ١٥ يوم عمل، لكنها لا توقف التنفيذ تلقائياً."])};
+  },
+  ref:"المواد ٣٦ و٣٧ و٤٥ من نظام التنفيذ، والمواد ٣٨ إلى ٤٠ من لائحته",
+  proof:["تابع الطلب وأوامره في ناجز <a href='https://najiz.sa' target='_blank' rel='noopener'>najiz.sa</a> ← خدمات التنفيذ.","لتقديم منازعة تنفيذ أو تظلم: من ناجز، خلال المهل المذكورة في الإشعار.",S.keep]}
+];
+
+const STAMP={ok:"لا يحق",cond:"بشرط",no:"يحق له",need:"تأكّد"};
+const STAMPSUB={ok:"له إخلاؤك",cond:"اقرأ الشروط",no:"إخلاؤك",need:"قبل ما تتصرف"};
+const TAGTXT={ok:"غالباً لا يحق له",cond:"بشروط",no:"غالباً يحق له",need:"حسب الحالة"};
+const $=s=>document.querySelector(s);
+let cur=null, ans={};
+
+function renderCases(){
+  $("#cases").innerHTML=CASES.map(c=>`<button class="case" type="button" id="c-${c.id}" data-id="${c.id}" aria-pressed="false">${c.t}<small>${c.s}</small></button>`).join("");
+  $("#cases").addEventListener("click",e=>{const b=e.target.closest(".case");if(b)pick(b.dataset.id,true);});
+}
+function pick(id,scroll){
+  const c=CASES.find(x=>x.id===id)||CASES[0];
+  cur=c; ans={...c.ex};
+  document.querySelectorAll(".case").forEach(b=>b.setAttribute("aria-pressed",b.dataset.id===c.id));
+  $("#caseIntro").textContent=c.intro;
+  $("#qs").innerHTML=c.qs.map(q=>`<div class="q"><div class="ql" id="ql-${q.id}">${q.q}</div>${q.hint?`<div class="hint">${q.hint}</div>`:""}<div class="opts" role="radiogroup" aria-labelledby="ql-${q.id}">${q.o.map(([v,l])=>`<label><input type="radio" name="${q.id}" value="${v}" ${ans[q.id]===v?"checked":""}>${l}</label>`).join("")}</div></div>`).join("");
+  if(location.hash.slice(1)!==c.id){try{history.replaceState(null,"","#"+c.id);}catch(e){location.hash=c.id;}}
+  evaluate(true);
+  if(scroll) $("#h-step2").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"});
+}
+function list(el,box,items){el.innerHTML=(items||[]).map(x=>`<li>${x}</li>`).join("");if(box)box.hidden=!(items&&items.length);}
+function evaluate(pop){
+  const r=cur.eval(ans);
+  const st=$("#stamp");
+  st.className="stamp s-"+r.st+(pop?" pop":"");
+  st.innerHTML=`${STAMP[r.st]}<small>${STAMPSUB[r.st]}</small>`;
+  $("#vTitle").textContent=r.title;
+  const L=r.link&&CASES.find(c=>c.id===r.link);
+  $("#vWhy").innerHTML=r.why+(L?` <a href="#${L.id}" data-go="${L.id}">افتح حالة «${L.t}»</a>`:"");
+  $("#vRef").textContent="المرجع: "+cur.ref;
+  list($("#keep"),$("#keepBox"),r.keep);
+  list($("#warn"),$("#warnBox"),r.warn);
+  list($("#proof"),null,cur.proof);
+  $("#calcBox").hidden=!cur.calc;
+  if(cur.calc){
+    $("#calcTitle").textContent=cur.calc==="order"?"احسب مهلة الإخلاء":"احسب مواعيد الإشعار";
+    $("#lNotice").firstChild.textContent=cur.calc==="order"?"تاريخ تبليغك بأمر الإخلاء":"تاريخ الإشعار بعدم التجديد (إن وصلك)";
+    $("#dEnd").parentElement.hidden=cur.calc==="order";
+  }
+  calc();
+}
+const DAY=864e5;
+const gf=new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-arab",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"});
+const hf=new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura-nu-arab",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"});
+const fmt=d=>`<b>${gf.format(d)}</b><span>${hf.format(d)}</span>`;
+const parse=v=>v?new Date(v+"T00:00:00Z"):null;
+const add=(d,n)=>new Date(d.getTime()+n*DAY);
+function addWork(d,n){let x=new Date(d);while(n>0){x=add(x,1);const w=x.getUTCDay();if(w!==5&&w!==6)n--;}return x;}
+function calc(){
+  if(!cur||!cur.calc){$("#figs").innerHTML="";return;}
+  const end=parse($("#dEnd").value), nt=parse($("#dNotice").value); const cells=[];
+  if(cur.calc==="order"){
+    if(nt){cells.push(["آخر يوم للإخلاء الاختياري (٥ أيام عمل)",addWork(nt,5)]);cells.push(["أقصى تمديد ممكن عند الضرورة (٦٠ يوماً)",add(nt,60)]);}
+  } else {
+    if(end){cells.push(["آخر موعد لإشعار ٣٦٥ يوماً (السكني)",add(end,-365)]);cells.push(["آخر موعد لإشعار ٦٠ يوماً",add(end,-60)]);}
+    if(nt){
+      const e365=add(nt,365);
+      const out=end&&end>e365?end:e365;
+      cells.push([cur.calc==="personal"?"أقرب موعد لإخلائك (سكني، ٣٦٥ يوماً)":"ينتهي العقد بعد إكمال ٣٦٥ يوماً (سكني)",out]);
+      if(cur.calc==="personal") cells.push(["يُمنع تأجيرها لغيرك حتى",add(out,365)]);
+      if(end&&cur.calc==="notice"){const ok60=(end-nt)/DAY>=60;cells.push(["إشعار ٦٠ يوماً (تجاري)",ok60?"في المدة":"متأخر، يتجدد العقد"]);}
+    }
+  }
+  $("#figs").innerHTML=cells.length?cells.map(([l,d])=>`<div class="fig"><span>${l}</span>${d instanceof Date?fmt(d):`<b>${d}</b>`}</div>`).join(""):`<p class="hint">أدخل التاريخ وتطلع لك المواعيد.</p>`;
+}
+$("#qs").addEventListener("change",e=>{if(e.target.name){ans[e.target.name]=e.target.value;evaluate(true);}});
+["dEnd","dNotice"].forEach(i=>$("#"+i).addEventListener("input",calc));
+document.addEventListener("click",e=>{const a=e.target.closest("[data-go]");if(a){e.preventDefault();pick(a.dataset.go,true);}});
+$("#copyBtn").addEventListener("click",()=>{
+  const url=location.href.split("#")[0]+"#"+cur.id;
+  const done=()=>{$("#copied").hidden=false;setTimeout(()=>$("#copied").hidden=true,1800);};
+  try{navigator.clipboard.writeText(url).then(done,()=>fallback(url));}catch(e){fallback(url);}
+});
+function fallback(url){const i=document.createElement("input");i.value=url;i.style.width="100%";$(".share").appendChild(i);i.select();}
+function renderIndex(f){
+  const k=(f||"").trim();
+  const rows=CASES.filter(c=>!k||(c.t+c.s+c.intro+c.ref).includes(k));
+  $("#index").innerHTML=rows.length?rows.map(c=>`<div class="item"><div class="row1"><h3>${c.t}</h3><span class="tag t-${c.tag}">${TAGTXT[c.tag]}</span></div><p class="sub">${c.intro}</p><a href="#${c.id}" data-go="${c.id}">افحص حالتك ←</a></div>`).join(""):`<p class="sub">ما لقينا حالة بهذا الاسم. جرّب كلمة ثانية.</p>`;
+}
+$("#q").addEventListener("input",e=>renderIndex(e.target.value));
+window.addEventListener("hashchange",()=>{const id=location.hash.slice(1);if(id&&(!cur||cur.id!==id)&&CASES.some(c=>c.id===id))pick(id,true);});
+renderCases(); renderIndex("");
+const start=location.hash.slice(1);
+pick(CASES.some(c=>c.id===start)?start:"noreason",false);
+</script>
+
+</body>
+</html>
