@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>هل يحق للمؤجر إخلاؤك؟</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 rx=%2288%22 fill=%22%2313294b%22/%3E%3Cpath d=%22M78 178 L200 82 L322 178%22 fill=%22none%22 stroke=%22%23c9a14a%22 stroke-width=%2222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M200 140 V300%22 stroke=%22%23f6f1e7%22 stroke-width=%2216%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M126 176 H274%22 stroke=%22%23f6f1e7%22 stroke-width=%2214%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M126 176 L98 246 M126 176 L154 246 M274 176 L246 246 M274 176 L302 246%22 stroke=%22%23f6f1e7%22 stroke-width=%227%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M92 246 Q126 284 160 246 Z M240 246 Q274 284 308 246 Z%22 fill=%22%23c9a14a%22/%3E%3Cpath d=%22M150 312 H250%22 stroke=%22%23c9a14a%22 stroke-width=%2218%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%22200%22 cy=%22140%22 r=%2213%22 fill=%22%23c9a14a%22/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Cdefs%3E%3ClinearGradient id=%22qg%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%232a6fd0%22/%3E%3Cstop offset=%221%22 stop-color=%22%2303398a%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22200%22 fill=%22url%28%23qg%29%22/%3E%3Cpath d=%22M95 400V120l70-30v310M235 400V60l80 35v305%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-opacity=%22.10%22 stroke-width=%2210%22/%3E%3Ctext x=%22200%22 y=%22182%22 text-anchor=%22middle%22 font-family=%22Cairo%2CTajawal%2Csans-serif%22 font-weight=%22800%22 font-size=%2284%22 fill=%22%23ffffff%22%3E%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%3C/text%3E%3Ctext x=%22200%22 y=%22282%22 text-anchor=%22middle%22 font-family=%22Cairo%2CTajawal%2Csans-serif%22 font-weight=%22800%22 font-size=%2284%22 fill=%22%23ffffff%22%3E%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://qw-sa.github.io/evict/">
 <meta name="description" content="أداة تفاعلية: اختر حالتك وتعرف هل يحق للمؤجر إخلاؤك نظاماً، وبأي شرط، ومواعيد الإشعار، وخطوات إيجار وناجز.">
 <meta property="og:type" content="website">
@@ -21,22 +21,22 @@
 <meta name="twitter:description" content="أداة تفاعلية: اختر حالتك وتعرف هل يحق للمؤجر إخلاؤك نظاماً، وبأي شرط، ومواعيد الإشعار، وخطوات إيجار وناجز.">
 <meta name="twitter:image" content="https://qw-sa.github.io/evict/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Tajawal:wght@400;500;700&display=swap">
 <style>
 /* القانون العقاري — "ملف القضية": navy band header, case docket on the right, questions + judgment card side by side on desktop */
 :root{
-  --bg:#f5f0e6; --paper:#fffdf8; --ink:#1b2433; --muted:#5d6676; --line:#e2d8c4;
-  --navy:#13294b; --navy-ink:#f6f1e7; --gold:#a97d22; --gold-soft:#f3e8cf;
+  --bg:#f1f4f9; --paper:#ffffff; --ink:#14213a; --muted:#56637a; --line:#d9e1ee;
+  --navy:#0a3f94; --navy-ink:#f2f6fd; --gold:#1d5eb8; --gold-soft:#e6eefb; --hi:#9cc8ff;
   --ok:#1f6e4a; --ok-soft:#e2f0e7; --cond:#9a6410; --cond-soft:#f8ecd6; --no:#a2271b; --no-soft:#f7e2de; --need:#3d4f8f; --need-soft:#e5e9f6;
-  --f-display:"Amiri","Noto Naskh Arabic",serif; --f-body:"Tajawal","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --f-display:"Cairo","Tajawal",sans-serif; --f-body:"Tajawal","IBM Plex Sans Arabic",Tahoma,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0d1320; --paper:#151d2c; --ink:#e8e3d8; --muted:#a3a9b5; --line:#2b3549;
-  --navy:#0a1730; --navy-ink:#f1ead9; --gold:#d8b25f; --gold-soft:#2f2715;
+  --bg:#0b1220; --paper:#121b2d; --ink:#e3e9f4; --muted:#9eabc0; --line:#26334b;
+  --navy:#0b2f6e; --navy-ink:#eaf1fc; --gold:#7fb3ff; --gold-soft:#16294a; --hi:#9cc8ff;
   --ok:#6fcf9b; --ok-soft:#143024; --cond:#e8b863; --cond-soft:#342814; --no:#f08c7f; --no-soft:#3a1c19; --need:#a8b6ee; --need-soft:#1f2643; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0d1320; --paper:#151d2c; --ink:#e8e3d8; --muted:#a3a9b5; --line:#2b3549;
-  --navy:#0a1730; --navy-ink:#f1ead9; --gold:#d8b25f; --gold-soft:#2f2715;
+  --bg:#0b1220; --paper:#121b2d; --ink:#e3e9f4; --muted:#9eabc0; --line:#26334b;
+  --navy:#0b2f6e; --navy-ink:#eaf1fc; --gold:#7fb3ff; --gold-soft:#16294a; --hi:#9cc8ff;
   --ok:#6fcf9b; --ok-soft:#143024; --cond:#e8b863; --cond-soft:#342814; --no:#f08c7f; --no-soft:#3a1c19; --need:#a8b6ee; --need-soft:#1f2643; color-scheme:dark}
 *{box-sizing:border-box}[hidden]{display:none!important}
 html{direction:rtl}
@@ -47,24 +47,24 @@ ul,ol{margin:0;padding-inline-start:1.3em;display:grid;gap:4px}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
 button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
-.band{background:var(--navy);color:var(--navy-ink);padding-block:22px 34px;position:relative;overflow:hidden}
-.band::after{content:"";position:absolute;inset-inline-start:-60px;bottom:-80px;width:280px;height:280px;border:2px solid color-mix(in srgb,var(--gold) 35%,transparent);border-radius:50%}
+.band{background:linear-gradient(135deg,#0345a0,#1d5eb8 60%,#2a6fd0);color:var(--navy-ink);padding-block:22px 34px;position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;inset-inline-start:-60px;bottom:-80px;width:280px;height:280px;border:2px solid rgba(255,255,255,.18);border-radius:50%}
 .band .wrap{display:grid;gap:16px;position:relative;z-index:1}
 .acct{display:flex;align-items:center;gap:12px}
-.acct svg{width:48px;height:48px;flex:none;border-radius:12px;box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 50%,transparent)}
+.acct svg{width:52px;height:52px;flex:none;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.5)}
 .acct b{font-family:var(--f-display);font-size:1.3rem;display:block;line-height:1.2}
 .acct span{font-size:.85rem;opacity:.75}
-.acct .kind{margin-inline-start:auto;border:1px solid var(--gold);color:var(--gold);border-radius:4px;padding:2px 10px;font-size:.8rem;opacity:1}
+.acct .kind{margin-inline-start:auto;border:1px solid var(--hi);color:var(--hi);border-radius:4px;padding:2px 10px;font-size:.8rem;opacity:1}
 .band h1{font-size:clamp(2rem,6.5vw,3.3rem);color:#fff}
-.band h1 em{font-style:normal;color:var(--gold)}
+.band h1 em{font-style:normal;color:var(--hi)}
 .band .lead{max-width:64ch;opacity:.88}
 .facts{display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem}
-.facts span{border-inline-start:3px solid var(--gold);background:rgba(255,255,255,.07);padding:3px 10px}
+.facts span{border-inline-start:3px solid var(--hi);background:rgba(255,255,255,.07);padding:3px 10px}
 
 main{display:grid;gap:22px;padding-block:24px 40px}
 .sheet{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px clamp(16px,3.5vw,28px);display:grid;gap:14px;min-width:0;box-shadow:0 1px 0 var(--line)}
 .step{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px}
-.step b{font-family:var(--f-display);background:var(--navy);color:var(--gold);width:34px;height:34px;display:grid;place-items:center;border-radius:4px;font-size:1.1rem;flex:none}
+.step b{font-family:var(--f-display);background:var(--navy);color:#fff;width:34px;height:34px;display:grid;place-items:center;border-radius:4px;font-size:1.1rem;flex:none}
 .step h2{font-size:1.45rem}
 .sub{color:var(--muted);font-size:.95rem}
 
@@ -108,10 +108,10 @@ main{display:grid;gap:22px;padding-block:24px 40px}
 .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
 .fig{background:var(--navy);color:var(--navy-ink);border-radius:4px;padding:10px 12px}
 .fig span{display:block;font-size:.8rem;opacity:.8}
-.fig b{font-family:var(--f-display);font-size:1.15rem;color:var(--gold);display:block}
+.fig b{font-family:var(--f-display);font-size:1.15rem;color:var(--hi);display:block}
 .share{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .btn{font:inherit;font-size:.9rem;border:1px solid var(--navy);color:var(--paper);background:var(--navy);border-radius:4px;padding:7px 16px;cursor:pointer}
-.btn:hover{background:var(--gold);border-color:var(--gold)}
+.btn:hover{background:#2a6fd0;border-color:#2a6fd0}
 #copied{font-size:.85rem;color:var(--ok)}
 
 .steps-list{counter-reset:s;list-style:none;padding:0;gap:12px}
@@ -125,20 +125,25 @@ main{display:grid;gap:22px;padding-block:24px 40px}
 .tag{font-size:.75rem;border-radius:3px;padding:1px 8px;font-weight:700}
 .t-ok{background:var(--ok-soft);color:var(--ok)}.t-cond{background:var(--cond-soft);color:var(--cond)}.t-no{background:var(--no-soft);color:var(--no)}.t-need{background:var(--need-soft);color:var(--need)}
 .search input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:9px 12px;width:100%}
-footer{background:var(--navy);color:var(--navy-ink);font-size:.84rem}
+footer{background:linear-gradient(135deg,#072f73,#0a3f94);color:var(--navy-ink);font-size:.84rem}
 footer .wrap{display:grid;gap:8px;padding-block:22px 30px}
 footer .acct svg{width:34px;height:34px}
 footer p{opacity:.85}
 @media (max-width:520px){.verdict{grid-template-columns:1fr}.stamp{width:96px;height:96px;font-size:1.2rem}}
 @media (prefers-reduced-motion:no-preference){.stamp.pop{animation:pop .35s ease}@keyframes pop{0%{transform:scale(1.15)}100%{transform:scale(1)}}}
 </style>
+<style>
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .judg{border-top-color:var(--gold)}:root:not([data-theme="light"]) .opts input{accent-color:var(--gold)}}
+:root[data-theme="dark"] .judg{border-top-color:var(--gold)}
+</style>
+<style>.acct a{color:inherit;font-weight:700;text-decoration:none}.acct a:hover{text-decoration:underline}</style>
 
 
 </head>
 <body>
 <header class="band">
  <div class="wrap">
-  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><rect width="400" height="400" rx="88" fill="#13294b"/><path d="M78 178 L200 82 L322 178" fill="none" stroke="#c9a14a" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M200 140 V300" stroke="#f6f1e7" stroke-width="16" stroke-linecap="round"/><path d="M126 176 H274" stroke="#f6f1e7" stroke-width="14" stroke-linecap="round"/><path d="M126 176 L98 246 M126 176 L154 246 M274 176 L246 246 M274 176 L302 246" stroke="#f6f1e7" stroke-width="7" stroke-linecap="round"/><path d="M92 246 Q126 284 160 246 Z M240 246 Q274 284 308 246 Z" fill="#c9a14a"/><path d="M150 312 H250" stroke="#c9a14a" stroke-width="18" stroke-linecap="round"/><circle cx="200" cy="140" r="13" fill="#c9a14a"/></svg><div><b>القانون العقاري</b><span>الأنظمة العقارية بلغة مفهومة</span></div><span class="kind">أداة نظامية</span></div>
+  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><defs><linearGradient id="qg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6fd0"/><stop offset="1" stop-color="#03398a"/></linearGradient></defs><circle cx="200" cy="200" r="200" fill="url(#qg)"/><path d="M95 400V120l70-30v310M235 400V60l80 35v305" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="10"/><text x="200" y="182" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">القانون</text><text x="200" y="282" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">العقاري</text></svg><div><b>القانون العقاري</b><span class="h"><a href="https://x.com/re_laws" target="_blank" rel="noopener" dir="ltr">@re_laws</a> · مصدرك الموثوق لأحدث القوانين والأنظمة العقارية</span></div><span class="kind">أداة نظامية</span></div>
   <h1>هل يحق للمؤجر <em>إخلاؤك؟</em></h1>
   <p class="lead">المؤجر يبي يطلعك، أو رفض يجدد، أو باع العقار، أو وصلك أمر إخلاء؟ اختر حالتك وأجب عن سؤالين، وتعرف هل يحق له نظاماً، وبأي شرط، وما خطواتك في إيجار وناجز. والمؤجر يستفيد منها أيضاً: يعرف متى يحق له ومتى يخالف.</p>
   <div class="facts"><span>أحكام ضبط العلاقة الإيجارية نافذة من 1447/04/04هـ</span><span>قيود رفض التجديد: الرياض فقط</span><span>نظام التنفيذ الجديد نافذ من 1448/05/17هـ</span><span>آخر مراجعة: ١٥ نوفمبر ٢٠٢٦م</span></div>
@@ -203,7 +208,7 @@ footer p{opacity:.85}
 
 <footer>
  <div class="wrap">
-  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><rect width="400" height="400" rx="88" fill="#13294b"/><path d="M78 178 L200 82 L322 178" fill="none" stroke="#c9a14a" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M200 140 V300" stroke="#f6f1e7" stroke-width="16" stroke-linecap="round"/><path d="M126 176 H274" stroke="#f6f1e7" stroke-width="14" stroke-linecap="round"/><path d="M126 176 L98 246 M126 176 L154 246 M274 176 L246 246 M274 176 L302 246" stroke="#f6f1e7" stroke-width="7" stroke-linecap="round"/><path d="M92 246 Q126 284 160 246 Z M240 246 Q274 284 308 246 Z" fill="#c9a14a"/><path d="M150 312 H250" stroke="#c9a14a" stroke-width="18" stroke-linecap="round"/><circle cx="200" cy="140" r="13" fill="#c9a14a"/></svg><div><b>القانون العقاري</b><span>تابعنا على X لمادة نظامية كل يوم بلغة مفهومة</span></div></div>
+  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><defs><linearGradient id="qg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6fd0"/><stop offset="1" stop-color="#03398a"/></linearGradient></defs><circle cx="200" cy="200" r="200" fill="url(#qg)"/><path d="M95 400V120l70-30v310M235 400V60l80 35v305" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="10"/><text x="200" y="182" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">القانون</text><text x="200" y="282" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">العقاري</text></svg><div><b>القانون العقاري</b><span>تابعنا على X: <a href="https://x.com/re_laws" target="_blank" rel="noopener" dir="ltr">@re_laws</a> · مصدرك الموثوق لأحدث القوانين والأنظمة العقارية</span></div></div>
   <p>المصادر: الأحكام النظامية الخاصة بضبط العلاقة بين المؤجر والمستأجر (المرسوم الملكي م/73 في 1447/04/02هـ) وضوابطها، وقرارا الهيئة العامة للعقار بمدة الإشعار ٣٦٥ يوماً (1447/07/02هـ و1447/09/07هـ)، وتوضيح برنامج إيجار بمنع إعادة التأجير ٣٦٥ يوماً، ونظام المعاملات المدنية (المواد ١٠٧ و٤١٥ و٤٢٣ و٤٢٨ و٤٣٤ و٤٣٥ و٤٤٠ إلى ٤٤٢)، ونظام التنفيذ (م/237 في 1447/11/03هـ) ولائحته، وقرارات مجلس الوزراء ١٣١ و٤٠٥ و٢٩٢ بشأن شبكة إيجار.</p>
   <p>محتوى تثقيفي ولا يغني عن استشارة محامٍ. الفصل في النزاع للمحكمة أو لجنة المخالفات في الهيئة العامة للعقار.</p>
  </div>
