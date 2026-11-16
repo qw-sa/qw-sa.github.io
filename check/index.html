@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>قائمة فحص قبل شراء عقار</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 rx=%2288%22 fill=%22%23fdf6ec%22/%3E%3Cpath d=%22M200 70 L320 168 L320 300 L80 300 L80 168 Z%22 fill=%22%230e3b2e%22 stroke=%22%230e3b2e%22 stroke-width=%2220%22 stroke-linejoin=%22round%22/%3E%3Ccircle cx=%22200%22 cy=%22178%22 r=%2221%22 fill=%22%23f08a2c%22/%3E%3Crect x=%22181%22 y=%22213%22 width=%2238%22 height=%2297%22 rx=%2210%22 fill=%22%23f08a2c%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://qw-sa.github.io/check/">
+<meta name="description" content="أداة تفاعلية: اختر نوع العقار وطريقة الشراء، وتطلع لك قائمة فحص مرتبة بالمراحل: الصك، الرهن، المخالفات، اتحاد الملاك، المستأجر، الوسيط، التكاليف، والإفراغ.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="معلومة عقارية">
+<meta property="og:title" content="قبل ما تدفع ريال: افحص العقار">
+<meta property="og:description" content="أداة تفاعلية: اختر نوع العقار وطريقة الشراء، وتطلع لك قائمة فحص مرتبة بالمراحل: الصك، الرهن، المخالفات، اتحاد الملاك، المستأجر، الوسيط، التكاليف، والإفراغ.">
+<meta property="og:url" content="https://qw-sa.github.io/check/">
+<meta property="og:image" content="https://qw-sa.github.io/check/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="قبل ما تدفع ريال: افحص العقار">
+<meta name="twitter:description" content="أداة تفاعلية: اختر نوع العقار وطريقة الشراء، وتطلع لك قائمة فحص مرتبة بالمراحل: الصك، الرهن، المخالفات، اتحاد الملاك، المستأجر، الوسيط، التكاليف، والإفراغ.">
+<meta name="twitter:image" content="https://qw-sa.github.io/check/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap">
+<style>
+/* معلومة عقارية — "قائمة المشتري": كريمي وأخضر وبرتقالي، إعدادات في بطاقة، والقائمة مرتبة بمراحل الشراء على خط زمني، مع عداد تقدم ثابت */
+:root{
+  --bg:#fbf4e8; --card:#ffffff; --ink:#15302a; --muted:#5d6b66; --line:#e6dccb;
+  --g:#0e3b2e; --g2:#14503e; --o:#d9741a; --o-soft:#fdebd7; --m:#9fd3a8; --m-soft:#e4f3e7; --warn:#a2271b; --warn-soft:#f8e3df;
+  --f:"Readex Pro","IBM Plex Sans Arabic",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1a16; --card:#132621; --ink:#e7efe9; --muted:#a3b3ac; --line:#26403a;
+  --g:#0b2e24; --g2:#1c5a47; --o:#f4a259; --o-soft:#3a2814; --m:#9fd3a8; --m-soft:#183a2f; --warn:#f08c7f; --warn-soft:#3a1c19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1a16; --card:#132621; --ink:#e7efe9; --muted:#a3b3ac; --line:#26403a;
+  --g:#0b2e24; --g2:#1c5a47; --o:#f4a259; --o-soft:#3a2814; --m:#9fd3a8; --m-soft:#183a2f; --warn:#f08c7f; --warn-soft:#3a1c19; color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{direction:rtl}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.8}
+h1,h2,h3{margin:0;line-height:1.35;text-wrap:balance;font-weight:700}
+p{margin:0}a{color:var(--o)}
+.wrap{max-width:900px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--o);outline-offset:2px}
+
+.hero{background:#0e3b2e;color:#fdf6ec;padding-block:22px 30px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(159,211,168,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(159,211,168,.08) 1px,transparent 1px);background-size:32px 32px}
+.hero .wrap{position:relative;display:grid;gap:14px}
+.acct{display:flex;align-items:center;gap:10px}
+.acct svg{width:46px;height:46px;flex:none;border-radius:12px}
+.acct b{display:block;font-size:1.05rem;line-height:1.3}.acct a{color:#9fd3a8;text-decoration:none;font-size:.9rem}
+.acct .tag{margin-inline-start:auto;border:1px solid rgba(159,211,168,.5);border-radius:999px;padding:2px 12px;font-size:.8rem;color:#9fd3a8}
+.hero h1{font-size:clamp(1.8rem,6.5vw,2.7rem)}.hero h1 em{font-style:normal;color:#f4a259}
+.hero p{color:#dfe9e3;max-width:680px}
+.hero .note{font-size:.82rem;color:#9fd3a8}
+
+.setup{background:var(--card);border:1px solid var(--line);border-radius:18px;margin-top:-14px;position:relative;padding:18px;display:grid;gap:14px;box-shadow:0 10px 30px rgba(14,59,46,.08)}
+.setup h2{font-size:1.15rem;display:flex;gap:8px;align-items:center}
+.setup h2 i{font-style:normal;background:var(--o);color:#fff;border-radius:50%;width:28px;height:28px;display:inline-grid;place-items:center;font-size:.9rem}
+.q{display:grid;gap:6px}
+.q>span{font-weight:600;font-size:.95rem}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer;font-size:.92rem;min-height:38px}
+.seg button[aria-pressed="true"]{background:var(--g2);border-color:var(--g2);color:#fff}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+@media (max-width:680px){.qs{grid-template-columns:1fr}}
+
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin-top:20px}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.ring{--p:0;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--o) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;flex:none}
+.ring b{background:var(--bg);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:.85rem}
+.bar .t{flex:1;min-width:160px}.bar .t b{display:block}.bar .t span{color:var(--muted);font-size:.88rem}
+.btn{border:1.5px solid var(--g2);background:var(--card);color:var(--ink);border-radius:10px;padding:6px 14px;cursor:pointer;font-size:.9rem;min-height:40px}
+.btn.solid{background:var(--g2);color:#fff}
+
+.stages{padding-block:24px 10px;display:grid;gap:22px}
+.stage{display:grid;grid-template-columns:44px 1fr;gap:12px}
+.stage .dot{display:flex;flex-direction:column;align-items:center}
+.stage .dot b{width:44px;height:44px;border-radius:50%;background:var(--g);color:#fdf6ec;display:grid;place-items:center;font-size:1.05rem}
+.stage .dot::after{content:"";flex:1;width:2px;background:var(--line);margin-top:6px}
+.stage:last-child .dot::after{display:none}
+.stage h2{font-size:1.2rem;padding-top:6px}.stage h2 small{font-size:.85rem;color:var(--muted);font-weight:400;margin-inline-start:6px}
+.items{display:grid;gap:10px;margin-top:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
+.item.done{opacity:.62}.item.done .it{text-decoration:line-through;text-decoration-color:var(--o)}
+.item.must{border-inline-start:4px solid var(--o)}
+.item input{width:24px;height:24px;margin:4px 0 0;accent-color:var(--g2);cursor:pointer}
+.it{font-weight:600}
+.where{display:inline-block;background:var(--m-soft);color:var(--ink);border-radius:6px;padding:0 8px;font-size:.8rem;margin-inline-start:6px;font-weight:500}
+.must .flag{display:inline-block;background:var(--o-soft);color:var(--o);border-radius:6px;padding:0 8px;font-size:.78rem;font-weight:600;margin-inline-start:6px}
+.item details{margin-top:2px}
+.item summary{cursor:pointer;color:var(--muted);font-size:.88rem;list-style:none}
+.item summary::before{content:"+ ";color:var(--o)}.item details[open] summary::before{content:"− "}
+.item .d{font-size:.93rem;margin-top:6px;display:grid;gap:6px}
+.item .ref{font-size:.8rem;color:var(--muted)}
+.item .lnk{font-size:.88rem}
+
+.costs{background:var(--o-soft);border-radius:16px;padding:16px;display:grid;gap:10px;margin-block:6px 22px}
+.costs h2{font-size:1.15rem}
+.costs label{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.costs input{border:1.5px solid var(--line);border-radius:10px;padding:6px 10px;width:180px;background:var(--card);color:var(--ink);direction:ltr;text-align:right}
+.ct{display:grid;gap:4px}.ct div{display:flex;justify-content:space-between;border-bottom:1px dashed color-mix(in srgb,var(--o) 35%,transparent);padding-block:4px;gap:10px}
+.ct div.sum{font-weight:700;border-bottom:0;font-size:1.05rem}
+.costs small{color:var(--muted)}
+
+.warnbox{background:var(--warn-soft);border-radius:14px;padding:12px 16px;color:var(--ink);font-size:.95rem}
+.warnbox b{color:var(--warn)}
+footer{padding-block:26px 40px;color:var(--muted);font-size:.85rem;display:grid;gap:8px;border-top:1px solid var(--line);margin-top:18px}
+footer .acct b{color:var(--ink)}footer .acct a{color:var(--o)}
+@media print{.hero,.bar,.setup,.costs .ins,footer .share{display:none!important}body{background:#fff}.item{break-inside:avoid}.item details>.d{display:grid}.item summary{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><rect width="400" height="400" rx="88" fill="#fdf6ec"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#0e3b2e" stroke="#0e3b2e" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><div><b>معلومة عقارية</b><a href="https://x.com/malomhagaryh" target="_blank" rel="noopener" dir="ltr">@malomhagaryh</a></div><span class="tag">أداة مجانية</span></div>
+  <h1>قبل ما تدفع ريال.. <em>افحص العقار</em></h1>
+  <p>اختر نوع العقار وطريقة شرائك، وتطلع لك قائمة فحص مرتبة بمراحل الشراء: من أول معاينة إلى ما بعد الإفراغ. علّم على كل بند تنجزه، والقائمة تحفظ تقدمك على جهازك.</p>
+  <p class="note">مبنية على الأنظمة العقارية السعودية النافذة · آخر مراجعة: ١٦ نوفمبر ٢٠٢٦م</p>
+ </div>
+</header>
+
+<main>
+ <div class="wrap">
+  <section class="setup" aria-labelledby="h-setup">
+   <h2 id="h-setup"><i>١</i> وش تبي تشتري؟</h2>
+   <div class="qs" id="qs"></div>
+  </section>
+ </div>
+
+ <div class="bar" role="status" aria-live="polite">
+  <div class="wrap">
+   <div class="ring" id="ring"><b id="pct">٠٪</b></div>
+   <div class="t"><b id="count"></b><span id="must"></span></div>
+   <button class="btn" id="reset" type="button">تصفير</button>
+   <button class="btn solid" id="print" type="button">اطبع القائمة</button>
+  </div>
+ </div>
+
+ <div class="wrap">
+  <div class="stages" id="stages"></div>
+
+  <section class="costs" aria-labelledby="h-costs">
+   <h2 id="h-costs">كم تحتاج فوق سعر العقار؟</h2>
+   <label class="ins">سعر الشراء (ريال) <input id="price" inputmode="numeric" value="1,000,000" aria-describedby="costnote"></label>
+   <div class="ct" id="ct"></div>
+   <small id="costnote">تقدير للتخطيط. ضريبة التصرفات يدفعها البائع نظاماً ما لم يُتفق على غير ذلك، وفي الواقع يُتفاوض عليها كثيراً. العمولة النظامية ٢٫٥٪ يدفعها من تعاقد مع الوسيط ما لم يُتفق كتابة على غيرها.</small>
+  </section>
+
+  <p class="warnbox"><b>تنبيه:</b> القائمة توعوية وما تغني عن استشارة محامٍ أو مقيّم معتمد في الصفقات الكبيرة. وخطوات المنصات تتغير، فارجع للمنصة نفسها قبل التنفيذ.</p>
+ </div>
+</main>
+
+<footer>
+ <div class="wrap" style="display:grid;gap:10px">
+  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400" style="width:38px;height:38px;border-radius:10px"><rect width="400" height="400" rx="88" fill="#0e3b2e"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#fdf6ec" stroke="#fdf6ec" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><div><b>معلومة عقارية</b><a href="https://x.com/malomhagaryh" target="_blank" rel="noopener" dir="ltr">@malomhagaryh</a></div></div>
+  <p>المراجع: نظام الوساطة العقارية ولائحته ولائحة المزادات، نظام التسجيل العيني للعقار ولائحته، نظام ملكية الوحدات العقارية وفرزها، نظام البيع على الخارطة، نظام ضريبة التصرفات العقارية، نظام المعاملات المدنية، نظام رسوم الأراضي البيضاء وضوابط التصرف، نظام تملك غير السعوديين للعقار.</p>
+  <p class="share">أدوات أخرى: <a href="https://qw-sa.github.io/rett/">هل تصرفك معفى من الضريبة؟</a> · <a href="https://qw-sa.github.io/sijil/">هل عقارك مسجل عينياً؟</a> · <a href="https://qw-sa.github.io/evict/">هل يحق للمؤجر إخلاؤك؟</a></p>
+ </div>
+</footer>
+
+<script>
+(()=>{
+const Q=[
+ {id:"type",q:"نوع العقار",o:[["apt","شقة"],["villa","فيلا أو دور"],["land","أرض"],["bldg","عمارة أو تجاري"],["offplan","على الخارطة"]]},
+ {id:"how",q:"طريقة الشراء",o:[["direct","من المالك مباشرة"],["broker","عن طريق وسيط"],["auction","مزاد"]]},
+ {id:"pay",q:"الدفع",o:[["cash","كاش"],["loan","تمويل بنكي"]]},
+ {id:"seller",q:"البائع",o:[["one","مالك واحد"],["heirs","ورثة أو شركاء"],["agent","وكيل عن المالك"],["company","شركة"]]},
+ {id:"tenant",q:"فيه مستأجر حالياً؟",o:[["n","لا"],["y","نعم"]],show:a=>a.type!=="land"&&a.type!=="offplan"},
+ {id:"buyer",q:"أنت",o:[["sa","سعودي"],["gcc","خليجي"],["fr","غير سعودي"]]},
+ {id:"first",q:"هذا مسكنك الأول؟",o:[["y","نعم"],["n","لا"]],show:a=>a.buyer==="sa"&&["apt","villa","offplan","land"].includes(a.type)}
+];
+const DEF={type:"apt",how:"broker",pay:"loan",seller:"one",tenant:"n",buyer:"sa",first:"y"};
+const STAGES=[["s1","قبل التفاوض","اعرف العقار"],["s2","قبل العربون","افحص الأوراق"],["s3","قبل الإفراغ","سكّر الثغرات"],["s4","يوم الإفراغ",""],["s5","بعد الإفراغ",""]];
+const built=a=>a.type!=="land"&&a.type!=="offplan";
+const I=[
+ // s1
+ {id:"ad",s:"s1",must:1,c:a=>a.how!=="direct",t:"الإعلان مرخص ويظهر فيه رقم ترخيصه",w:"رمز الإعلان أو منصة الهيئة",d:"كل إعلان عقاري يلزمه ترخيص إعلان، ويظهر فيه رقم الترخيص وتاريخ انتهائه واسم المعلن ورقم رخصة نشاطه، أو رقم الترخيص مع رمز الاستجابة. إعلان بلا ترخيص علامة خطر.",r:"اللائحة التنظيمية للتسويق والإعلانات العقارية"},
+ {id:"fal",s:"s1",must:1,c:a=>a.how==="broker",t:"الوسيط مرخص «فال» وساري",w:"منصة الهيئة العامة للعقار",d:"لا يجوز مزاولة الوساطة بدون ترخيص. اطلب رقم رخصة فال وتحقق منه. ويلتزم الوسيط بالتحقق من معلومات العقار والإفصاح عنها دون تضليل.",r:"نظام الوساطة العقارية، المادتان ٣ و٩"},
+ {id:"mz1",s:"s1",must:1,c:a=>a.how==="auction",t:"المزاد مرخص ومدرج في منصة الهيئة",w:"منصة الهيئة · نشرة المزاد",d:"لا ينظم المزاد إلا منشأة مرخصة بخدمة المزادات، ويُقدم طلبه للهيئة قبل ١٥ يوماً على الأقل، وتُنشر نشرته قبل ٥ أيام على الأقل من إقامته.",r:"لائحة المزادات العقارية، المواد ١ و٣ و٦ و٨"},
+ {id:"mz2",s:"s1",must:1,c:a=>a.how==="auction",t:"اقرأ نشرة المزاد كلمة كلمة",w:"نشرة المزاد",d:"لازم تتضمن: بيانات العقار وحالته، نوع التصرف (أصل أو منفعة)، الحقوق والنزاعات والرهون والقيود، والمعلومات المؤثرة في القيمة، وآليات المزايدة والترسية. اللي ما قريته تتحمله.",r:"لائحة المزادات العقارية، المادة ٨"},
+ {id:"mz3",s:"s1",c:a=>a.how==="auction",t:"اعرف مبلغ الدخول: عربون أو تأمين مسترد؟",w:"نشرة المزاد",d:"مبلغ الدخول لا يتجاوز ٥٪ من القيمة التقديرية حسب تقييم مقيم معتمد، ولازم يُحدد هل هو عربون (قد تخسره إذا عدلت) أو مقدم ثمن أو تأمين مسترد.",r:"لائحة المزادات العقارية، المادة ٤"},
+ {id:"visit",s:"s1",must:1,t:"عاين العقار بنفسك، وطابق الحدود على الطبيعة",w:"الموقع",d:"قارن الأطوال والمساحة بما في الصك. الفرق المسموح عند التسجيل العيني في المخططات المعتمدة داخل النطاق: ٢٪ في الأطوال و١٪ في المساحة بحد ١٠٠ م². وللتأكد استعن بمكتب مساحة مرخص.",r:"اللائحة التنفيذية لنظام التسجيل العيني، المادة ١٣"},
+ {id:"map",s:"s1",t:"شوف موقع العقار وبياناته على الخريطة",w:"بوابة العقار الجيومكانية",d:"البوابة تعرض البيانات المكانية والوصفية للعقارات على خرائط تفاعلية مع البحث والاستعلام. وتفيدك تعرف الشوارع والارتدادات والجيران.",r:"باب المنصات"},
+ {id:"price",s:"s1",t:"قارن السعر بصفقات الحي الفعلية",w:"منصة المؤشرات العقارية",d:"المنصة تعرض المبيعات والإيجارات على مستوى المدن والأحياء مع المقارنة بين الفترات. ولا تعتمد على أسعار الإعلانات وحدها.",r:"باب المنصات"},
+ {id:"op1",s:"s1",must:1,c:a=>a.type==="offplan",t:"المشروع والمطور مرخصان للبيع على الخارطة",w:"منصة البيع على الخارطة · الاستعلامات العامة",d:"لا يجوز بيع وحدات على الخارطة إلا بترخيص. صفحة الاستعلامات العامة تعرض المشاريع والمطورين المرخصين بالمنطقة وحالة المشروع، فورياً ومجاناً.",r:"نظام البيع على الخارطة، وباب المنصات"},
+ // s2
+ {id:"deed",s:"s2",must:1,c:a=>a.type!=="offplan",t:"الصك إلكتروني وساري، واسم المالك مطابق",w:"ناجز: التحقق من الصك",d:"اطلب رقم الصك وتحقق منه، وطابق اسم المالك ورقم القطعة والمخطط والمساحة. الصك الورقي القديم يُحدَّث إلكترونياً عبر ناجز قبل أي تصرف.",r:"نظام التوثيق، وباب المنصات"},
+ {id:"reg",s:"s2",must:1,c:a=>a.type!=="offplan",t:"هل العقار مسجل في السجل العقاري؟",w:"السجل العقاري rer.sa",lnk:["https://qw-sa.github.io/sijil/","افحصها بأداة «هل عقارك مسجل عينياً؟»"],d:"إذا كان مسجلاً عينياً فصحيفة العقار حجة مطلقة، ويمكّنك الموثق من الاطلاع عليها قبل التوثيق لتعرف ما عليها من حقوق وقيود. وإذا كان الحي معلناً منطقة تسجيل والبائع ما سجّل، اطلب منه يسجّل قبل البيع.",r:"نظام التسجيل العيني، المادتان ٤ و١٣، واللائحة ٢٠"},
+ {id:"lien",s:"s2",must:1,c:a=>a.type!=="offplan",t:"لا رهن ولا حجز ولا منع تصرف على العقار",w:"بيانات الصك · صحيفة العقار",d:"الرهن والحجز والإيقاف تظهر في الصك أو صحيفة العقار. لو العقار مرهون لبنك فاتفق كتابياً على فك الرهن من الثمن قبل الإفراغ، ولا يُسجل تصرف على عقار ممنوع من التصرف.",r:"نظام التسجيل العيني، المادة ٢٠، ونظام الرهن العقاري المسجل"},
+ {id:"suit",s:"s2",c:a=>a.type!=="offplan",t:"لا دعوى قائمة على العقار",w:"صحيفة العقار · البائع",d:"الدعاوى التي تغير بيانات السجل يُؤشر بها في صحيفة العقار. واسأل البائع كتابياً عن أي نزاع، والوسيط ملزم بذكر النزاعات القائمة في عقد الوساطة.",r:"نظام التسجيل العيني، المادة ١٦، ولائحة الوساطة، المادة ١٦"},
+ {id:"heirs",s:"s2",must:1,c:a=>a.seller==="heirs",t:"كل الورثة أو الشركاء موافقين وموقعين",w:"صك حصر الورثة · ناجز",d:"العقار المشترك لا يُباع كاملاً إلا بموافقة كل الشركاء. اطلب صك حصر الورثة، وتأكد أن الصك نُقل لأسمائهم، وأن كل واحد يوقع بنفسه أو بوكالة سارية. وإذا فيهم قاصر فلازم إذن المحكمة.",r:"لائحة قسمة الأموال المشتركة"},
+ {id:"poa",s:"s2",must:1,c:a=>a.seller==="agent",t:"الوكالة سارية وتشمل البيع والإفراغ وقبض الثمن",w:"ناجز: التحقق من الوكالات",d:"تحقق من رقم الوكالة وأنها غير مفسوخة، وأن نصها يشمل البيع والإفراغ، وقبض الثمن إن كان سيستلمه الوكيل. والأسلم أن يُحوَّل الثمن لحساب المالك نفسه.",r:"نظام التوثيق ولائحته"},
+ {id:"co",s:"s2",must:1,c:a=>a.seller==="company",t:"من يوقع عن الشركة مفوض بالبيع",w:"السجل التجاري · عقد التأسيس",d:"اطلب السجل التجاري ساري، وما يثبت صلاحية الموقع للتصرف في عقارات الشركة (عقد التأسيس أو قرار الشركاء أو تفويض موثق).",r:"نظام الشركات"},
+ {id:"permit",s:"s2",must:1,c:built,t:"رخصة البناء وشهادة إتمام البناء، والمبنى مطابق لها",w:"منصة بلدي · صحيفة العقار",d:"الأدوار والملاحق والزيادات غير المرخصة قد تعني غرامات أو إزالة يتحملها المالك الجديد. والرخص وشهادات الإتمام يُؤشر بها في صحيفة العقار المسجل.",r:"اللائحة التنفيذية لنظام التسجيل العيني، المادة ٢٨"},
+ {id:"insp",s:"s2",c:built,t:"فحص هندسي للعقار قبل العربون",w:"مكتب هندسي أو شركة فحص",d:"تسربات، تشققات، كهرباء، عزل.. الفحص يكلف قليل ويفيدك في التفاوض. اطلبه قبل توقيع العربون لا بعده.",r:"نصيحة عملية"},
+ {id:"unit",s:"s2",must:1,c:a=>a.type==="apt",t:"الشقة مفرزة بصك مستقل",w:"الصك · برنامج فرز",d:"لكل وحدة مستقلة في العقار المشترك صك خاص بها. شقة بدون صك مفرز تعني إنك تشتري حصة مشاعة، وهذا خطر كبير.",r:"نظام التسجيل العيني، المادة ٢٨، ونظام ملكية الوحدات العقارية"},
+ {id:"hoa",s:"s2",must:1,c:a=>a.type==="apt"||a.type==="bldg",t:"جمعية الملاك: مسجلة؟ وكم الاشتراك؟ وفيه متأخرات؟",w:"منصة ملاك",d:"إذا بلغ الملاك ثلاثة فأكثر وجب تأسيس جمعية وتسجيلها. اسأل عن الاشتراك السنوي والنظام الأساسي، واطلب ما يثبت أن الوحدة ما عليها متأخرات. وقرارات مدير الجمعية المعتمدة سند تنفيذي على الملاك.",r:"نظام ملكية الوحدات العقارية، المواد ١٢ و٢١"},
+ {id:"ten1",s:"s2",must:1,c:a=>a.tenant==="y"&&built(a),t:"اطلع على عقد المستأجر في «إيجار»",w:"منصة إيجار",lnk:["https://qw-sa.github.io/evict/#sold","وش يصير للمستأجر بعد البيع؟"],d:"البيع لا يُسقط حقوق المستأجر، والمالك الجديد يحل محل القديم. اعرف مدة العقد وأجرته وموعد نهايته، وفي الرياض قيود على رفض التجديد. لا تشترِ على أساس «بتطلعه» قبل ما تتأكد.",r:"نظام المعاملات المدنية، المادة ٤٢٨، وأحكام ضبط العلاقة الإيجارية"},
+ {id:"land1",s:"s2",must:1,c:a=>a.type==="land",t:"الأرض خاضعة لرسوم الأراضي البيضاء؟ ومسددة؟",w:"منصة الأراضي البيضاء",d:"لا يُوثق تصرف ناقل لملكية أرض خاضعة للرسم حتى سداد رسومها، إلا في حالات مستثناة. اطلب من البائع ما يثبت عدم الخضوع أو السداد قبل العربون.",r:"نظام رسوم الأراضي البيضاء، وضوابط التصرف (قرار مجلس الوزراء ٢٦٣ لعام 1448هـ)"},
+ {id:"land2",s:"s2",c:a=>a.type==="land",t:"استعمال الأرض واشتراطات البناء تناسب مشروعك",w:"منصة بلدي · الأمانة",d:"سكني أو تجاري، عدد الأدوار، الارتدادات، ونسبة البناء. هذا يحدد قيمة الأرض فعلياً.",r:"اشتراطات البناء في الأمانة"},
+ {id:"op2",s:"s2",must:1,c:a=>a.type==="offplan",t:"ادفع فقط في حساب الضمان الخاص بالمشروع",w:"عقد البيع · منصة البيع على الخارطة",d:"حساب الضمان مخصص للصرف على المشروع المرخص فقط، ولا يجوز الحجز عليه لديون المطور، ويُصرف منه بوثيقة يوقعها المطور والمكتب الاستشاري والمحاسب. أي دفع لحساب آخر يضيع حمايتك.",r:"نظام البيع على الخارطة، المادتان ١٠ و١١"},
+ {id:"op3",s:"s2",must:1,c:a=>a.type==="offplan",t:"العقد يحدد التسليم والمواصفات والمساحة وتعويض التأخير",w:"عقد البيع على الخارطة",d:"تأكد أن العقد مكتوب بصيغة المنصة، ويحدد موعد التسليم ومواصفات الوحدة ومساحتها وجدول الدفعات المرتبط بنسب الإنجاز.",r:"نظام البيع على الخارطة ولائحته"},
+ {id:"loan1",s:"s2",must:1,c:a=>a.pay==="loan",t:"موافقة التمويل المبدئية قبل ما تدفع العربون",w:"جهة التمويل",d:"البنك يقيّم العقار بمقيم معتمد، وقد يطلع التقييم أقل من السعر. خلك في العربون شرط: إذا رُفض التمويل يُرد لك العربون.",r:"نصيحة عملية، ونظام التمويل العقاري"},
+ {id:"sak",s:"s2",c:a=>a.buyer==="sa"&&a.first==="y",t:"استحقاقك في «سكني» قبل الشراء",w:"منصة سكني",d:"للمسكن الأول تتحمل الدولة ضريبة التصرفات عن أول مليون ريال من قيمة المسكن لمن يستحق، وقد يكون لك دعم في التمويل. أصدر الاستحقاق قبل الإفراغ.",r:"خدمات سكني"},
+ {id:"fr1",s:"s2",must:1,c:a=>a.buyer==="fr",t:"شهادة الأهلية، والعقار داخل النطاق المسموح",w:"منصة عقارات السعودية",d:"غير السعودي يقدم من منصة عقارات السعودية، ويتحقق من وقوع العقار في النطاقات المعتمدة، ويصدر شهادة الأهلية ثم يكمل الشراء، والتملك يصح بعد تسجيله في السجل العقاري. وفيه رسم تملك (في الرياض ٢٪).",r:"نظام تملك غير السعوديين للعقار ولائحته، المواد ٢ و٨ و٩"},
+ {id:"gcc1",s:"s2",c:a=>a.buyer==="gcc",t:"العقار خارج مكة المكرمة والمدينة المنورة",w:"",d:"الخليجي يتملك للسكن والاستثمار، عدا داخل مكة والمدينة. وإذا اشتريت أرضاً فلازم تبنيها أو تستغلها خلال ٤ سنوات من تسجيلها باسمك.",r:"تنظيم تملك مواطني دول مجلس التعاون، المواد ٢ و٣ و٤"},
+ {id:"brk",s:"s2",must:1,c:a=>a.how==="broker",t:"عقد وساطة مكتوب يحدد العمولة ومن يدفعها",w:"منصة الهيئة",d:"العمولة النظامية ٢٫٥٪ من قيمة الصفقة، ويدفعها الطرف المتعاقد مع الوسيط، ما لم يُتفق كتابة على غيرها. وإذا تعاقد مع الطرفين في عقد واحد تُقسم بينهما.",r:"نظام الوساطة العقارية، المادة ١٤، ولائحته، المادة ١٩"},
+ {id:"dep",s:"s2",must:1,c:a=>a.how!=="auction",t:"العربون مكتوب: مبلغه، ومدته، ومتى يُرد",w:"اتفاق مكتوب",d:"اكتب: قيمة العربون، ومدة إتمام الصفقة، وشروط رده (رفض التمويل، ظهور رهن، خلل في الصك). ولو سكتّ حتى انتهت المدة يُعد ذلك عدولاً وتخسر العربون.",r:"نظام المعاملات المدنية (العربون)"},
+ // s3
+ {id:"tax",s:"s3",must:1,t:"ضريبة التصرفات ٥٪: مين يدفعها؟ ومعفاة؟",w:"هيئة الزكاة والضريبة والجمارك",lnk:["https://qw-sa.github.io/rett/","افحص الإعفاء بأداة «هل تصرفك معفى؟»"],d:"تُسدد قبل الإفراغ. الأصل أنها على البائع، لكن اتفقوا كتابياً من يتحملها لأنها كثيراً تدخل في التفاوض.",r:"نظام ضريبة التصرفات العقارية"},
+ {id:"bills",s:"s3",c:built,t:"لا متأخرات كهرباء أو مياه على العقار",w:"الشركة السعودية للكهرباء · المياه الوطنية",d:"اطلب آخر فواتير، وتأكد أن العدادات مستقلة ومسجلة على العقار.",r:"نصيحة عملية"},
+ {id:"ten2",s:"s3",c:a=>a.tenant==="y"&&built(a),t:"اتفاق مكتوب على الأجرة المدفوعة مقدماً والتأمين",w:"اتفاق مع البائع",d:"حدد من يستحق أجرة الفترة الحالية، وأين مبلغ التأمين، وبلّغ المستأجر بالمالك الجديد ليدفع له من تاريخ انتقال الملكية.",r:"نظام المعاملات المدنية"},
+ {id:"mz4",s:"s3",must:1,c:a=>a.how==="auction",t:"احسب التكلفة الكاملة قبل ما ترفع يدك",w:"جدول التكاليف تحت",d:"سعر الترسية + السعي (العمولة) + ضريبة القيمة المضافة على السعي + ضريبة التصرفات إن كانت عليك. حدد سقفك قبل المزاد والتزم فيه.",r:"لائحة المزادات، ونظام ضريبة التصرفات"},
+ // s4
+ {id:"x1",s:"s4",must:1,c:a=>a.type!=="offplan",t:"لا تسلّم الثمن كاملاً إلا مع الإفراغ",w:"البورصة العقارية · السجل العقاري",d:"الإفراغ يتم إلكترونياً: عبر السجل العقاري إذا العقار مسجل عينياً، وإلا عبر البورصة العقارية أو كاتب العدل. حوّل الثمن وقت الإفراغ نفسه أو بشيك مصدق.",r:"نظام التوثيق، ونظام التسجيل العيني"},
+ {id:"x2",s:"s4",must:1,c:a=>a.pay==="loan",t:"الإفراغ لجهة التمويل ثم الرهن أو التأجير التمويلي",w:"جهة التمويل",d:"في التمويل يُفرغ العقار غالباً للبنك ثم يُعاد لك بعد السداد (إيجار تمويلي)، أو يُفرغ لك ويُسجل رهن. اعرف صيغة عقدك قبل يوم الإفراغ.",r:"نظام الإيجار التمويلي، ونظام التمويل العقاري"},
+ {id:"x3",s:"s4",must:1,t:"راجع الصك الجديد باسمك قبل ما تطلع",w:"ناجز · السجل العقاري",d:"الاسم، رقم الهوية، المساحة، الحدود، ورقم القطعة. أي خطأ صححه فوراً.",r:"نظام التسجيل العيني، المادة ٥"},
+ {id:"op4",s:"s4",c:a=>a.type==="offplan",t:"عند التسليم: صك الوحدة ونقلها للسجل العقاري",w:"السجل العقاري",d:"وحدات الخارطة تُسجل في سجل خاص، وعند اكتمال المشروع يطلب المالك نقلها وإصدار الصك خلال ٣٠ يوماً. لا تقبل التسليم بدون مسار واضح لصكك.",r:"نظام التسجيل العيني، المواد ٢٩ إلى ٣١"},
+ // s5
+ {id:"p1",s:"s5",c:built,t:"انقل العدادات وحدّث العنوان الوطني",w:"الكهرباء · المياه · سبل",d:"نقل الحسابات لاسمك يمنع تحميلك أي متأخرات لاحقة، والعنوان الوطني تحتاجه في كل الخدمات.",r:"نصيحة عملية"},
+ {id:"p2",s:"s5",c:a=>a.type==="apt"||a.type==="bldg",t:"سجّل نفسك في جمعية الملاك",w:"منصة ملاك",d:"عضويتك في الجمعية تعطيك حق التصويت، وتلزمك بالاشتراكات.",r:"نظام ملكية الوحدات العقارية"},
+ {id:"p3",s:"s5",c:a=>a.tenant==="y"&&built(a),t:"حدّث بيانات المؤجر في عقد «إيجار»",w:"منصة إيجار",d:"عشان تصير الأجرة لك ويصير العقد سنداً تنفيذياً باسمك عند أي تأخر.",r:"أحكام ضبط العلاقة الإيجارية"},
+ {id:"p4",s:"s5",c:built,t:"أي بناء أو هدم لاحق بلّغ عنه السجل خلال ٩٠ يوماً",w:"السجل العقاري",d:"إذا كان العقار مسجلاً عينياً فأي تغيير في وصفه يُبلغ عنه خلال ٩٠ يوماً، والمخالفة غرامتها تصل ١٠٠ ألف ريال.",r:"نظام التسجيل العيني، المادتان ٢٤ و٣٥"}
+];
+const $=s=>document.querySelector(s);
+const AR=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const fmt=n=>AR(Math.round(n).toLocaleString("en-US"));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let A=Object.assign({},DEF,store.get("bc-a",{}));
+let done=new Set(store.get("bc-done",[]));
+function renderQ(){
+ $("#qs").innerHTML=Q.filter(q=>!q.show||q.show(A)).map(q=>`<div class="q" role="group" aria-label="${q.q}"><span>${q.q}</span><div class="seg">${q.o.map(([v,l])=>`<button type="button" data-q="${q.id}" data-v="${v}" aria-pressed="${A[q.id]===v}">${l}</button>`).join("")}</div></div>`).join("");
+}
+function list(){return I.filter(i=>!i.c||i.c(A))}
+function render(){
+ renderQ();
+ const L=list();
+ $("#stages").innerHTML=STAGES.map(([s,t,sub],k)=>{const its=L.filter(i=>i.s===s);if(!its.length)return"";
+  return `<section class="stage" aria-labelledby="h-${s}"><div class="dot"><b>${AR(k+1)}</b></div><div><h2 id="h-${s}">${t}${sub?`<small>${sub}</small>`:""}</h2><div class="items">${its.map(i=>`<div class="item${i.must?" must":""}${done.has(i.id)?" done":""}"><input type="checkbox" id="c-${i.id}" data-id="${i.id}" ${done.has(i.id)?"checked":""}><div><label for="c-${i.id}" class="it">${i.t}</label>${i.must?'<span class="flag">ضروري</span>':""}${i.w?`<span class="where">${i.w}</span>`:""}<details><summary>ليش وكيف؟</summary><div class="d"><p>${i.d}</p>${i.lnk?`<a class="lnk" href="${i.lnk[0]}" target="_blank" rel="noopener">${i.lnk[1]} ←</a>`:""}<p class="ref">${i.r}</p></div></details></div></div>`).join("")}</div></div></section>`}).join("");
+ prog();costs();
+ try{history.replaceState(null,"","#"+Object.keys(DEF).map(k=>A[k]).join("-"))}catch(e){}
+}
+function prog(){
+ const L=list(),n=L.filter(i=>done.has(i.id)).length,m=L.filter(i=>i.must&&!done.has(i.id)).length,p=L.length?Math.round(n*100/L.length):0;
+ $("#ring").style.setProperty("--p",p);$("#pct").textContent=AR(p)+"٪";
+ $("#count").textContent=`أنجزت ${AR(n)} من ${AR(L.length)} بنداً`;
+ $("#must").textContent=m?`باقي ${AR(m)} بنود ضرورية`:"خلصت كل البنود الضرورية 👏";
+}
+function costs(){
+ const P=+String($("#price").value).replace(/[^\d]/g,"")||0;
+ const rows=[["سعر العقار",P]];
+ rows.push(["ضريبة التصرفات ٥٪"+(A.buyer==="sa"&&A.first==="y"&&A.type!=="offplan"?" (قد تتحملها الدولة عن أول مليون لمسكنك الأول)":""),P*.05]);
+ if(A.how!=="direct"){const c=P*.025;rows.push([A.how==="auction"?"السعي ٢٫٥٪":"عمولة الوسيط ٢٫٥٪ (إن كانت عليك)",c]);rows.push(["ضريبة القيمة المضافة ١٥٪ على العمولة",c*.15]);}
+ if(A.buyer==="fr")rows.push(["رسم تملك غير السعودي (الرياض ٢٪، يختلف بالمدينة)",P*.02]);
+ const tot=rows.reduce((s,r)=>s+r[1],0);
+ $("#ct").innerHTML=rows.map(r=>`<div><span>${r[0]}</span><b>${fmt(r[1])} ريال</b></div>`).join("")+`<div class="sum"><span>الإجمالي التقديري</span><span>${fmt(tot)} ريال</span></div>`;
+}
+document.addEventListener("click",e=>{const b=e.target.closest("button[data-q]");if(!b)return;A[b.dataset.q]=b.dataset.v;store.set("bc-a",A);render();const nb=document.querySelector(`button[data-q="${b.dataset.q}"][data-v="${b.dataset.v}"]`);nb&&nb.focus()});
+document.addEventListener("change",e=>{const c=e.target.closest("input[data-id]");if(!c)return;c.checked?done.add(c.dataset.id):done.delete(c.dataset.id);store.set("bc-done",[...done]);c.closest(".item").classList.toggle("done",c.checked);prog()});
+$("#price").addEventListener("input",e=>{const v=e.target.value.replace(/[^\d]/g,"");e.target.value=v?(+v).toLocaleString("en-US"):"";costs()});
+$("#reset").addEventListener("click",()=>{done=new Set();store.set("bc-done",[]);render()});
+$("#print").addEventListener("click",()=>{document.querySelectorAll(".item details").forEach(d=>d.open=true);window.print()});
+// deep link: #type-how-pay-seller-tenant-buyer-first  or  #apt / #land / #auction / #offplan
+const h=decodeURIComponent(location.hash.slice(1));
+if(h){const p=h.split("-");const ks=Object.keys(DEF);
+ if(p.length===ks.length)ks.forEach((k,i)=>{if(Q.find(q=>q.id===k).o.some(o=>o[0]===p[i]))A[k]=p[i]});
+ else if(["apt","villa","land","bldg","offplan"].includes(h))A.type=h; else if(h==="auction")A.how="auction";}
+render();
+})();
+</script>
+</body>
+</html>
