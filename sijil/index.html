@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هل عقارك مسجل عينياً؟</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 rx=%2288%22 fill=%22%23fdf6ec%22/%3E%3Cpath d=%22M200 70 L320 168 L320 300 L80 300 L80 168 Z%22 fill=%22%230e3b2e%22 stroke=%22%230e3b2e%22 stroke-width=%2220%22 stroke-linejoin=%22round%22/%3E%3Ccircle cx=%22200%22 cy=%22178%22 r=%2221%22 fill=%22%23f08a2c%22/%3E%3Crect x=%22181%22 y=%22213%22 width=%2238%22 height=%2297%22 rx=%2210%22 fill=%22%23f08a2c%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://qw-sa.github.io/sijil/">
+<meta name="description" content="أداة تفاعلية: اعرف هل عقارك مسجل في السجل العقاري، وهل يلزمك التسجيل الآن، وخطوات نقل صكك للسجل العقاري خطوة بخطوة، والمهل والغرامات.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="معلومة عقارية">
+<meta property="og:title" content="هل عقارك مسجل عينياً؟ افحص صكك في ٣ أسئلة">
+<meta property="og:description" content="أداة تفاعلية: اعرف هل عقارك مسجل في السجل العقاري، وهل يلزمك التسجيل الآن، وخطوات نقل صكك للسجل العقاري خطوة بخطوة، والمهل والغرامات.">
+<meta property="og:url" content="https://qw-sa.github.io/sijil/">
+<meta property="og:image" content="https://qw-sa.github.io/sijil/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="هل عقارك مسجل عينياً؟ افحص صكك في ٣ أسئلة">
+<meta name="twitter:description" content="أداة تفاعلية: اعرف هل عقارك مسجل في السجل العقاري، وهل يلزمك التسجيل الآن، وخطوات نقل صكك للسجل العقاري خطوة بخطوة، والمهل والغرامات.">
+<meta name="twitter:image" content="https://qw-sa.github.io/sijil/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap">
+<style>
+/* معلومة عقارية — "رحلة الصك": خلفية كريمية، بطاقات أسئلة متتالية، ثم مسار محطات متعرج من صكك الحالي إلى صك السجل العقاري */
+:root{
+  --bg:#fdf6ec; --card:#ffffff; --ink:#15302a; --muted:#5d6b66; --line:#eadfcc;
+  --g:#0e3b2e; --g2:#14503e; --o:#d9741a; --o-soft:#fdebd7; --m:#9fd3a8; --m-soft:#e4f3e7; --r:#a2271b; --r-soft:#f8e3df;
+  --f:"Readex Pro","IBM Plex Sans Arabic",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1a16; --card:#132621; --ink:#e7efe9; --muted:#a3b3ac; --line:#26403a;
+  --g:#9fd3a8; --g2:#7cc79a; --o:#f4a259; --o-soft:#3a2814; --m:#9fd3a8; --m-soft:#183a2f; --r:#f08c7f; --r-soft:#3a1c19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1a16; --card:#132621; --ink:#e7efe9; --muted:#a3b3ac; --line:#26403a;
+  --g:#9fd3a8; --g2:#7cc79a; --o:#f4a259; --o-soft:#3a2814; --m:#9fd3a8; --m-soft:#183a2f; --r:#f08c7f; --r-soft:#3a1c19; color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{direction:rtl}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.8}
+h1,h2,h3{margin:0;line-height:1.35;text-wrap:balance;font-weight:700}
+p{margin:0}a{color:var(--o)}
+ul,ol{margin:0;padding-inline-start:1.3em;display:grid;gap:4px}
+.wrap{max-width:860px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:2px solid var(--o);outline-offset:2px}
+
+.top{padding-block:24px 10px;display:grid;gap:14px}
+.acct{display:flex;align-items:center;gap:10px}
+.acct svg{width:44px;height:44px;border-radius:12px;flex:none}
+.acct b{display:block;line-height:1.3}.acct a{font-size:.88rem;text-decoration:none;color:var(--muted)}
+.top h1{font-size:clamp(1.9rem,7vw,2.9rem);color:var(--ink)}
+.top h1 em{font-style:normal;color:var(--o);position:relative;white-space:nowrap}
+.top h1 em::after{content:"";position:absolute;inset-inline:0;bottom:.08em;height:.18em;background:var(--m);opacity:.55;z-index:-1;border-radius:4px}
+.lead{color:var(--muted);max-width:680px}
+.news{background:var(--g2);color:#fdf6ec;border-radius:14px;padding:12px 16px;display:grid;gap:4px;font-size:.93rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .news{color:#0c1a16}}
+:root[data-theme="dark"] .news{color:#0c1a16}
+.news b{font-size:1rem}
+
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-top:14px;display:grid;gap:10px}
+.qcard .n{font-size:.8rem;color:var(--o);font-weight:600}
+.qcard h2{font-size:1.15rem}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+.opts button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;padding:10px 12px;text-align:start;cursor:pointer;line-height:1.5;min-height:48px}
+.opts button small{display:block;color:var(--muted);font-size:.8rem}
+.opts button[aria-pressed="true"]{border-color:var(--g2);background:var(--m-soft);box-shadow:inset 0 0 0 1px var(--g2)}
+.tip{font-size:.85rem;color:var(--muted);background:var(--bg);border-radius:10px;padding:8px 12px}
+
+.status{margin-top:20px;border-radius:20px;padding:18px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.status .ic{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:2rem;font-weight:700;color:#fff}
+.status small{font-weight:600;font-size:.85rem}
+.status h2{font-size:1.4rem}
+.status p{font-size:.95rem}
+.s-ok{background:var(--m-soft)}.s-ok .ic{background:#1f6e4a}.s-ok small{color:#1f6e4a}
+.s-must{background:var(--o-soft)}.s-must .ic{background:#d9741a}.s-must small{color:var(--o)}
+.s-opt{background:var(--card);border:1px solid var(--line)}.s-opt .ic{background:#14503e}.s-opt small{color:var(--g2)}
+.s-fix{background:var(--r-soft)}.s-fix .ic{background:#a2271b}.s-fix small{color:var(--r)}
+@media (max-width:520px){.status{grid-template-columns:1fr}.status .ic{width:56px;height:56px}}
+
+.route{margin-top:22px;display:grid;gap:0}
+.route h2{font-size:1.25rem;margin-bottom:12px}
+.st{display:grid;grid-template-columns:1fr 64px 1fr;align-items:stretch}
+.st .rail{position:relative;display:flex;justify-content:center}
+.st .rail::before{content:"";position:absolute;top:0;bottom:0;width:0;border-inline-start:4px dashed var(--m)}
+.st:first-of-type .rail::before{top:50%}.st:last-child .rail::before{bottom:50%}
+.st .pin{position:relative;z-index:1;align-self:center;width:46px;height:46px;border-radius:50%;background:var(--g2);color:#fdf6ec;display:grid;place-items:center;font-weight:700;box-shadow:0 0 0 6px var(--bg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .st .pin{color:#0c1a16}}
+:root[data-theme="dark"] .st .pin{color:#0c1a16}
+.st.end .pin{background:var(--o)}
+.st .box{grid-row:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-block:8px;display:grid;gap:4px}
+.st .box h3{font-size:1.02rem}.st .box p{font-size:.92rem}.st .box .w{font-size:.8rem;color:var(--g2);font-weight:600}
+.st .sp{min-height:1px}
+.st:nth-of-type(even) .box{grid-column:3}.st:nth-of-type(even) .sp{grid-column:1;grid-row:1}
+.st:nth-of-type(even) .rail{grid-column:2;grid-row:1}
+@media (max-width:640px){.st{grid-template-columns:52px 1fr}.st .sp{display:none}.st .rail{grid-column:1!important;grid-row:1!important}.st .box{grid-column:2!important}.st .pin{width:40px;height:40px}}
+
+.facts{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:2px}
+.fact b{font-size:1.5rem;color:var(--o);line-height:1.3}.fact span{font-size:.9rem}.fact small{font-size:.75rem;color:var(--muted)}
+.tol{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px}
+.tol h2{font-size:1.1rem}
+.tol table{width:100%;border-collapse:collapse;font-size:.9rem}
+.tol th,.tol td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:start}
+.tol th{color:var(--muted);font-weight:600;font-size:.82rem}
+.tblw{overflow-x:auto}
+.faq{margin-top:20px;display:grid;gap:8px}
+.faq h2{font-size:1.15rem}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq details p{margin-top:6px;font-size:.93rem}
+.faq .ref{font-size:.78rem;color:var(--muted)}
+.warn{margin-block:20px;font-size:.88rem;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:10px 14px}
+footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:grid;gap:8px}
+</style>
+</head>
+<body>
+<main class="wrap">
+ <header class="top">
+  <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><rect width="400" height="400" rx="88" fill="#0e3b2e"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#fdf6ec" stroke="#fdf6ec" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><div><b>معلومة عقارية</b><a href="https://x.com/malomhagaryh" target="_blank" rel="noopener" dir="ltr">@malomhagaryh</a></div></div>
+  <h1>هل عقارك <em>مسجل عينياً؟</em></h1>
+  <p class="lead">السجل العقاري يغطي أحياء جديدة كل شهر، واللي ما يسجل في المهلة يتعرض لغرامة. جاوب ٣ أسئلة وتعرف وضع عقارك، وخطوات نقل صكك للسجل العقاري محطة محطة.</p>
+  <div class="news" role="note"><b>آخر إعلان (١٥ نوفمبر ٢٠٢٦م)</b><span>بدء التسجيل العيني الأول لـ٢٠٨٬٦٨٠ قطعة في مناطق مكة المكرمة والجوف والشرقية وحائل، والمهلة حتى نهاية الخميس ١٨ فبراير ٢٠٢٧م. وسبقته إعلانات في الرياض والقصيم والشرقية وحائل ومكة وتبوك والمدينة المنورة.</span><span style="opacity:.85;font-size:.85rem">الإعلان يكون بالأحياء وأجزاء الأحياء، لا بالمدن. تحقق من موقع عقارك في منصة السجل العقاري rer.sa.</span></div>
+ </header>
+
+ <div id="qs"></div>
+ <section id="out" aria-live="polite"></section>
+
+ <section class="facts" aria-label="أرقام مهمة">
+  <div class="fact"><b>مجاناً</b><span>التسجيل الأول ما عليه رسوم</span><small>المادة ٣٤ من النظام</small></div>
+  <div class="fact"><b>١٠٠ ألف</b><span>حد الغرامة لمن لم يقدم طلب التسجيل الأول في المدة</span><small>المادة ٣٥</small></div>
+  <div class="fact"><b>سنة</b><span>بعد نشر القوائم يصير التسجيل نهائياً، ولا يبقى للمتضرر إلا التعويض</span><small>المادة ١١</small></div>
+  <div class="fact"><b>٣٠ يوماً</b><span>للتظلم من رفض طلبك، ثم ٣٠ يوماً للمحكمة</span><small>المادة ٢١</small></div>
+ </section>
+
+ <section class="tol" aria-labelledby="h-tol">
+  <h2 id="h-tol">مساحتك على الطبيعة تختلف عن الصك؟ الفرق المسموح</h2>
+  <div class="tblw"><table><thead><tr><th>موقع الأرض</th><th>الأطوال</th><th>المساحة</th><th>بحد أقصى</th></tr></thead><tbody>
+   <tr><td>مخطط معتمد داخل النطاق العمراني</td><td>٢٪</td><td>١٪</td><td>١٠٠ م²</td></tr>
+   <tr><td>غير مخططة داخل النطاق</td><td>٥٪</td><td>٢٫٣٪</td><td>٣٠٠ م²</td></tr>
+   <tr><td>خارج النطاق العمراني</td><td>٧٪</td><td>٣٫٥٪</td><td>٣٥٠٠ م²</td></tr>
+  </tbody></table></div>
+  <p style="font-size:.85rem;color:var(--muted)">في حدود هذه النسب لا يُرفض التسجيل. المادة ١٣ من اللائحة التنفيذية (بعد تعديل 1448/04/17هـ).</p>
+ </section>
+
+ <section class="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">أسئلة شائعة</h2>
+  <details><summary>وش الفرق بين صك ناجز وصك السجل العقاري؟</summary><p>صك ناجز يصدر من وزارة العدل ويوثق الملكية. أما التسجيل العيني فيجعل العقار نفسه محور التسجيل: لكل عقار صحيفة برقم فريد فيها حدوده وإحداثياته وملاكه والحقوق والقيود عليه، ولها حجية مطلقة أمام المحاكم والجهات، ولا يُطعن فيها إلا لخطأ كتابي أو تزوير.</p><p class="ref">المادة ٤ من النظام، والمادة ١٦ من اللائحة</p></details>
+  <details><summary>حيّي ما أُعلن، أقدر أسجّل؟</summary><p>نعم، يجوز للمالك تسجيل عقاره خارج منطقة التسجيل بطلب منه وفق شروط اللائحة.</p><p class="ref">المادة ١٢ من النظام</p></details>
+  <details><summary>ممكن يتسجل عقاري بدون ما أقدم طلب؟</summary><p>نعم، إذا كان الصك مستوفياً والبيانات الجيومكانية مكتملة، مع إشعارك.</p><p class="ref">المادة ١٤ من اللائحة</p></details>
+  <details><summary>بعت عقاري وهو في إجراءات التسجيل، يصح؟</summary><p>نعم، يُوثق البيع بعد التحقق، ويحل المشتري محل البائع في الإجراءات، ما لم يصدر قرار رفض مسبب.</p><p class="ref">المادة ١١ من اللائحة</p></details>
+  <details><summary>ليش ممكن يُرفض طلبي؟</summary><p>لسببين فقط بقرار مسبب: عدم سريان الصك أو صلاحيته، أو أن العقار مسجل عينياً من قبل. وتقدر تعيد التقديم بعد معالجة الصك.</p><p class="ref">المادة ١٤ مكرر من اللائحة</p></details>
+  <details><summary>بعد التسجيل، وش يتغير علي؟</summary><p>البيع والهبة والإرث والرهن والقسمة ما تنفذ في حق الغير إلا بتسجيلها في السجل. وأي بناء أو هدم تبلغ عنه خلال ٩٠ يوماً. وعقود الإيجار ١٠ سنوات فأكثر يُؤشر بها.</p><p class="ref">المواد ١٣ و١٤ و٢٤ من النظام</p></details>
+  <details><summary>أحد سجّل عقار باسمه وهو لي، وش أسوي؟</summary><p>ترفع دعوى أمام المحكمة المختصة ما دام التسجيل لم يكتسب الحجية المطلقة، أي قبل مرور سنة من نشر القوائم. بعدها لا يبقى لك إلا طلب التعويض.</p><p class="ref">المادتان ١٠ و١١ من النظام</p></details>
+ </section>
+
+ <p class="warn">الأداة توعوية. الأحياء المعلنة ومهلها تتغير بإعلانات متتالية، فارجع لمنصة السجل العقاري rer.sa أو تطبيقه أو الرقم ١٩٩٠٠٢ قبل أي إجراء.</p>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p>المراجع: نظام التسجيل العيني للعقار (م/91 وتاريخ 1443/9/19هـ) ولائحته التنفيذية وتعديلاتها (1448/04/17هـ)، وإعلانات السجل العقاري المنشورة في الصحف المحلية (آخرها ١٥ نوفمبر ٢٠٢٦م).</p>
+  <p>أدوات أخرى: <a href="https://qw-sa.github.io/check/">قائمة فحص قبل شراء عقار</a> · <a href="https://qw-sa.github.io/rett/">هل تصرفك معفى من الضريبة؟</a> · <a href="https://qw-sa.github.io/jiha/">من الجهة المختصة؟</a></p>
+ </div>
+</footer>
+
+<script>
+(()=>{
+const Q=[
+ {id:"deed",q:"وش نوع صكك؟",tip:"صك السجل العقاري يصدر من «السجل العقاري» ويكون فيه «رقم العقار». وصك وزارة العدل يصدر من ناجز أو كتابة العدل.",o:[["sr","صك من السجل العقاري","فيه رقم عقار"],["moj","صك إلكتروني من ناجز","وزارة العدل"],["paper","صك ورقي قديم","مكتوب أو مطبوع"],["dk","ما أدري",""]]},
+ {id:"area",q:"حيّك معلن منطقة تسجيل عيني؟",tip:"تتحقق من منصة السجل العقاري أو تطبيقه بخدمة التحقق من موقع العقار ضمن المناطق المعلنة.",o:[["y","نعم، معلن","وفيه مهلة"],["n","لا، مو معلن",""],["dk","ما أدري",""]],show:a=>a.deed!=="sr"},
+ {id:"state",q:"وضع العقار؟",o:[["ok","سليم وباسمي","مالك واحد أو شركاء معروفين"],["heirs","ورث ما انقسم","الصك باسم المتوفى"],["area","المساحة أو الحدود تختلف",""],["dispute","فيه نزاع أو صكين",""]],show:a=>a.deed!=="sr"}
+];
+const $=s=>document.querySelector(s);
+let A={deed:"moj",area:"y",state:"ok"};
+const hh=location.hash.slice(1).split("-");
+if(hh[0]&&["sr","moj","paper","dk"].includes(hh[0]))A.deed=hh[0];if(hh[1]&&["y","n","dk"].includes(hh[1]))A.area=hh[1];if(hh[2]&&["ok","heirs","area","dispute"].includes(hh[2]))A.state=hh[2];
+const S={
+ check:{h:"تحقق من موقع عقارك",p:"ادخل منصة السجل العقاري بالنفاذ الوطني، واستخدم خدمة التحقق من موقع العقار ضمن المناطق المعلنة. الإعلان بالأحياء وأجزائها.",w:"rer.sa · تطبيق السجل العقاري · ١٩٩٠٠٢"},
+ paper:{h:"حدّث صكك الورقي إلكترونياً",p:"قبل التسجيل حدّث الصك من خدمة «تحديث الصكوك» في ناجز، حتى يكون صكاً سارياً ومستوفياً.",w:"ناجز"},
+ heirs:{h:"انقل الصك للورثة أولاً",p:"أصدر صك حصر الورثة وانقل ملكية العقار لأسمائهم في ناجز، ثم يقدم أحدهم أو وكيلهم طلب التسجيل.",w:"ناجز"},
+ area:{h:"طابق المساحة والحدود",p:"استعن بمكتب مساحة مرخص. إذا الفرق ضمن التسامح (الجدول تحت) ما يُرفض التسجيل، وإذا أكبر فعالجه مع جهة الصك قبل التقديم.",w:"مكتب مساحة مرخص"},
+ dispute:{h:"عالج النزاع أو الازدواج",p:"إذا وُجد صكان لنفس الأرض يُوقف الطلب حتى المعالجة النظامية ولا تسقط أسبقيتك. والنزاع على الملكية يُرفع للمحكمة المختصة، ويُؤشر بالدعوى في السجل.",w:"ناجز · المحكمة"},
+ login:{h:"قدّم طلب التسجيل الأول",p:"ادخل منصة السجل العقاري بالنفاذ الوطني وقدّم الطلب ببيانات الصك والعقار، وأفصح عن المستندات المطلوبة.",w:"rer.sa"},
+ geo:{h:"راجع البيانات الجيومكانية",p:"تمسح الجهة العقار وتطابق حدوده وإحداثياته. راجعها وتأكد منها، وكمّل أي نقص خلال ٣٠ يوماً وإلا يُعد الطلب كأن لم يكن.",w:"المنصة"},
+ issue:{h:"استلم صك تسجيل الملكية",p:"يصدر لعقارك رقم فريد وصحيفة مستقلة، وصك فيه وصفه وحدوده وملاكه والحقوق والقيود عليه.",w:"السجل العقاري"},
+ lists:{h:"راقب نشر القوائم",p:"بعد التسجيل الأول تُنشر قوائم العقارات المسجلة. خلال سنة من نشرها يحق لمن يعترض رفع دعوى، وبعدها يصير التسجيل نهائياً.",w:"السجل العقاري"},
+ view:{h:"اطلع على صحيفة عقارك",p:"صحيفة عقارك تشوفها مجاناً في المنصة: الملاك والحقوق والرهون والدعاوى المؤشر بها. ولو لقيت خطأ اطلب تصحيحه، ولك الاعتراض على التصحيح خلال ٣٠ يوماً.",w:"rer.sa"},
+ after:{h:"أي تصرف لاحق يمر عبر السجل",p:"البيع والهبة والإرث والرهن والقسمة لا تنفذ في حق الغير إلا بتسجيلها. وأي بناء أو هدم تبلغ عنه خلال ٩٠ يوماً.",w:"السجل العقاري"}
+};
+function renderQ(){
+ $("#qs").innerHTML=Q.filter(q=>!q.show||q.show(A)).map((q,i)=>`<section class="qcard" role="group" aria-labelledby="q-${q.id}"><span class="n">سؤال ${["١","٢","٣"][i]}</span><h2 id="q-${q.id}">${q.q}</h2><div class="opts">${q.o.map(([v,l,s])=>`<button type="button" data-q="${q.id}" data-v="${v}" aria-pressed="${A[q.id]===v}">${l}${s?`<small>${s}</small>`:""}</button>`).join("")}</div>${q.tip?`<p class="tip">${q.tip}</p>`:""}</section>`).join("");
+}
+function result(){
+ if(A.deed==="sr") return {c:"ok",i:"✓",k:"وضعك",t:"عقارك مسجل عينياً",p:"صحيفة عقارك لها حجية مطلقة، وهذا أقوى إثبات للملكية. الباقي عليك: تتابع صحيفتك، وتسجل أي تصرف أو تغيير.",r:["view","after"]};
+ const prep=[];if(A.deed==="paper")prep.push("paper");if(A.state==="heirs")prep.push("heirs");if(A.state==="area")prep.push("area");if(A.state==="dispute")prep.push("dispute");
+ const core=["login","geo","issue","lists"];
+ const pre=(A.area!=="y"||A.deed==="dk")?["check"]:[];
+ if(A.state==="dispute") return {c:"fix",i:"!",k:"قبل التسجيل",t:"عالج وضع الصك أولاً",p:A.area==="y"?"حيّك معلن، لكن النزاع أو الازدواج يوقف الطلب حتى يُعالج. قدّم طلبك في المهلة حتى تحفظ أسبقيتك، وتابع المعالجة بالتوازي.":"النزاع أو الازدواج يوقف أي طلب تسجيل حتى يُعالج نظامياً.",r:[...pre,...prep,...core]};
+ if(A.area==="y") return {c:"must",i:"⏳",k:"مطلوب منك",t:"لازم تسجّل قبل نهاية المهلة",p:"حيّك معلن، والتسجيل الأول مجاني. عدم تقديم الطلب في المدة المحددة مخالفة غرامتها تصل ١٠٠ ألف ريال، وقد يُسجل عقارك من الجهة إذا اكتملت بياناته."+(prep.length?" جهّز صكك بالخطوات الأولى تحت.":""),r:[...pre,...prep,...core]};
+ if(A.area==="n") return {c:"opt",i:"↗",k:"اختياري الآن",t:"ما يلزمك الآن، لكن تقدر تسجّل",p:"يجوز تسجيل عقارك خارج منطقة التسجيل بطلب منك. وحتى لو انتظرت، جهّز صكك من الحين"+(prep.length?" بالخطوات الأولى تحت":"")+" عشان ما تتأخر لما يُعلن حيّك.",r:[...prep,...core]};
+ return {c:"opt",i:"?",k:"أول خطوة",t:"تحقق هل حيّك معلن",p:"الإعلانات تتوالى على أحياء جديدة. إذا طلع حيّك معلن فالتسجيل إلزامي في المهلة، وإلا فهو اختياري.",r:[...pre,...prep,...core]};
+}
+function render(){
+ renderQ();const R=result();
+ $("#out").innerHTML=`<div class="status s-${R.c}"><div class="ic" aria-hidden="true">${R.i}</div><div><small>${R.k}</small><h2>${R.t}</h2><p>${R.p}</p></div></div>
+ <div class="route"><h2>${A.deed==="sr"?"وش بعده؟":"رحلة صكك إلى السجل العقاري"}</h2>${R.r.map((k,i)=>`<div class="st${i===R.r.length-1?" end":""}"><div class="box"><span class="w">${S[k].w}</span><h3>${S[k].h}</h3><p>${S[k].p}</p></div><div class="rail"><span class="pin">${String(i+1).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d])}</span></div><div class="sp"></div></div>`).join("")}</div>`;
+ try{history.replaceState(null,"","#"+[A.deed,A.area,A.state].join("-"))}catch(e){}
+}
+document.addEventListener("click",e=>{const b=e.target.closest("button[data-q]");if(!b)return;A[b.dataset.q]=b.dataset.v;render();const nb=document.querySelector(`button[data-q="${b.dataset.q}"][data-v="${b.dataset.v}"]`);nb&&nb.focus()});
+render();
+})();
+</script>
+</body>
+</html>
