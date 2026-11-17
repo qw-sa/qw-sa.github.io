@@ -124,45 +124,61 @@ section.pg:before{content:"";position:absolute;inset:0;pointer-events:none;backg
 .note{font-size:14px;color:var(--ink2);background:var(--warnbg);border-inline-start:4px solid var(--warn);border-radius:8px;padding:10px 14px;margin-top:14px}
 .note.blue{background:var(--tint);border-color:var(--blue2)}
 
-/* zones map */
-.mapwrap{display:grid;grid-template-columns:1fr 300px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
-#zmap{height:600px;background:#e9eef5;z-index:0}
-.zside{border-inline-start:1px solid var(--line);display:flex;flex-direction:column;min-height:0;height:600px}
-.zside .top2{padding:10px;border-bottom:1px solid var(--line);background:var(--paper)}
-.zside input{width:100%;font:inherit;font-size:15px;padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;background:#fff}
-.zfilt{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-.zfilt button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:700;color:var(--ink2);display:inline-flex;align-items:center;gap:5px}
-.zfilt button i{width:10px;height:10px;border-radius:3px;display:inline-block}
-.zfilt button.off{opacity:.4;text-decoration:line-through}
-.zlist{overflow-y:auto;flex:1;padding:4px 0}
-.zlist h4{font-size:13px;color:var(--mute);margin:10px 12px 4px;display:flex;justify-content:space-between}
-.zlist button{display:block;width:100%;text-align:start;border:0;background:none;padding:6px 12px;font-size:14px;color:var(--ink);border-inline-start:3px solid transparent}
-.zlist button:hover,.zlist button.on{background:var(--tint);border-inline-start-color:var(--blue)}
-.zlist details{border:0;margin:0;border-radius:0;background:none}
-.zlist summary{padding:6px 12px;font-size:13.5px}
-.zlist summary:before{width:18px;height:18px;font-size:12px}
-.zinfo{font-size:13.5px;line-height:1.6;min-width:230px;max-width:290px;max-height:330px;overflow-y:auto;font-family:Tajawal,Inter,sans-serif;text-align:start}
-html[lang=en] .zinfo{font-family:Inter,sans-serif}
-.zinfo h5{font:800 16px/1.35 Cairo,Inter,sans-serif;margin:0 0 2px;color:var(--deep)}
-.zinfo .cat{font-size:12px;color:var(--mute);margin-bottom:6px}
-.zinfo .kv{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding:4px 0}
-.zinfo .kv b{white-space:nowrap}
-.zinfo .tags{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 4px}
-.zinfo .tags span{background:var(--tint);color:var(--blue);border-radius:5px;padding:0 6px;font-size:12px}
-.zinfo .tags.x span{background:var(--nobg);color:var(--no)}
-.zinfo .warn{background:var(--warnbg);color:var(--warn);border-radius:6px;padding:4px 7px;font-size:12.5px;font-weight:700;margin-top:5px}
-.zinfo .nt{font-size:12.5px;color:var(--ink2);margin-top:5px}
+/* zones map v2 */
+.mbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+.msearch{position:relative;flex:1 1 320px}
+.msearch input{width:100%;font:inherit;font-size:16px;padding:12px 14px 12px 40px;border:2px solid var(--blue2);border-radius:12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%231d5eb8' stroke-width='2.5'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 14px center;color:var(--ink)}
+html[dir=ltr] .msearch input{padding:12px 40px 12px 14px;background-position:calc(100% - 14px) center}
+.msearch input:focus{outline:3px solid rgba(42,111,208,.25)}
+.msug{position:absolute;z-index:1000;top:calc(100% + 4px);inset-inline:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(13,27,51,.18);max-height:360px;overflow-y:auto}
+.msug button{display:flex;width:100%;gap:10px;align-items:center;justify-content:space-between;text-align:start;border:0;background:none;padding:9px 14px;border-bottom:1px solid #f0ece2;color:var(--ink);font-size:15px}
+.msug button:hover,.msug button.act{background:var(--tint)}
+.msug small{color:var(--mute);font-size:12.5px;display:block}
+.msug em{font-style:normal;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.msug .in{background:var(--okbg);color:var(--ok)} .msug .out{background:#eef0f4;color:var(--mute)} .msug .zn{background:var(--tint);color:var(--blue)}
+.mcity{display:flex;flex-wrap:wrap;gap:6px}
+.mcity button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-weight:700;font-size:13.5px;color:var(--ink2)}
+.mcity button.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.mapwrap{display:grid;grid-template-columns:1fr 330px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+#zmap{height:640px;background:#e9eef5;z-index:0}
+.zside{border-inline-start:1px solid var(--line);height:640px;overflow-y:auto;padding:16px;font-size:14.5px}
+.zside h4{font:800 19px/1.35 Cairo,Inter,sans-serif;color:var(--deep);margin:0 0 2px}
+.zside .sub{color:var(--mute);font-size:13px;margin-bottom:10px}
+.zside .badge{display:inline-block;font-weight:800;font-size:13px;border-radius:8px;padding:4px 10px;margin:4px 0 10px}
+.zside .b-in{background:var(--okbg);color:var(--ok)} .zside .b-part{background:var(--warnbg);color:var(--warn)} .zside .b-out{background:var(--nobg);color:var(--no)}
+.zside .zc{border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin:8px 0;background:var(--paper)}
+.zside .zc b{display:block;font-size:15px}
+.zside .zc button{border:0;background:none;color:var(--blue2);font-weight:700;padding:0;margin-top:4px;font-size:13.5px}
+.zside .kv{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding:5px 0}
+.zside .kv b{white-space:nowrap}
+.zside .tags{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 6px}
+.zside .tags span{background:var(--tint);color:var(--blue);border-radius:5px;padding:0 7px;font-size:12.5px}
+.zside .tags.x span{background:var(--nobg);color:var(--no)}
+.zside .warn{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:7px 10px;font-size:13.5px;font-weight:700;margin-top:8px}
+.zside .nt{font-size:13px;color:var(--ink2);margin-top:6px}
+.zside .help li{margin:6px 0}
+.zside .help{padding-inline-start:18px;color:var(--ink2)}
 .leaflet-container{font-family:inherit}
-.leaflet-popup-content{margin:12px 14px}
-.zlegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:var(--ink2);margin-top:10px}
-.zlegend>span{display:inline-flex;align-items:center;gap:6px}
-.zlegend i{width:22px;height:0;border-top:2.5px dashed #c0392b;display:inline-block}
+.dlabel,.zlbl{background:none!important;border:0!important;box-shadow:none!important;white-space:nowrap;text-align:center;pointer-events:none}
+.dlabel span{font:600 11.5px/1.1 Tajawal,Inter,sans-serif;color:#2b3445;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
+.zlbl span{font:800 13px/1.15 Cairo,Inter,sans-serif;color:#fff;background:rgba(2,42,99,.82);border-radius:6px;padding:2px 7px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.zlegend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;color:var(--ink2);margin-top:10px}
+.zlegend span{display:inline-flex;align-items:center;gap:6px}
+.zlegend i{width:22px;height:13px;border-radius:3px;display:inline-block}
 .zstat{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0 0 14px}
 .zstat div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px;color:var(--ink2)}
 .zstat b{display:block;font:800 21px Cairo,Inter,sans-serif;color:var(--deep)}
-.zlabel{font:700 12px Cairo,Inter,sans-serif}
-@media (max-width:760px){.mapwrap{grid-template-columns:1fr}#zmap{height:420px}.zside{border-inline-start:0;border-top:1px solid var(--line);height:340px}}
-
+.leaflet-control-layers{font:600 13px Tajawal,Inter,sans-serif}
+@media (max-width:760px){.mapwrap{grid-template-columns:1fr}#zmap{height:460px}.zside{border-inline-start:0;border-top:1px solid var(--line);height:auto;max-height:none}}
+/* portal */
+.pbtn{display:inline-block;background:var(--deep);color:#fff!important;text-decoration:none;font-weight:800;border-radius:10px;padding:10px 16px;margin:4px 0 14px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:6px 0 16px}
+.pgrid>a,.pgrid>div{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:var(--ink2);text-decoration:none;font-size:14px}
+.pgrid>a:hover{border-color:var(--blue2);box-shadow:0 6px 18px rgba(13,27,51,.08)}
+.pgrid b{display:block;color:var(--deep);font-size:15.5px;margin-bottom:4px}
+.pgrid>a b:after{content:" ↗";color:var(--blue2)}
+.h3p{font-size:18px;color:var(--deep);margin:18px 0 10px}
+.nt2{font-size:13.5px;color:var(--mute)}
 /* calculator */
 .calc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field label{display:block;font-weight:700;font-size:14px;margin-bottom:5px}
@@ -254,6 +270,7 @@ footer a{color:#fff}
      <a href="#zones"><span lang="ar">النطاقات</span><span lang="en">Zones</span></a>
      <a href="#fees"><span lang="ar">حاسبة الرسوم</span><span lang="en">Fee calculator</span></a>
      <a href="#steps"><span lang="ar">الخطوات</span><span lang="en">Steps</span></a>
+     <a href="#portal"><span lang="ar">عقارات السعودية</span><span lang="en">Saudi Properties</span></a>
      <a href="#penalties"><span lang="ar">المخالفات</span><span lang="en">Penalties</span></a>
      <a href="#faq"><span lang="ar">أسئلة وأجوبة</span><span lang="en">Q&amp;A</span></a>
     </nav>
@@ -302,16 +319,19 @@ footer a{color:#fff}
   <div class="phead"><span class="pno">PAGE 02</span><h2><span lang="ar">النطاقات الجغرافية المعتمدة</span><span lang="en">Approved geographic zones</span></h2></div>
   <p class="lead"><span lang="ar">وافق مجلس الوزراء على النطاقات مع اللائحة يوم ١٤٤٨/١/٨هـ (٢٣ يونيو ٢٠٢٦م). ولكل نطاق ضوابطه: أنواع الحقوق المسموحة، والحد الأعلى لنسبة ملكية غير السعودي، والحد الأعلى لمدة حق الانتفاع. <span class="art">ن ٢</span></span><span lang="en">The Council of Ministers approved the zones together with the regulation on 8/1/1448H (23 June 2026). Each zone has its own terms: permitted types of rights, the maximum non-Saudi ownership ratio, and the maximum usufruct term. <span class="art">L 2</span></span></p>
   <div class="zstat" id="zstat"></div>
+  <div class="mbar">
+   <div class="msearch">
+    <input id="zq" type="search" autocomplete="off" placeholder="ابحث باسم الحي أو المشروع: العليا، القدية، جبل عمر...">
+    <div class="msug hide" id="zsug" role="listbox"></div>
+   </div>
+   <div class="mcity" id="zcity"></div>
+  </div>
   <div class="mapwrap">
    <div id="zmap" role="region" aria-label="Zones map"></div>
-   <aside class="zside">
-    <div class="top2"><input id="zq" type="search" placeholder="ابحث عن نطاق: القدية، جبل عمر، العلا...">
-     <div class="zfilt" id="zfilt"></div></div>
-    <div class="zlist" id="zlist"><p class="empty" style="padding:12px"><span lang="ar">جارٍ تحميل الخريطة...</span><span lang="en">Loading map...</span></p></div>
-   </aside>
+   <aside class="zside" id="zside"></aside>
   </div>
-  <div class="zlegend"><span><i></i><span lang="ar">حدود المدن الأربع التي يُستوفى فيها رسم ٢٪</span><span lang="en">Boundaries of the four cities where the 2% fee applies</span></span><span><span lang="ar">اضغط على أي نطاق لترى ضوابطه: نسبة التملك، مدة الانتفاع، الاستعمالات والحقوق.</span><span lang="en">Tap any zone to see its terms: ownership ratio, usufruct term, permitted uses and rights.</span></span></div>
-  <div class="note"><span lang="ar"><b>قبل أي عربون أو عقد:</b> طابق موقع العقار نفسه على الخريطة الرسمية في بوابة «عقارات السعودية» التابعة للهيئة العامة للعقار، فقد يقع جزء من الحي داخل النطاق وجزء خارجه، وتظهر في الخريطة ضوابط كل موقع. الحدود في هذه الخريطة منقولة من بيانات الخريطة الرسمية كما قُرئت في ١٧ نوفمبر ٢٠٢٦م ومبسطة بدقة تقارب مترين، والمرجع عند أي اختلاف الخريطة الرسمية.</span><span lang="en"><b>Before paying any deposit or signing:</b> check the exact plot on the official map in REGA's "Saudi Properties" portal. Part of a district can fall inside a zone and part outside, and the map shows each site's terms. The boundaries on this map are taken from the official map's data as read on 17 November 2026, simplified to about 2 m precision. If anything differs, the official map prevails.</span>
+  <div class="zlegend" id="zlegend"></div>
+  <div class="note"><span lang="ar"><b>قبل أي عربون أو عقد:</b> طابق موقع العقار نفسه على الخريطة الرسمية في بوابة «عقارات السعودية» التابعة للهيئة العامة للعقار، فقد يقع جزء من الحي داخل النطاق وجزء خارجه، وتظهر في الخريطة ضوابط كل موقع. حدود النطاقات منقولة من بيانات الخريطة الرسمية كما قُرئت في ١٧ نوفمبر ٢٠٢٦م، وحدود الأحياء وأسماؤها من بيانات العنوان الوطني المفتوحة، والمرجع عند أي اختلاف الخريطة الرسمية.</span><span lang="en"><b>Before paying any deposit or signing:</b> check the exact plot on the official map in REGA's "Saudi Properties" portal. Part of a district can fall inside a zone and part outside, and the map shows each site's terms. Zone boundaries are taken from the official map's data as read on 17 November 2026; district boundaries and names come from National Address open data. If anything differs, the official map prevails.</span>
   <br><a href="https://saudiproperties.rega.gov.sa/zones" target="_blank" rel="noopener">saudiproperties.rega.gov.sa/zones</a></div>
  </section>
 
@@ -346,16 +366,48 @@ footer a{color:#fff}
   <div class="note blue"><span lang="ar"><b>متى تصبح مالكاً فعلاً؟</b> لا يصح تملك غير السعودي إلا بعد تسجيله في السجل العقاري <span class="art">ن ٨</span>. العربون أو الاتفاق المبدئي لا ينقل الملكية.</span><span lang="en"><b>When do you actually own it?</b> A non-Saudi's ownership is valid only once registered in the Real Estate Registry <span class="art">L 8</span>. A deposit or preliminary agreement does not transfer ownership.</span></div>
  </section>
 
+ <!-- 5. Saudi Properties portal -->
+ <section class="pg" id="portal">
+  <div class="phead"><span class="pno">PAGE 05</span><h2><span lang="ar">بوابة «عقارات السعودية»: قبول الإفراغ لغير السعودي</span><span lang="en">The Saudi Properties portal: transfers to non-Saudis</span></h2></div>
+  <p class="lead"><span lang="ar">«عقارات السعودية» بوابة الهيئة العامة للعقار المختصة بتملك غير السعوديين. منها تتحقق من أهليتك وأهلية العقار، وفيها خريطة النطاقات الرسمية، وعبرها يُقدَّم طلب نقل الملكية (الإفراغ) ويُوافَق عليه ويُسجَّل في السجل العقاري.</span><span lang="en">Saudi Properties is the Real Estate General Authority's portal for non-Saudi ownership. You use it to check your eligibility and the property's, to view the official zones map, and to file, approve and register the ownership transfer in the Real Estate Registry.</span></p>
+  <a class="pbtn" href="https://saudiproperties.rega.gov.sa/" target="_blank" rel="noopener"><span lang="ar">ادخل البوابة: saudiproperties.rega.gov.sa</span><span lang="en">Open the portal: saudiproperties.rega.gov.sa</span></a>
+  <div class="pgrid">
+   <a href="https://saudiproperties.rega.gov.sa/property-eligibility-inquiry-service" target="_blank" rel="noopener"><b><span lang="ar">١. استعلام أهلية العقار</span><span lang="en">1. Property eligibility inquiry</span></b><span lang="ar">هل يستوفي العقار متطلبات التملك؟ (مسجل عينياً، داخل نطاق، ضوابطه)</span><span lang="en">Does the property meet the requirements? (registered, inside a zone, its terms)</span></a>
+   <a href="https://saudiproperties.rega.gov.sa/ownership-eligibility-inquiry-service" target="_blank" rel="noopener"><b><span lang="ar">٢. استعلام أهلية المشتري</span><span lang="en">2. Buyer eligibility inquiry</span></b><span lang="ar">هل تستوفي أنت أو شركتك اشتراطات التملك؟</span><span lang="en">Do you or your company meet the ownership conditions?</span></a>
+   <a href="https://saudiproperties.rega.gov.sa/transfer-ownership-service" target="_blank" rel="noopener"><b><span lang="ar">٣. خدمة نقل ملكية العقار</span><span lang="en">3. Property transfer service</span></b><span lang="ar">تقديم طلب الإفراغ وموافقة الأطراف والسداد وتوثيق الصفقة في السجل العقاري.</span><span lang="en">File the transfer, collect approvals and payment, and record it in the Real Estate Registry.</span></a>
+   <a href="https://saudiproperties.rega.gov.sa/zones" target="_blank" rel="noopener"><b><span lang="ar">٤. خريطة النطاقات الرسمية</span><span lang="en">4. Official zones map</span></b><span lang="ar">المرجع النهائي لحدود كل نطاق وضوابطه.</span><span lang="en">The final reference for each zone's boundary and terms.</span></a>
+  </div>
+
+  <h3 class="h3p"><span lang="ar">كيف يتم الإفراغ لغير السعودي؟</span><span lang="en">How does the transfer to a non-Saudi work?</span></h3>
+  <ol class="path">
+   <li><b><span lang="ar">سجّل في البوابة وادخل عبر نفاذ</span><span lang="en">Register on the portal and sign in with Nafath</span></b><span lang="ar">الطريقة تختلف حسب صفتك (انظر الجدول أدناه).</span><span lang="en">The route depends on who you are (see below).</span></li>
+   <li><b><span lang="ar">تحقق من أهليتك وأهلية العقار</span><span lang="en">Check your eligibility and the property's</span></b><span lang="ar">عبر خدمتي الاستعلام، قبل أي عربون.</span><span lang="en">Through the two inquiry services, before paying any deposit.</span></li>
+   <li><b><span lang="ar">سدّد الضريبة والرسم إن وجبا</span><span lang="en">Pay the tax and fee if due</span></b><span lang="ar">ضريبة التصرفات العقارية ٥٪ إن استحقت ويُطلب رقمها المرجعي. ورسم تملك غير السعودي ٢٪ في الرياض وجدة ومكة والمدينة، ويُسدد قبل الإفراغ ويصدر له رقم مرجعي. <span class="art">ل ٩</span></span><span lang="en">The 5% Real Estate Transaction Tax if due, with its reference number. The 2% non-Saudi fee in Riyadh, Jeddah, Makkah and Madinah is paid before the transfer and gets a reference number. <span class="art">R 9</span></span></li>
+   <li><b><span lang="ar">قدّم طلب نقل الملكية</span><span lang="en">File the transfer request</span></b><span lang="ar">يوافق عليه جميع الملاك وأصحاب الحقوق، ويُدفع الثمن إلى حساب افتراضي.</span><span lang="en">All owners and right holders approve it, and the price is paid into a virtual account.</span></li>
+   <li><b><span lang="ar">التوثيق في السجل العقاري</span><span lang="en">Recording in the Real Estate Registry</span></b><span lang="ar">بعد اكتمال الموافقات والسداد تُوثَّق الصفقة، ويصل المبلغ إلى حساب البائع خلال ٣ أيام عمل. ولا تصح الملكية إلا بهذا التسجيل. <span class="art">ن ٨</span></span><span lang="en">Once approvals and payment are complete the deal is recorded, and the money reaches the seller within 3 working days. Ownership is valid only with this registration. <span class="art">L 8</span></span></li>
+  </ol>
+
+  <div class="note"><span lang="ar"><b>شروط قبول طلب الإفراغ في البوابة:</b> هوية وطنية أو إقامة سارية للأفراد، وسجل تجاري ساري للجهات. والعقار مسجل عينياً في السجل العقاري. وموافقة جميع الملاك وأصحاب الحقوق. ووكالة سارية إن قدّم الطلب وكيل. وسداد ضريبة التصرفات العقارية إن وجبت مع رقمها المرجعي. ولا يجوز أي تصرف على العقار أثناء الطلب. ويُلغى الطلب تلقائياً إذا لم تكتمل الموافقات والسداد خلال ١٤ يوماً.</span><span lang="en"><b>Conditions for the portal to accept a transfer:</b> a valid national ID or residence permit for individuals, and a valid commercial registration for entities. The property is registered in the Real Estate Registry. All owners and right holders approve. A valid power of attorney if an agent applies. Real Estate Transaction Tax paid if due, with its reference number. No other transaction on the property while the request is open. The request is cancelled automatically if approvals and payment are not complete within 14 days.</span></div>
+
+  <h3 class="h3p"><span lang="ar">التسجيل في البوابة حسب صفتك</span><span lang="en">Registering on the portal, by profile</span></h3>
+  <div class="pgrid reg">
+   <div><b><span lang="ar">مقيم في المملكة</span><span lang="en">Resident in KSA</span></b><span lang="ar">سجّل بصفة (أفراد) ثم (مستفيد فرد)، وادخل عبر نفاذ برقم الإقامة.</span><span lang="en">Register as (Individuals) then (Individual beneficiary), and sign in via Nafath with your iqama number.</span></div>
+   <div><b><span lang="ar">غير مقيم</span><span lang="en">Non-resident</span></b><span lang="ar">احجز موعد الهوية الرقمية عبر موقع وزارة الخارجية وزر البعثة السعودية لأخذ البصمة، ثم فعّل شريحة سعودية إلكترونية، ثم نفاذ وأبشر، وافتح حساباً بنكياً عن بُعد، ثم سجّل بصفة (أفراد) ثم (مستفيد فرد).</span><span lang="en">Book a digital ID appointment via the Ministry of Foreign Affairs site and visit a Saudi mission for biometrics. Then activate an electronic Saudi SIM, Nafath and Absher, open a bank account online, and register as (Individuals) then (Individual beneficiary).</span></div>
+   <div><b><span lang="ar">شركة أو جهة</span><span lang="en">Company or entity</span></b><span lang="ar">يستكمل المفوض عن الشركة خطوات الهوية الرقمية، ثم تُسجَّل بصفة (جهات) ثم (شركة مستفيدة).</span><span lang="en">The company's authorised representative completes the digital ID steps, then registers as (Entities) then (Beneficiary company).</span></div>
+  </div>
+  <p class="nt2"><a href="https://saudiproperties.rega.gov.sa/how-to-get-started" target="_blank" rel="noopener"><span lang="ar">دليل «كيف تبدأ» في البوابة</span><span lang="en">The portal's "How to get started" guide</span></a> · <a href="https://saudiproperties.rega.gov.sa/guidelines-regulations" target="_blank" rel="noopener"><span lang="ar">الأدلة والأنظمة</span><span lang="en">Guidelines and regulations</span></a> · <span lang="ar">المعلومات من البوابة كما قُرئت في ١٧ نوفمبر ٢٠٢٦م.</span><span lang="en">Information from the portal as read on 17 November 2026.</span></p>
+ </section>
+
  <!-- 5. Zero fee -->
  <section class="pg" id="zero">
-  <div class="phead"><span class="pno">PAGE 05</span><h2><span lang="ar">متى يكون الرسم صفراً؟</span><span lang="en">When is the fee zero?</span></h2></div>
+  <div class="phead"><span class="pno">PAGE 06</span><h2><span lang="ar">متى يكون الرسم صفراً؟</span><span lang="en">When is the fee zero?</span></h2></div>
   <p class="lead"><span lang="ar">عشر حالات نصت عليها اللائحة <span class="art">ل ١٠</span>:</span><span lang="en">Ten cases set by the regulation <span class="art">R 10</span>:</span></p>
   <ul class="zero" id="zlist"></ul>
  </section>
 
  <!-- 6. Penalties -->
  <section class="pg" id="penalties">
-  <div class="phead"><span class="pno">PAGE 06</span><h2><span lang="ar">المخالفات والعقوبات</span><span lang="en">Violations and penalties</span></h2></div>
+  <div class="phead"><span class="pno">PAGE 07</span><h2><span lang="ar">المخالفات والعقوبات</span><span lang="en">Violations and penalties</span></h2></div>
   <p class="lead"><span lang="ar">العقوبة إنذار أو غرامة لا تزيد على ٥٪ من قيمة الحق العيني بحد أعلى ١٠ ملايين ريال <span class="art">ن ١٠</span>. والنسب في الجدول من قيمة الحق العيني محل المخالفة.</span><span lang="en">The penalty is a warning or a fine of up to 5% of the value of the real right, capped at SAR 10 million <span class="art">L 10</span>. Percentages in the table are of the value of the right concerned.</span></p>
   <div class="scroll"><table class="tbl" id="ptbl"></table></div>
   <div class="note blue"><span lang="ar">تنظر المخالفات لجنة من ثلاثة مختصين في الأنظمة على الأقل، ويُعترض على قراراتها أمام المحكمة الإدارية خلال ٦٠ يوماً من التبليغ <span class="art">ن ١١</span>. وتحدد اللجنة مهلة تصحيح بين ١٠ و١٨٠ يوماً <span class="art">ل ١٢</span>. ويُعد التبليغ نافذاً عبر البوابة أو برسالة نصية إلى الجوال الموثق <span class="art">ل ١٣</span>. أما تقديم معلومات مضللة للتملك فتحقق فيه النيابة العامة وتحكم فيه المحكمة المختصة <span class="art">ن ١٢</span>.</span><span lang="en">Violations are heard by a committee of at least three legal specialists; its decisions can be challenged before the Administrative Court within 60 days of notification <span class="art">L 11</span>. The committee sets a correction period of 10 to 180 days <span class="art">R 12</span>. Notice is valid via the portal or by SMS to the verified mobile number <span class="art">R 13</span>. Providing misleading information to acquire property is investigated by the Public Prosecution and decided by the competent court <span class="art">L 12</span>.</span></div>
@@ -363,7 +415,7 @@ footer a{color:#fff}
 
  <!-- 7. FAQ -->
  <section class="pg" id="faq">
-  <div class="phead"><span class="pno">PAGE 07</span><h2><span lang="ar">أسئلة وأجوبة</span><span lang="en">Questions and answers</span></h2></div>
+  <div class="phead"><span class="pno">PAGE 08</span><h2><span lang="ar">أسئلة وأجوبة</span><span lang="en">Questions and answers</span></h2></div>
   <input class="search" id="fq" type="search" placeholder="ابحث: مكة، زوجتي، شركة، رسم...">
   <div id="flist"></div>
   <p class="empty hide" id="fempty"><span lang="ar">لا نتائج. جرّب كلمة أخرى.</span><span lang="en">No results. Try another word.</span></p>
@@ -371,7 +423,7 @@ footer a{color:#fff}
 
  <!-- 8. Timeline & sources -->
  <section class="pg" id="sources">
-  <div class="phead"><span class="pno">PAGE 08</span><h2><span lang="ar">التسلسل الزمني والمصادر</span><span lang="en">Timeline and sources</span></h2></div>
+  <div class="phead"><span class="pno">PAGE 09</span><h2><span lang="ar">التسلسل الزمني والمصادر</span><span lang="en">Timeline and sources</span></h2></div>
   <div class="tl" id="tl"></div>
   <h3 style="font-size:17px;margin:20px 0 6px"><span lang="ar">المصادر الرسمية</span><span lang="en">Official sources</span></h3>
   <ul class="src">
@@ -533,101 +585,299 @@ function render(scroll){
  if(scroll) box.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-/* ---------- zones map (data: official Saudi Properties zones map, read 2026-11-17) ---------- */
+/* ---------- zones map v2 (zones: official Saudi Properties map, read 2026-11-17; districts: National Address public data) ---------- */
 var ZC={4:'#0345a0',5:'#0e8a8a',6:'#b8862b',7:'#1f8a4c',2:'#7b3fb0',3:'#d0661a',8:'#9a4a2a',1:'#5b6b8c'};
 var ZORD=[4,5,6,7,8,2,3,1];
-var ZD=null,zmap=null,zlayers={},zoff={},zsel=null,zq='';
-function L2(a){return LANG==='ar'?(a[0]||a[1]):(a[1]||a[0]);}
-function nf(n){return Number(n).toLocaleString(LANG==='ar'?'ar-SA':'en-US');}
-function zinfo(z){
- var r=ZD.rules[z.k],cat=ZD.cats[z.c],reg=ZD.regions[z.r],h='<div class="zinfo" dir="'+(LANG==='ar'?'rtl':'ltr')+'"><h5>'+L2(z.n)+'</h5><div class="cat">'+L2(cat)+(reg&&z.c==1?' · '+L2(reg):'')+' · '+z.code+'</div>';
- if(r){
-  h+='<div class="kv"><span>'+(LANG==='ar'?'الحد الأعلى لنسبة ملكية غير السعودي':'Max non-Saudi ownership')+'</span><b>'+nf(r.p)+'%</b></div>';
-  if(r.u) h+='<div class="kv"><span>'+(LANG==='ar'?'أقصى مدة لحق الانتفاع':'Max usufruct term')+'</span><b>'+nf(r.u)+' '+(LANG==='ar'?'سنة':'years')+'</b></div>';
-  if(r.uses.length) h+='<div style="margin-top:4px">'+(LANG==='ar'?'الاستعمالات المسموحة:':'Permitted uses:')+'</div><div class="tags">'+r.uses.map(function(u){return '<span>'+L2(u)+(u[2]!=null&&u[2]<100?' '+nf(u[2])+'%':'')+'</span>';}).join('')+'</div>';
-  if(r.xuses.length) h+='<div>'+(LANG==='ar'?'استعمالات مستثناة:':'Excluded uses:')+'</div><div class="tags x">'+r.xuses.map(function(u){return '<span>'+L2(u)+'</span>';}).join('')+'</div>';
-  if(r.rights.length) h+='<div>'+(LANG==='ar'?'الحقوق العينية المسموحة:':'Permitted real rights:')+'</div><div class="tags">'+r.rights.map(function(u){return '<span>'+L2(u)+(u[2]!=null&&u[2]<100?' '+nf(u[2])+'%':'')+(u[3]?' · '+nf(u[3])+(LANG==='ar'?' سنة':' yrs'):'')+'</span>';}).join('')+'</div>';
-  if(r.xrights.length) h+='<div>'+(LANG==='ar'?'حقوق مستثناة:':'Excluded rights:')+'</div><div class="tags x">'+r.xrights.map(function(u){return '<span>'+L2(u)+'</span>';}).join('')+'</div>';
-  if(r.oth[0]) h+='<div class="nt"><b>'+(LANG==='ar'?'ضوابط أخرى: ':'Other rules: ')+'</b>'+L2(r.oth)+'</div>';
- } else h+='<div class="nt">'+(LANG==='ar'?'لم تُنشر ضوابط هذا النطاق في الخريطة الرسمية.':'Terms for this zone are not published on the official map.')+'</div>';
- if((z.c==6||z.c==7)&&!(r&&r.oth[0]&&r.oth[0].indexOf('المسلم')>=0)) h+='<div class="warn">'+(LANG==='ar'?'للأفراد: المسلم فقط. وتتملك فيه الشركات السعودية التي فيها شريك أجنبي.':'Individuals: Muslims only. Saudi companies with foreign partners may also own here.')+'</div>';
- var fee=(z.c>=4&&z.c<=7)?'2%':null;
- if(fee) h+='<div class="nt">'+(LANG==='ar'?'رسم تملك غير السعودي: ٢٪ إن وقع العقار داخل حدود المدينة.':'Non-Saudi fee: 2% if the property is within the city boundary.')+'</div>';
- if(z.nt&&z.nt[0]) h+='<div class="nt">'+L2(z.nt)+'</div>';
- return h+'</div>';
+var ZD=null,ZS=null,zmap=null,zlayers={},zbyId={},zsel=null,dsel=null,DR={},DIDX={},RBB={},dGroup=null,dlbl=null,zlbl=null,CD={},DZ={},zsugI=-1,zsugL=[];
+function AR(){return LANG==='ar';}
+function L2(a){return a?(AR()?(a[0]||a[1]):(a[1]||a[0])):'';}
+function nf(n){return Number(n).toLocaleString(AR()?'ar-SA':'en-US');}
+function pc(n){return nf(n)+(AR()?'٪':'%');}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function norm(s){return String(s||'').toLowerCase().replace(/[ً-ٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/^(حي|حى)\s+/,'').replace(/\b(al|el)[\s-]/g,'').replace(/\bdist\.?/g,'').replace(/[^\w؀-ۿ]+/g,' ').trim();}
+function isCD(id){return !!CD[id];}
+function cityOfPt(p){
+ if(!ZD)return null;
+ for(var i=0;i<ZD.cities.length;i++){var c=ZD.cities[i];if(inGeom(p,c.g))return c;}
+ return null;
 }
-function zstyle(z,on){var c=ZC[z.c]||'#555';return {color:c,weight:on?3:1.5,opacity:.95,fillColor:c,fillOpacity:on?.45:.25};}
-function zpick(id,fly){
- var z=ZD.zones.find(function(x){return x.id===id;});if(!z)return;
- if(zsel&&zlayers[zsel]) zlayers[zsel].setStyle(zstyle(ZD.zones.find(function(x){return x.id===zsel;}),false));
- zsel=id;var l=zlayers[id];l.setStyle(zstyle(z,true));l.bringToFront();
- if(fly){var b=l.getBounds();zmap.flyToBounds(b,{maxZoom:15,padding:[30,30],duration:.8});}
- if(fly)zmap.once('moveend',function(){l.openPopup(l.getBounds().getCenter());});else l.openPopup();
- document.querySelectorAll('#zlist button').forEach(function(b){b.classList.toggle('on',b.dataset.id===id);});
- try{history.replaceState(null,'',location.pathname+location.search+'#zone='+z.code);}catch(e){}
+function inRing(p,r){var x=p[0],y=p[1],ins=false;for(var i=0,j=r.length-1;i<r.length;j=i++){var xi=r[i][0],yi=r[i][1],xj=r[j][0],yj=r[j][1];if(((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ins=!ins;}return ins;}
+function inPoly(p,pl){if(!inRing(p,pl[0]))return false;for(var k=1;k<pl.length;k++)if(inRing(p,pl[k]))return false;return true;}
+function inGeom(p,g){
+ if(!g)return false;
+ if(g.type==='FeatureCollection')return g.features.some(function(f){return inGeom(p,f.geometry);});
+ if(g.type==='Feature')return inGeom(p,g.geometry);
+ if(g.type==='Polygon')return inPoly(p,g.coordinates);
+ if(g.type==='MultiPolygon')return g.coordinates.some(function(pl){return inPoly(p,pl);});
+ if(g.type==='GeometryCollection')return g.geometries.some(function(x){return inGeom(p,x);});
+ return false;
 }
-function zlist(){
- var q=zq.trim().toLowerCase(),h='';
- ZORD.forEach(function(c){
-  if(zoff[c])return;
-  var zs=ZD.zones.filter(function(z){return z.c==c&&(!q||(z.n[0]+' '+z.n[1]+' '+z.code).toLowerCase().indexOf(q)>=0);});
-  if(!zs.length)return;
-  zs.sort(function(a,b){return L2(a.n).localeCompare(L2(b.n),LANG);});
-  if(c==1){
-   var by={};zs.forEach(function(z){(by[z.r]=by[z.r]||[]).push(z);});
-   h+='<h4><span>'+L2(ZD.cats[c])+'</span><span>'+nf(zs.length)+'</span></h4>';
-   Object.keys(by).sort(function(a,b){return L2(ZD.regions[a]).localeCompare(L2(ZD.regions[b]),LANG);}).forEach(function(r){
-    h+='<details'+(q?' open':'')+'><summary>'+L2(ZD.regions[r]||['',''])+' ('+nf(by[r].length)+')</summary>'+by[r].map(function(z){return '<button type="button" data-id="'+z.id+'">'+L2(z.n)+'</button>';}).join('')+'</details>';
-   });
-  } else {
-   h+='<h4><span>'+L2(ZD.cats[c])+'</span><span>'+nf(zs.length)+'</span></h4>'+zs.map(function(z){return '<button type="button" data-id="'+z.id+'">'+L2(z.n)+'</button>';}).join('');
+/* ---- styles ---- */
+function zstyle(z,on){
+ var c=ZC[z.c]||'#555';
+ if(isCD(z.id))return {pane:'zpane',color:'#6b4bb8',weight:on?3:2,dashArray:'2 6',lineCap:'round',opacity:.9,fill:on,fillColor:'#6b4bb8',fillOpacity:on?.06:0};
+ return {pane:'zpane',color:c,weight:on?4:2.2,opacity:1,fillColor:c,fillOpacity:on?.5:(z.c==1?.2:.32)};
+}
+function dstyle(on){return on?{pane:'dpane',color:'#d4111b',weight:3.5,opacity:1,fillColor:'#d4111b',fillOpacity:.08}:{pane:'dpane',color:'#3b4352',weight:.9,opacity:.7,fillColor:'#000',fillOpacity:0};}
+/* ---- side panel ---- */
+function rulesHTML(r){
+ var h='';
+ if(!r)return '<div class="nt">'+(AR()?'لم تُنشر ضوابط هذا النطاق في الخريطة الرسمية.':'Terms for this zone are not published on the official map.')+'</div>';
+ h+='<div class="kv"><span>'+(AR()?'الحد الأعلى لنسبة ملكية غير السعودي':'Max non-Saudi ownership')+'</span><b>'+pc(r.p)+'</b></div>';
+ if(r.u)h+='<div class="kv"><span>'+(AR()?'أقصى مدة لحق الانتفاع':'Max usufruct term')+'</span><b>'+nf(r.u)+' '+(AR()?'سنة':'years')+'</b></div>';
+ if(r.uses.length)h+='<div style="margin-top:6px">'+(AR()?'الاستعمالات المسموحة:':'Permitted uses:')+'</div><div class="tags">'+r.uses.map(function(u){return '<span>'+L2(u)+(u[2]!=null&&u[2]<100?' '+pc(u[2]):'')+'</span>';}).join('')+'</div>';
+ if(r.xuses.length)h+='<div>'+(AR()?'استعمالات مستثناة:':'Excluded uses:')+'</div><div class="tags x">'+r.xuses.map(function(u){return '<span>'+L2(u)+'</span>';}).join('')+'</div>';
+ if(r.rights.length)h+='<div>'+(AR()?'الحقوق العينية المسموحة:':'Permitted real rights:')+'</div><div class="tags">'+r.rights.map(function(u){return '<span>'+L2(u)+(u[2]!=null&&u[2]<100?' '+pc(u[2]):'')+(u[3]?' · '+nf(u[3])+(AR()?' سنة':' yrs'):'')+'</span>';}).join('')+'</div>';
+ if(r.xrights.length)h+='<div>'+(AR()?'حقوق مستثناة:':'Excluded rights:')+'</div><div class="tags x">'+r.xrights.map(function(u){return '<span>'+L2(u)+'</span>';}).join('')+'</div>';
+ if(r.oth&&r.oth[0])h+='<div class="nt"><b>'+(AR()?'ضوابط خاصة: ':'Special terms: ')+'</b>'+esc(L2(r.oth))+'</div>';
+ return h;
+}
+function muslimWarn(z){var r=ZD.rules[z.k];if((z.c==6||z.c==7)&&!(r&&r.oth&&r.oth[0]&&r.oth[0].indexOf('المسلم')>=0))return '<div class="warn">'+(AR()?'للأفراد: المسلم فقط. وتتملك فيه الشركات السعودية التي فيها شريك أجنبي.':'Individuals: Muslims only. Saudi companies with foreign partners may also own here.')+'</div>';return '';}
+function feeNote(c){return c?'<div class="kv"><span>'+(AR()?'رسم تملك غير السعودي':'Non-Saudi fee')+'</span><b>'+pc(2)+'</b></div><div class="nt">'+(AR()?'لأنه داخل حدود '+L2(c.n)+' (الخط الأحمر المتقطع).':'Because it lies inside '+L2(c.n)+' (dashed red line).')+'</div>':'<div class="kv"><span>'+(AR()?'رسم تملك غير السعودي':'Non-Saudi fee')+'</span><b>'+pc(0)+'</b></div>';}
+function sideHelp(){
+ document.getElementById('zside').innerHTML='<h4>'+(AR()?'كيف تستخدم الخريطة':'How to use the map')+'</h4><ol class="help">'+
+  (AR()?'<li>اكتب اسم الحي أو المشروع في خانة البحث، أو اختر مدينة.</li><li>كبّر الخريطة لتظهر حدود الأحياء وأسماؤها.</li><li>اضغط على أي حي لتعرف هل هو داخل نطاق تملك، وما ضوابط النطاق، وهل عليه رسم ٢٪.</li><li>اضغط على أي نطاق ملوّن لترى ضوابطه والأحياء التي يشملها.</li>':
+  '<li>Type a district or project name in the search box, or pick a city.</li><li>Zoom in to see district boundaries and names.</li><li>Tap a district to see whether it lies in an ownership zone, the zone\'s terms, and whether the 2% fee applies.</li><li>Tap a coloured zone to see its terms and the districts it covers.</li>')+
+  '</ol><div class="nt">'+(AR()?'الخط البنفسجي المنقط في الرياض وجدة نطاق «مشاريع التطوير الشامل»، وهو لا يعني أن كل الحي متاح، بل يقتصر على مشاريع على أراضٍ لا تقل عن ٨٠ ألف م² بموافقة الجهة المختصة.':'The dotted purple line in Riyadh and Jeddah is the "comprehensive development projects" zone. It does not open the whole district: it is limited to projects on land of at least 80,000 m² approved by the competent authority.')+'</div>';
+}
+function showZone(id,fly){
+ var z=zbyId[id];if(!z)return;
+ selZone(id);
+ var r=ZD.rules[z.k],cat=ZD.cats[z.c],reg=ZD.regions[z.r],ds=(ZS&&ZS.zd[id])||[];
+ var h='<h4>'+esc(L2(z.n))+'</h4><div class="sub">'+L2(cat)+(reg?' · '+L2(reg):'')+' · '+z.code+'</div>';
+ h+=isCD(id)?'<span class="badge b-part">'+(AR()?'نطاق مشروط: مشاريع التطوير الشامل فقط':'Conditional: comprehensive development projects only')+'</span>':'<span class="badge b-in">'+(AR()?'نطاق تملك معتمد':'Approved ownership zone')+'</span>';
+ h+=rulesHTML(r)+muslimWarn(z);
+ var c=null;if(ZS){var e=DIDX['z'+id];if(e)c=cityOfPt([(e.b[0]+e.b[2])/2,(e.b[1]+e.b[3])/2]);}
+ if(z.c>=4&&z.c<=7&&!c)c=ZD.cities.find(function(x){return x.c==z.c;});
+ h+=feeNote(c);
+ if(z.nt&&z.nt[0])h+='<div class="nt">'+esc(L2(z.nt))+'</div>';
+ if(ds.length){
+  h+='<div style="margin-top:10px;font-weight:700">'+(AR()?'أحياء يمسها هذا النطاق ('+nf(ds.length)+')':'Districts this zone touches ('+nf(ds.length)+')')+'</div><div class="tags">'+ds.slice(0,isCD(id)?0:60).map(function(d){var e=DIDX[d];return e?'<span><a href="#d='+d+'" data-d="'+d+'" style="color:inherit;text-decoration:none">'+esc(L2(e.n))+'</a></span>':'';}).join('')+(ds.length>60&&!isCD(id)?'<span>…</span>':'')+'</div>';
+  if(isCD(id))h+='<div class="nt">'+(AR()?'يغطي النطاق العمراني كله، فلا تُسرد أحياؤه.':'It covers the whole urban area, so its districts are not listed.')+'</div>';
+ }
+ document.getElementById('zside').innerHTML=h;
+ if(fly){var b=zlayers[id].getBounds();zmap.flyToBounds(b,{maxZoom:15,padding:[30,30],duration:.7});}
+ setHash('zone='+z.code);
+}
+function showDistrict(id,fly){
+ var e=DIDX[id];if(!e)return;
+ loadRegion(e.r,function(){
+  var d=DR[e.r]&&DR[e.r].by[id];if(!d)return;
+  selZone(null);
+  if(dsel&&dsel!==d.l)dsel.setStyle(dstyle(false));
+  dsel=d.l;d.l.setStyle(dstyle(true));d.l.bringToFront();
+  var zs=(d.z||[]).filter(function(x){return zbyId[x[0]];}),reg=zs.filter(function(x){return !isCD(x[0]);}),cd=zs.filter(function(x){return isCD(x[0]);});
+  var full=reg.some(function(x){return x[1]>=.9;});
+  var h='<h4>'+esc(L2(d.n))+'</h4><div class="sub">'+esc(L2(d.ct))+' · '+L2(ZD.regions[e.r])+'</div>';
+  if(full)h+='<span class="badge b-in">'+(AR()?'داخل نطاق تملك':'Inside an ownership zone')+'</span>';
+  else if(reg.length)h+='<span class="badge b-part">'+(AR()?'جزء من الحي داخل نطاق تملك':'Part of the district is inside a zone')+'</span>';
+  else if(cd.length)h+='<span class="badge b-part">'+(AR()?'مشروط: مشاريع التطوير الشامل فقط':'Conditional: comprehensive development only')+'</span>';
+  else h+='<span class="badge b-out">'+(AR()?'خارج النطاقات':'Outside the zones')+'</span>';
+  reg.concat(cd).forEach(function(x){
+   var z=zbyId[x[0]],r=ZD.rules[z.k];
+   h+='<div class="zc"><b>'+esc(L2(z.n))+'</b><span class="sub">'+L2(ZD.cats[z.c])+'</span>'+
+    '<div class="kv"><span>'+(AR()?'نسبة ما يغطيه من مساحة الحي':'Share of the district covered')+'</span><b>'+(x[1]>=.99?(AR()?'كامل الحي':'whole district'):pc(Math.max(1,Math.round(x[1]*100))))+'</b></div>'+
+    (r?'<div class="kv"><span>'+(AR()?'نسبة التملك':'Ownership')+'</span><b>'+pc(r.p)+'</b></div>'+(r.u?'<div class="kv"><span>'+(AR()?'الانتفاع حتى':'Usufruct up to')+'</span><b>'+nf(r.u)+' '+(AR()?'سنة':'yrs')+'</b></div>':''):'')+
+    (r&&r.xuses.length?'<div class="nt">'+(AR()?'مستثنى: ':'Excluded: ')+r.xuses.map(L2).join('، ')+'</div>':'')+
+    (isCD(z.id)?'<div class="nt">'+(AR()?'يقتصر على مشاريع التطوير الشامل على أراضٍ لا تقل عن ٨٠ ألف م² بقرار موافقة من الجهة المختصة.':'Limited to comprehensive development projects on land of at least 80,000 m² with an approval decision from the competent authority.')+'</div>':'')+
+    muslimWarn(z)+'<button type="button" data-z="'+z.id+'">'+(AR()?'اعرض ضوابط النطاق كاملة ←':'Full zone terms →')+'</button></div>';
+  });
+  if(!reg.length){
+   var mm=/مكة|المدينة المنورة/.test(d.ct[0]);
+   h+='<div class="nt">'+(mm?(AR()?'في مكة المكرمة والمدينة المنورة لا يتملك غير السعودي إلا داخل النطاقات المعتمدة، وللمسلم فقط.':'In Makkah and Madinah a non-Saudi may own only inside the approved zones, and only if Muslim.'):
+     (AR()?'خارج النطاقات لا يتملك غير السعودي غير المقيم ولا الشركة الأجنبية. ويجوز للمقيم إقامة نظامية تملك عقار واحد للسكن.':'Outside the zones, non-resident non-Saudis and foreign companies cannot own. A legal resident may own one residential property.'))+'</div>';
   }
+  if(reg.length&&!full)h+='<div class="warn">'+(AR()?'جزء من الحي فقط داخل النطاق: تأكد من موقع قطعتك على الخريطة.':'Only part of the district is inside: check where your plot lies.')+'</div>';
+  h+=feeNote(cityOfPt(e.p));
+  h+='<div class="nt">'+(AR()?'حدود الأحياء من بيانات العنوان الوطني المفتوحة، وقد لا تطابق المخططات الحديثة.':'District boundaries come from National Address open data and may not match recent plans.')+'</div>';
+  document.getElementById('zside').innerHTML=h;
+  if(fly)zmap.flyToBounds(d.l.getBounds(),{maxZoom:15,padding:[30,30],duration:.7});
+  setHash('d='+id);
  });
- document.getElementById('zlist').innerHTML=h||'<p class="empty" style="padding:12px">'+(LANG==='ar'?'لا نتائج.':'No results.')+'</p>';
 }
-function zfilt(){
- document.getElementById('zfilt').innerHTML=ZORD.map(function(c){var n=ZD.zones.filter(function(z){return z.c==c;}).length;return '<button type="button" data-c="'+c+'" class="'+(zoff[c]?'off':'')+'"><i style="background:'+ZC[c]+'"></i>'+L2(ZD.cats[c])+' '+nf(n)+'</button>';}).join('');
+function selZone(id){
+ if(zsel&&zlayers[zsel])zlayers[zsel].setStyle(zstyle(zbyId[zsel],false));
+ zsel=id;
+ if(id&&zlayers[id]){zlayers[id].setStyle(zstyle(zbyId[id],true));if(!isCD(id))zlayers[id].bringToFront();if(dsel){dsel.setStyle(dstyle(false));dsel=null;}}
+}
+function setHash(h){try{history.replaceState(null,'',location.pathname+location.search+'#'+h);}catch(e){}}
+/* ---- districts (lazy per region) ---- */
+function loadRegion(r,cb){
+ if(DR[r]&&DR[r].ok){cb&&cb();return;}
+ if(DR[r]){if(cb)DR[r].q.push(cb);return;}
+ DR[r]={q:cb?[cb]:[],by:{}};
+ fetch('d/'+r+'.json').then(function(x){return x.json();}).then(function(list){
+  var g=L.featureGroup();
+  list.forEach(function(d){
+   var l=L.geoJSON(d.g,{style:dstyle(false)});
+   l.bindTooltip(function(){return esc(L2(d.n));},{sticky:true,direction:'top',className:'zlabel'});
+   l.on('click',function(ev){L.DomEvent.stopPropagation(ev);showDistrict(d.id,false);});
+   l.on('mouseover',function(){if(l!==dsel)l.setStyle({weight:2,fillOpacity:.06,color:'#111'});});
+   l.on('mouseout',function(){if(l!==dsel)l.setStyle(dstyle(false));});
+   d.l=l;DR[r].by[d.id]=d;l.addTo(g);
+  });
+  g.addTo(dGroup);DR[r].ok=1;DR[r].q.forEach(function(f){f();});DR[r].q=[];updLabels();
+ }).catch(function(){});
+}
+function loadVisible(){
+ if(!ZS||!zmap.hasLayer(dGroup)||zmap.getZoom()<10)return;
+ var b=zmap.getBounds();
+ Object.keys(RBB).forEach(function(r){var x=RBB[r];if(b.intersects([[x[1],x[0]],[x[3],x[2]]]))loadRegion(r);});
+}
+function updLabels(){
+ if(!ZS)return;
+ dlbl.clearLayers();zlbl.clearLayers();
+ var z=zmap.getZoom(),b=zmap.getBounds(),n=0;
+ if(z>=12&&zmap.hasLayer(dGroup)){
+  var cap=z>=14?400:(z>=13?220:110);
+  ZS.idx.some(function(e){
+   if(e.t!=='d'||!DR[e.r]||!DR[e.r].ok)return false;
+   if(!b.contains([e.p[1],e.p[0]]))return false;
+   if(z<13){var w=e.b[2]-e.b[0];if(w<.012)return false;}
+   L.marker([e.p[1],e.p[0]],{interactive:false,keyboard:false,pane:'lpane',icon:L.divIcon({className:'dlabel',html:'<span>'+esc(L2(e.n).replace(/^حي\s+/,''))+'</span>',iconSize:null})}).addTo(dlbl);
+   return ++n>=cap;
+  });
+ }
+ if(z>=8){
+  var vw=b.getEast()-b.getWest(),m=0;
+  ZS.idx.forEach(function(e){
+   if(e.t!=='z'||isCD(e.id)||m>70)return;
+   var w=e.b[2]-e.b[0],cx=(e.b[0]+e.b[2])/2,cy=(e.b[1]+e.b[3])/2;
+   if(!b.contains([cy,cx]))return;
+   if(w<vw/40||w>vw*1.2)return;
+   if(e.c==1&&z>=11)return;
+   L.marker([cy,cx],{interactive:false,keyboard:false,pane:'lpane',icon:L.divIcon({className:'zlbl',html:'<span>'+esc(L2(e.n))+'</span>',iconSize:null})}).addTo(zlbl);m++;
+  });
+ }
+}
+/* ---- search ---- */
+function zsearch(q){
+ var nq=norm(q);if(!nq||!ZS)return [];
+ var out=[];
+ ZS.idx.forEach(function(e){
+  var a=norm(e.n[0]),en=norm(e.n[1]),s=-1;
+  if(a===nq||en===nq)s=0;else if(a.indexOf(nq)===0||en.indexOf(nq)===0)s=1;else if(a.indexOf(nq)>0||en.indexOf(nq)>0)s=2;
+  else if(e.ct&&(norm(e.ct[0]+' '+e.n[0]).indexOf(nq)>=0||norm(e.n[0]+' '+e.ct[0]).indexOf(nq)>=0))s=3;
+  if(s<0)return;
+  if(e.t==='z')s-=.5;
+  out.push([s,L2(e.n).length,e]);
+ });
+ out.sort(function(x,y){return x[0]-y[0]||x[1]-y[1];});
+ return out.slice(0,14).map(function(x){return x[2];});
+}
+function dBadge(e){
+ var z=(DZ[e.id]||[]);
+ if(z.some(function(id){return !isCD(id);}))return '<em class="in">'+(AR()?'داخل نطاق':'in a zone')+'</em>';
+ if(z.length)return '<em class="zn">'+(AR()?'مشروط':'conditional')+'</em>';
+ return '<em class="out">'+(AR()?'خارج النطاقات':'outside zones')+'</em>';
+}
+function renderSug(){
+ var box=document.getElementById('zsug');
+ if(!zsugL.length){box.innerHTML=document.getElementById('zq').value.trim()?'<div style="padding:10px 14px;color:var(--mute)">'+(AR()?'لا نتائج. جرّب جزءاً من الاسم.':'No results. Try part of the name.')+'</div>':'';box.classList.toggle('hide',!box.innerHTML);return;}
+ box.innerHTML=zsugL.map(function(e,i){
+  var sub=e.t==='d'?L2(e.ct)+' · '+(AR()?'حي':'district'):L2(ZD.cats[e.c])+(ZD.regions[e.r]?' · '+L2(ZD.regions[e.r]):'');
+  return '<button type="button" role="option" data-i="'+i+'" class="'+(i===zsugI?'act':'')+'"><span>'+esc(L2(e.n))+'<small>'+esc(sub)+'</small></span>'+(e.t==='d'?dBadge(e):'<em class="zn">'+(AR()?'نطاق':'zone')+'</em>')+'</button>';
+ }).join('');
+ box.classList.remove('hide');
+}
+function pickSug(i){
+ var e=zsugL[i];if(!e)return;
+ document.getElementById('zsug').classList.add('hide');
+ document.getElementById('zq').value=L2(e.n);
+ if(e.t==='d')showDistrict(e.id,true);else showZone(e.id,true);
+}
+/* ---- cities, legend, stats ---- */
+var ZCITY=[['ksa',['المملكة','Kingdom']],['ruh',['الرياض','Riyadh'],4],['jed',['جدة','Jeddah'],5],['mak',['مكة المكرمة','Makkah'],6],['med',['المدينة المنورة','Madinah'],7],['ula',['العلا','AlUla'],8],['dmm',['الدمام والخبر','Dammam & Khobar']]];
+function zcity(){
+ document.getElementById('zcity').innerHTML=ZCITY.map(function(c){return '<button type="button" data-k="'+c[0]+'">'+L2(c[1])+'</button>';}).join('');
+}
+function goCity(k){
+ document.querySelectorAll('#zcity button').forEach(function(b){b.classList.toggle('on',b.dataset.k===k);});
+ if(k==='ksa'){zmap.flyTo([23.9,45],5,{duration:.7});return;}
+ if(k==='dmm'){zmap.flyTo([26.36,50.13],11,{duration:.7});return;}
+ var c=ZCITY.find(function(x){return x[0]===k;})[2],ct=ZD.cities.find(function(x){return x.c==c;});
+ var b=ct?L.geoJSON(ct.g).getBounds():L.featureGroup(ZD.zones.filter(function(z){return z.c==c;}).map(function(z){return zlayers[z.id];})).getBounds();
+ zmap.flyToBounds(b,{padding:[10,10],duration:.7});
+}
+function zlegend(){
+ var it=ZORD.map(function(c){return '<span><i style="background:'+ZC[c]+';opacity:.75"></i>'+L2(ZD.cats[c])+'</span>';});
+ it.push('<span><i style="border:2px dotted #6b4bb8;background:none"></i>'+(AR()?'مشاريع التطوير الشامل (الرياض وجدة)':'Comprehensive development (Riyadh & Jeddah)')+'</span>');
+ it.push('<span><i style="border:2px dashed #c0392b;background:none"></i>'+(AR()?'حدود المدن الأربع التي يُستوفى فيها رسم ٢٪':'Four cities where the 2% fee applies')+'</span>');
+ it.push('<span><i style="border:1px solid #3b4352;background:none"></i>'+(AR()?'حدود الأحياء (تظهر عند التكبير)':'District boundaries (shown when zoomed in)')+'</span>');
+ document.getElementById('zlegend').innerHTML=it.join('');
 }
 function zstat(){
- var n=ZD.zones.length,ps=[],us=[],mm=ZD.zones.filter(function(z){return z.c==6||z.c==7;}).length;
- ZD.zones.forEach(function(z){var r=ZD.rules[z.k];if(r){ps.push(r.p);if(r.u)us.push(r.u);}});
- var pmin=Math.min.apply(null,ps),pmax=Math.max.apply(null,ps),umax=Math.max.apply(null,us);
+ var n=ZD.zones.length,mm=ZD.zones.filter(function(z){return z.c==6||z.c==7;}).length,us=[];
+ ZD.zones.forEach(function(z){var r=ZD.rules[z.k];if(r&&r.u)us.push(r.u);});
+ var nd=ZS?ZS.idx.filter(function(e){return e.t==='d';}).length:0,ni=ZS?Object.keys(DZ).filter(function(d){return DZ[d].some(function(z){return !isCD(z);});}).length:0;
  document.getElementById('zstat').innerHTML=
-  '<div><b>'+nf(n)+'</b>'+(LANG==='ar'?'نطاقاً وموقعاً معتمداً في الخريطة':'approved zones and sites on the map')+'</div>'+
-  '<div><b>'+nf(Object.keys(ZD.regions).length)+'</b>'+(LANG==='ar'?'منطقة إدارية فيها مواقع':'regions with sites')+'</div>'+
-  '<div><b>'+(pmin===pmax?nf(pmax)+'%':nf(pmin)+'–'+nf(pmax)+'%')+'</b>'+(LANG==='ar'?'الحد الأعلى لنسبة تملك غير السعودي':'max non-Saudi ownership ratio')+'</div>'+
-  '<div><b>'+nf(umax)+' '+(LANG==='ar'?'سنة':'yrs')+'</b>'+(LANG==='ar'?'أقصى مدة لحق الانتفاع':'max usufruct term')+'</div>'+
-  '<div><b>'+nf(mm)+'</b>'+(LANG==='ar'?'نطاقاً في مكة والمدينة للمسلم فقط':'Makkah & Madinah zones, Muslims only')+'</div>';
+  '<div><b>'+nf(n)+'</b>'+(AR()?'نطاقاً وموقعاً معتمداً':'approved zones and sites')+'</div>'+
+  (nd?'<div><b>'+nf(nd)+'</b>'+(AR()?'حياً على الخريطة':'districts on the map')+'</div><div><b>'+nf(ni)+'</b>'+(AR()?'حياً يمسه نطاق تملك':'districts touched by a zone')+'</div>':'')+
+  '<div><b>'+nf(Math.max.apply(null,us))+' '+(AR()?'سنة':'yrs')+'</b>'+(AR()?'أقصى مدة لحق الانتفاع':'max usufruct term')+'</div>'+
+  '<div><b>'+nf(mm)+'</b>'+(AR()?'نطاقاً في مكة والمدينة للمسلم فقط':'Makkah & Madinah zones, Muslims only')+'</div>';
 }
-function zrefresh(){if(!ZD)return;zstat();zfilt();zlist();if(zsel&&zlayers[zsel]&&zlayers[zsel].isPopupOpen()){zlayers[zsel].setPopupContent(zinfo(ZD.zones.find(function(x){return x.id===zsel;})));}
- document.getElementById('zq').placeholder=LANG==='ar'?'ابحث عن نطاق: القدية، جبل عمر، العلا...':'Search a zone: Qiddiya, Jabal Omar, AlUla...';}
+function zrefresh(){
+ document.getElementById('zq').placeholder=AR()?'ابحث باسم الحي أو المشروع: العليا، القدية، جبل عمر...':'Search a district or project: Olaya, Qiddiya, Jabal Omar...';
+ if(!ZD)return;
+ zstat();zcity();zlegend();updLabels();
+ if(dsel){var id=(location.hash.match(/d=(\d+)/)||[])[1];if(id)showDistrict(+id,false);}
+ else if(zsel)showZone(zsel,false);else sideHelp();
+ if(!document.getElementById('zsug').classList.contains('hide'))renderSug();
+}
 window.__zRefresh=zrefresh;
 function zinit(){
  if(zmap||!window.L)return;
- zmap=L.map('zmap',{zoomControl:true,attributionControl:true,minZoom:4,maxBounds:[[10,30],[36,62]]}).setView([23.9,45],5);
- L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO · '+(LANG==='ar'?'حدود النطاقات: عقارات السعودية':'Zones: Saudi Properties portal')}).addTo(zmap);
- fetch('zones.json').then(function(r){return r.json();}).then(function(d){
-  ZD=d;
-  d.cities.forEach(function(c){L.geoJSON(c.g,{interactive:false,style:{color:'#c0392b',weight:2,dashArray:'6 5',fill:false,opacity:.8}}).addTo(zmap);});
-  var all=L.featureGroup();
-  d.zones.forEach(function(z){
+ zmap=L.map('zmap',{zoomControl:true,minZoom:5,maxBounds:[[10,30],[36,62]],preferCanvas:false}).setView([24.72,46.68],10);
+ zmap.createPane('zpane').style.zIndex=410;zmap.createPane('dpane').style.zIndex=420;zmap.createPane('lpane').style.zIndex=640;zmap.getPane('lpane').style.pointerEvents='none';
+ var base=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(zmap);
+ var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'&copy; Esri'});
+ zmap.attributionControl.addAttribution(AR()?'النطاقات: عقارات السعودية · الأحياء: العنوان الوطني':'Zones: Saudi Properties · Districts: National Address');
+ dGroup=L.layerGroup().addTo(zmap);dlbl=L.layerGroup().addTo(zmap);zlbl=L.layerGroup().addTo(zmap);
+ var cityL=L.layerGroup().addTo(zmap);
+ sideHelp();
+ Promise.all([fetch('zones.json').then(function(r){return r.json();}),fetch('search.json').then(function(r){return r.json();}).catch(function(){return null;})]).then(function(a){
+  var d=a[0];ZD=d;ZS=a[1];
+  d.zones.forEach(function(z){zbyId[z.id]=z;var r=d.rules[z.k];if(r&&r.oth&&/80[,٬]?000/.test(r.oth[0]||''))CD[z.id]=1;});
+  if(ZS){
+   ZS.idx.forEach(function(e){if(e.t==='d'){DIDX[e.id]=e;var x=RBB[e.r];if(!x)RBB[e.r]=e.b.slice();else{x[0]=Math.min(x[0],e.b[0]);x[1]=Math.min(x[1],e.b[1]);x[2]=Math.max(x[2],e.b[2]);x[3]=Math.max(x[3],e.b[3]);}}else DIDX['z'+e.id]=e;});
+   Object.keys(ZS.zd).forEach(function(z){ZS.zd[z].forEach(function(dd){(DZ[dd]=DZ[dd]||[]).push(z);});});
+  }
+  d.cities.forEach(function(c){L.geoJSON(c.g,{interactive:false,style:{pane:'zpane',color:'#c0392b',weight:2.5,dashArray:'8 6',fill:false,opacity:.9}}).addTo(cityL);});
+  var zg=L.featureGroup();
+  d.zones.slice().sort(function(x,y){return (isCD(y.id)?1:0)-(isCD(x.id)?1:0)||(x.c==1?0:1)-(y.c==1?0:1);}).forEach(function(z){
    var l=L.geoJSON(z.g,{style:zstyle(z,false)});
-   l.bindPopup(function(){return zinfo(z);},{maxWidth:310,autoPanPadding:[20,20]});
-   l.bindTooltip(L2(z.n),{sticky:true,direction:'top',className:'zlabel'});
-   l.on('click',function(){zpick(z.id,false);});
-   zlayers[z.id]=l;l._zc=z.c;l.addTo(all);
+   l.bindTooltip(function(){return esc(L2(z.n));},{sticky:true,direction:'top',className:'zlabel'});
+   l.on('click',function(){showZone(z.id,false);});
+   zlayers[z.id]=l;l.addTo(zg);
   });
-  all.addTo(zmap);zmap._zall=all;
-  zrefresh();
-  var m=location.hash.match(/zone=([A-Z0-9]+)/);
-  if(m){var z=d.zones.find(function(x){return x.code===m[1];});if(z){document.getElementById('zones').scrollIntoView();setTimeout(function(){zpick(z.id,true);},400);}}
- }).catch(function(){document.getElementById('zlist').innerHTML='<p class="empty" style="padding:12px">'+(LANG==='ar'?'تعذر تحميل بيانات الخريطة.':'Could not load map data.')+'</p>';});
+  zg.addTo(zmap);
+  L.control.layers({[AR()?'خريطة':'Map']:base,[AR()?'قمر صناعي':'Satellite']:sat},{[AR()?'النطاقات':'Zones']:zg,[AR()?'حدود الأحياء':'Districts']:dGroup,[AR()?'حدود رسم ٢٪':'2% fee boundary']:cityL},{collapsed:true,position:'topright'}).addTo(zmap);
+  zmap.on('overlayadd overlayremove',function(){loadVisible();updLabels();});
+  zmap.on('moveend',function(){loadVisible();updLabels();});
+  zrefresh();loadVisible();
+  var m=location.hash.match(/zone=([A-Z0-9]+)/),md=location.hash.match(/[#&]d=(\d+)/);
+  if(m){var z=d.zones.find(function(x){return x.code===m[1];});if(z){document.getElementById('zones').scrollIntoView();showZone(z.id,true);}}
+  else if(md&&DIDX[+md[1]]){document.getElementById('zones').scrollIntoView();showDistrict(+md[1],true);}
+ }).catch(function(){document.getElementById('zside').innerHTML='<p class="nt">'+(AR()?'تعذر تحميل بيانات الخريطة.':'Could not load map data.')+'</p>';});
 }
-document.getElementById('zlist').addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(b)zpick(b.dataset.id,true);});
-document.getElementById('zfilt').addEventListener('click',function(e){var b=e.target.closest('button[data-c]');if(!b)return;var c=+b.dataset.c;zoff[c]=!zoff[c];
- ZD.zones.forEach(function(z){if(z.c==c){var l=zlayers[z.id];if(zoff[c])zmap._zall.removeLayer(l);else zmap._zall.addLayer(l);}});zfilt();zlist();});
-document.getElementById('zq').addEventListener('input',function(){zq=this.value;zlist();});
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es.some(function(x){return x.isIntersecting;})){zinit();io.disconnect();}},{rootMargin:'400px'});io.observe(document.getElementById('zmap'));}else zinit();
+(function(){
+ var q=document.getElementById('zq'),box=document.getElementById('zsug');
+ q.addEventListener('input',function(){zsugI=-1;zsugL=zsearch(q.value);renderSug();if(!q.value.trim())box.classList.add('hide');});
+ q.addEventListener('focus',function(){if(!zmap)zinit();if(q.value.trim()&&zsugL.length)renderSug();});
+ q.addEventListener('keydown',function(e){
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(!zsugL.length)return;e.preventDefault();zsugI=(zsugI+(e.key==='ArrowDown'?1:-1)+zsugL.length)%zsugL.length;renderSug();}
+  else if(e.key==='Enter'){e.preventDefault();if(zsugL.length)pickSug(zsugI<0?0:zsugI);}
+  else if(e.key==='Escape')box.classList.add('hide');
+ });
+ box.addEventListener('mousedown',function(e){var b=e.target.closest('button[data-i]');if(b){e.preventDefault();pickSug(+b.dataset.i);}});
+ document.addEventListener('click',function(e){if(!e.target.closest('.msearch'))box.classList.add('hide');});
+ document.getElementById('zcity').addEventListener('click',function(e){var b=e.target.closest('button[data-k]');if(b&&ZD)goCity(b.dataset.k);});
+ document.getElementById('zside').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-z]');if(b){showZone(b.dataset.z,true);return;}
+  var a=e.target.closest('a[data-d]');if(a){e.preventDefault();showDistrict(+a.dataset.d,true);}
+ });
+})();
+if(/(zone|[#&]d)=/.test(location.hash))zinit();else if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es.some(function(x){return x.isIntersecting;})){zinit();io.disconnect();}},{rootMargin:'400px'});io.observe(document.getElementById('zmap'));}else zinit();
 
 
 /* ---------- fees ---------- */
