@@ -111,6 +111,45 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--o);outline-offset:2
 .faq details p{margin-top:6px;font-size:.93rem}
 .faq .ref{font-size:.78rem;color:var(--muted)}
 .warn{margin-block:20px;font-size:.88rem;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:10px 14px}
+/* خريطة المناطق: خريطة مربعات تقريبية (شمال فوق، شرق يمين) */
+.mapsec{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;display:grid;gap:12px;scroll-margin-top:10px}
+.mapsec h2{font-size:1.25rem}
+.mapsec .sub{color:var(--muted);font-size:.9rem}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.85rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:16px;height:16px;border-radius:5px;display:inline-block}
+.k-open{background:#d9741a}.k-past{background:#14503e}.k-none{background:repeating-linear-gradient(45deg,var(--line) 0 4px,transparent 4px 8px);border:1.5px solid var(--muted)}
+.mapgrid{direction:ltr;display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(54px,auto);gap:6px;grid-template-areas:
+ "tab tab jou nor nor ."
+ "tab tab hai hai eas eas"
+ "mad mad qas qas eas eas"
+ "mad mad riy riy eas eas"
+ "mak mak riy riy eas eas"
+ "mak mak riy riy . ."
+ "bah asi asi nnj nnj ."
+ "jaz asi asi nnj nnj ."}
+.tile{all:unset;box-sizing:border-box;direction:rtl;cursor:pointer;border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;justify-content:space-between;gap:2px;font-weight:600;font-size:.92rem;line-height:1.3;color:#fff;position:relative;transition:transform .15s}
+.tile small{font-weight:400;font-size:.72rem;opacity:.9}
+.tile:hover{transform:scale(1.03)}.tile:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+.tile.open{background:#d9741a}.tile.past{background:#14503e}
+.tile.none{background:repeating-linear-gradient(45deg,transparent 0 6px,color-mix(in srgb,var(--line) 70%,transparent) 6px 12px);color:var(--ink);border:1.5px dashed var(--muted)}
+.tile[aria-pressed="true"]{box-shadow:0 0 0 3px var(--card),0 0 0 6px var(--o)}
+.tile .dot{position:absolute;top:8px;left:8px;width:9px;height:9px;border-radius:50%;background:#fff;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.tile .dot{animation:none}.tile{transition:none}}
+.compass{direction:rtl;font-size:.75rem;color:var(--muted);text-align:left}
+.rdet{background:var(--bg);border-radius:14px;padding:12px 14px;display:grid;gap:6px}
+.rdet h3{font-size:1.1rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rdet .badge{font-size:.75rem;font-weight:600;border-radius:999px;padding:1px 10px;color:#fff}
+.rdet .badge.open{background:#d9741a}.rdet .badge.past{background:#14503e}.rdet .badge.none{background:var(--muted)}
+.rdet .cities{display:flex;flex-wrap:wrap;gap:6px}
+.rdet .cities span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:0 10px;font-size:.82rem}
+.rdet ul{font-size:.88rem}
+.rdet .src{font-size:.75rem;color:var(--muted)}
+.official{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--m-soft);border-radius:12px;padding:10px 14px;font-size:.9rem}
+.official a{font-weight:700;background:#14503e;color:#fdf6ec;text-decoration:none;border-radius:999px;padding:4px 16px;white-space:nowrap}
+.mapnote{font-size:.8rem;color:var(--muted)}
+@media (max-width:520px){.mapgrid{grid-auto-rows:minmax(46px,auto);gap:4px}.tile{padding:6px;font-size:.78rem}.tile small{display:none}.tile{font-size:.7rem;padding:5px 4px;word-break:keep-all}.tile .dot{top:auto;bottom:6px;left:6px;width:7px;height:7px}}
 footer{border-top:1px solid var(--line);padding-block:20px 40px;color:var(--muted);font-size:.85rem}
 footer .wrap{display:grid;gap:8px}
 </style>
@@ -121,8 +160,19 @@ footer .wrap{display:grid;gap:8px}
   <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><rect width="400" height="400" rx="88" fill="#0e3b2e"/><path d="M200 70 L320 168 L320 300 L80 300 L80 168 Z" fill="#fdf6ec" stroke="#fdf6ec" stroke-width="20" stroke-linejoin="round"/><circle cx="200" cy="178" r="21" fill="#f08a2c"/><rect x="181" y="213" width="38" height="97" rx="10" fill="#f08a2c"/></svg><div><b>معلومة عقارية</b><a href="https://x.com/malomhagaryh" target="_blank" rel="noopener" dir="ltr">@malomhagaryh</a></div></div>
   <h1>هل عقارك <em>مسجل عينياً؟</em></h1>
   <p class="lead">السجل العقاري يغطي أحياء جديدة كل شهر، واللي ما يسجل في المهلة يتعرض لغرامة. جاوب ٣ أسئلة وتعرف وضع عقارك، وخطوات نقل صكك للسجل العقاري محطة محطة.</p>
-  <div class="news" role="note"><b>آخر إعلان (١٥ نوفمبر ٢٠٢٦م)</b><span>بدء التسجيل العيني الأول لـ٢٠٨٬٦٨٠ قطعة في مناطق مكة المكرمة والجوف والشرقية وحائل، والمهلة حتى نهاية الخميس ١٨ فبراير ٢٠٢٧م. وسبقته إعلانات في الرياض والقصيم والشرقية وحائل ومكة وتبوك والمدينة المنورة.</span><span style="opacity:.85;font-size:.85rem">الإعلان يكون بالأحياء وأجزاء الأحياء، لا بالمدن. تحقق من موقع عقارك في منصة السجل العقاري rer.sa.</span></div>
+  <div class="news" role="note"><b>آخر إعلان (١٥ نوفمبر ٢٠٢٦م)</b><span>بدء التسجيل العيني الأول لـ٢٠٨٬٦٨٠ قطعة في مناطق مكة المكرمة والجوف والشرقية وحائل، والمهلة حتى نهاية الخميس ١٨ فبراير ٢٠٢٧م. وسبقته إعلانات في الرياض والقصيم والشرقية وحائل ومكة وتبوك والمدينة المنورة.</span><span style="opacity:.85;font-size:.85rem">الإعلان يكون بالأحياء وأجزاء الأحياء، لا بالمدن. تحقق من موقع عقارك في منصة السجل العقاري rer.sa، أو <a href="#map" style="color:inherit;font-weight:700">شوف خريطة المناطق</a>.</span></div>
  </header>
+
+ <section class="mapsec" id="map" aria-labelledby="h-map">
+  <h2 id="h-map">خريطة التسجيل العيني في المملكة</h2>
+  <p class="sub">وين بدأ السجل العقاري؟ اضغط على أي منطقة وتشوف المدن والمحافظات المعلنة فيها، وآخر إعلان ومهلته. المحدّث حتى <b>١٧ نوفمبر ٢٠٢٦م</b>.</p>
+  <div class="legend" aria-hidden="true"><span><i class="k-open"></i>مهلة تسجيل مفتوحة الآن</span><span><i class="k-past"></i>بدأ فيها التسجيل، وآخر مهلة انتهت</span><span><i class="k-none"></i>ما أُعلن فيها تسجيل حتى الآن</span></div>
+  <div class="mapgrid" id="mapgrid" role="group" aria-label="مناطق المملكة"></div>
+  <p class="compass">↑ الشمال · الخريطة تقريبية، كل مربع منطقة إدارية</p>
+  <div class="rdet" id="rdet" aria-live="polite"></div>
+  <div class="official"><span>المنطقة الملونة ما تعني إن كل عقاراتها مسجلة: الإعلان يكون بأحياء وأجزاء أحياء. لمعرفة حيّك بالضبط استخدم الخريطة الرسمية.</span><a href="https://eservices.rer.sa/#/announced-areas?lang=ar" target="_blank" rel="noopener">الخريطة الرسمية للمناطق المعلنة ←</a></div>
+  <p class="mapnote">المصدر: إعلانات السجل العقاري والهيئة العامة للعقار المنشورة في وكالة الأنباء السعودية (واس) وموقع الهيئة، من سبتمبر ٢٠٢٤م إلى ١٥ نوفمبر ٢٠٢٦م. قوائم المدن تذكر ما ورد في الإعلانات، وقد لا تكون كاملة.</p>
+ </section>
 
  <div id="qs"></div>
  <section id="out" aria-live="polite"></section>
@@ -210,6 +260,30 @@ function render(){
 }
 document.addEventListener("click",e=>{const b=e.target.closest("button[data-q]");if(!b)return;A[b.dataset.q]=b.dataset.v;render();const nb=document.querySelector(`button[data-q="${b.dataset.q}"][data-v="${b.dataset.v}"]`);nb&&nb.focus()});
 render();
+})();
+(()=>{
+const SPA="وكالة الأنباء السعودية (واس)";
+const R={
+ riy:{n:"الرياض",s:"open",c:["الرياض","الدرعية","الخرج","الدوادمي","المجمعة","شقراء","عفيف","وادي الدواسر","ضرما","المزاحمية","حريملاء","ثادق","حوطة سدير","حوطة بني تميم","الحريق","الأرطاوية","ساجر","رماح"],f:"سبتمبر ٢٠٢٤م: أول ١٠ أحياء في مدينة الرياض (العليا، الملز، المربع، الناصرية وغيرها)",l:"٢٥ أكتوبر ٢٠٢٦م: أحياء جزئية في مدينة الرياض (بلديات العزيزية والحائر والسلي) والأرطاوية، ٢٨٬٥٤٧ قطعة",d:"الخميس ٢٨ يناير ٢٠٢٧م"},
+ mak:{n:"مكة المكرمة",s:"open",c:["مكة المكرمة","جدة","الطائف","الجموم","رابغ","ثول","المويه","عسفان"],f:"إعلانات متتالية في مكة وجدة، منها ١٩ حياً في جدة (أغسطس ٢٠٢٥م)",l:"١٥ نوفمبر ٢٠٢٦م: أحياء في الطائف ورابغ والمويه وقطع في عسفان ومكة، ضمن إعلان ٢٠٨٬٦٨٠ قطعة",d:"الخميس ١٨ فبراير ٢٠٢٧م"},
+ mad:{n:"المدينة المنورة",s:"open",c:["المدينة المنورة","ينبع","خيبر"],f:"ديسمبر ٢٠٢٤م: ٤ أحياء في المنطقة المركزية (المناخة وأجزاء من بضاعة والنقا)",l:"١٨ أكتوبر ٢٠٢٦م: ١٢٬٩٨٦ قطعة في المنطقة منها ينبع وخيبر",d:"الخميس ٢١ يناير ٢٠٢٧م"},
+ eas:{n:"الشرقية",s:"open",c:["الدمام","الأحساء","حفر الباطن","الخفجي","القيصومة","بقيق","مليجة","عين دار","الرفيعة","الصداوي"],f:"٢٠٢٤م: أحياء في الدمام، ثم ٢٠ حياً في الأحساء (يوليو ٢٠٢٥م)",l:"١٥ نوفمبر ٢٠٢٦م: أحياء في عين دار والبيضاء والقليب والخفجي وقطع في الدمام ومليجة وبقيق",d:"الخميس ١٨ فبراير ٢٠٢٧م"},
+ qas:{n:"القصيم",s:"open",c:["المذنب","البدائع","النبهانية","عقلة الصقور","الفوارة","ضرية","أبانات","دخنة","قصر ابن عقيل","الدليمية"],f:"نوفمبر ٢٠٢٥م: ١٣٩ حياً في القصيم ضمن إعلان ٤٩٩ حياً",l:"١٨ أكتوبر ٢٠٢٦م: ٢٥٬٠٧٢ قطعة في عدد من مدن ومحافظات القصيم",d:"الخميس ٢١ يناير ٢٠٢٧م"},
+ hai:{n:"حائل",s:"open",c:["حائل","بقعاء","الشملي","الحائط","الحليفة","تربة حائل","الخطة"],f:"نوفمبر ٢٠٢٥م: ١٠٤ أحياء في مدينة حائل، ثم ١٧٣ حياً في المنطقة",l:"١٥ نوفمبر ٢٠٢٦م: قطع في تربة حائل والشملي والحليفة والحائط وبقعاء والخطة",d:"الخميس ١٨ فبراير ٢٠٢٧م"},
+ jou:{n:"الجوف",s:"open",c:["سكاكا","القريات","دومة الجندل","طبرجل","صوير","العيساوية","الناصفة"],f:"ديسمبر ٢٠٢٥م: ١٩٩٬١٦١ قطعة في سكاكا والقريات ودومة الجندل وطبرجل وصوير",l:"١٥ نوفمبر ٢٠٢٦م: حي السالم في طبرجل وقطع في صوير والعيساوية والقريات والناصفة",d:"الخميس ١٨ فبراير ٢٠٢٧م"},
+ tab:{n:"تبوك",s:"past",c:["تبوك","ضباء","الوجه","تيماء","أملج"],f:"ديسمبر ٢٠٢٥م: ١١٦ حياً و١٤٨٬١٨٨ قطعة في تبوك وضباء والوجه وتيماء (المهلة انتهت ٢٦ مارس ٢٠٢٦م)",l:"أغسطس ٢٠٢٦م: إعلان شمل تبوك ضمن ١٦٧ ألف قطعة في ٥ مناطق",d:""},
+ nor:{n:"الحدود الشمالية",s:"past",c:["عرعر","رفحاء","طريف","العويقيلة"],f:"ديسمبر ٢٠٢٥م: ٢٠٦ أحياء و١٦٠ ألف قطعة تقريباً في عرعر ورفحاء وطريف والعويقيلة",l:"نفس الإعلان، والمهلة انتهت ٢٦ مارس ٢٠٢٦م",d:""},
+ asi:{n:"عسير",s:"past",c:["خميس مشيط"],f:"مايو ٢٠٢٦م: أول إعلان في المنطقة، جزء من حيي الإسكان وتارة في خميس مشيط",l:"نفس الإعلان، والمهلة انتهت ٢٠ أغسطس ٢٠٢٦م",d:""},
+ jaz:{n:"جازان",s:"none"},nnj:{n:"نجران",s:"none"},bah:{n:"الباحة",s:"none"}
+};
+const ST={open:"مهلة مفتوحة",past:"بدأ سابقاً",none:"لم يُعلن بعد"};
+const g=document.getElementById("mapgrid"),det=document.getElementById("rdet");
+g.innerHTML=Object.entries(R).map(([k,r])=>`<button type="button" class="tile ${r.s}" style="grid-area:${k}" data-r="${k}" aria-pressed="false" aria-label="${r.n}: ${ST[r.s]}">${r.s==="open"?'<span class="dot" aria-hidden="true"></span>':""}<span>${r.n}</span><small>${ST[r.s]}</small></button>`).join("");
+function show(k){const r=R[k];g.querySelectorAll(".tile").forEach(b=>b.setAttribute("aria-pressed",b.dataset.r===k));
+ if(r.s==="none"){det.innerHTML=`<h3>${r.n}<span class="badge none">${ST.none}</span></h3><p>ما رصدنا أي إعلان رسمي لبدء التسجيل العيني في منطقة ${r.n} حتى ١٧ نوفمبر ٢٠٢٦م. يعني ما يلزمك التسجيل الآن، لكن تقدر تسجّل اختيارياً بطلب منك، وجهّز صكك من الحين.</p><p class="src">الهيئة تعلن المناطق الجديدة على مراحل.</p>`;return}
+ det.innerHTML=`<h3>${r.n}<span class="badge ${r.s}">${ST[r.s]}</span></h3>${r.d?`<p><b>آخر مهلة:</b> حتى نهاية يوم ${r.d}</p>`:""}<div class="cities" aria-label="مدن ومحافظات وردت في الإعلانات">${r.c.map(x=>`<span>${x}</span>`).join("")}</div><ul><li><b>البداية:</b> ${r.f}</li><li><b>آخر إعلان:</b> ${r.l}</li></ul><p class="src">من إعلانات السجل العقاري المنشورة في ${SPA}.</p>`;}
+g.addEventListener("click",e=>{const b=e.target.closest(".tile");if(b)show(b.dataset.r)});
+show("riy");
 })();
 </script>
 </body>
