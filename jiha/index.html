@@ -6,19 +6,19 @@
 <title>من الجهة المختصة؟</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Cdefs%3E%3ClinearGradient id=%22qg%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%232a6fd0%22/%3E%3Cstop offset=%221%22 stop-color=%22%2303398a%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22200%22 fill=%22url%28%23qg%29%22/%3E%3Cpath d=%22M95 400V120l70-30v310M235 400V60l80 35v305%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-opacity=%22.10%22 stroke-width=%2210%22/%3E%3Ctext x=%22200%22 y=%22182%22 text-anchor=%22middle%22 font-family=%22Cairo%2CTajawal%2Csans-serif%22 font-weight=%22800%22 font-size=%2284%22 fill=%22%23ffffff%22%3E%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%3C/text%3E%3Ctext x=%22200%22 y=%22282%22 text-anchor=%22middle%22 font-family=%22Cairo%2CTajawal%2Csans-serif%22 font-weight=%22800%22 font-size=%2284%22 fill=%22%23ffffff%22%3E%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://qw-sa.github.io/jiha/">
-<meta name="description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها (إيجار، ناجز، محكمة التنفيذ، الهيئة العامة للعقار، التحكيم العقاري، السجل العقاري...) وأول خطوة.">
+<meta name="description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها وأول خطوة. وإذا نزاعك يقبل التحكيم العقاري، يقارن لك الميزان بين المحكمة والتحكيم في المدة والتكلفة والطعن والسرية.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:site_name" content="القانون العقاري">
-<meta property="og:title" content="عندك مشكلة عقارية؟ وين تروح بالضبط؟">
-<meta property="og:description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها (إيجار، ناجز، محكمة التنفيذ، الهيئة العامة للعقار، التحكيم العقاري، السجل العقاري...) وأول خطوة.">
+<meta property="og:title" content="من الجهة المختصة؟ والمحكمة أو التحكيم العقاري؟">
+<meta property="og:description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها وأول خطوة. وإذا نزاعك يقبل التحكيم العقاري، يقارن لك الميزان بين المحكمة والتحكيم في المدة والتكلفة والطعن والسرية.">
 <meta property="og:url" content="https://qw-sa.github.io/jiha/">
 <meta property="og:image" content="https://qw-sa.github.io/jiha/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="675">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="عندك مشكلة عقارية؟ وين تروح بالضبط؟">
-<meta name="twitter:description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها (إيجار، ناجز، محكمة التنفيذ، الهيئة العامة للعقار، التحكيم العقاري، السجل العقاري...) وأول خطوة.">
+<meta name="twitter:title" content="من الجهة المختصة؟ والمحكمة أو التحكيم العقاري؟">
+<meta name="twitter:description" content="أداة تفاعلية: اكتب مشكلتك العقارية أو اخترها، وتعرف الجهة المختصة بها وأول خطوة. وإذا نزاعك يقبل التحكيم العقاري، يقارن لك الميزان بين المحكمة والتحكيم في المدة والتكلفة والطعن والسرية.">
 <meta name="twitter:image" content="https://qw-sa.github.io/jiha/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&family=Tajawal:wght@400;500;700&display=swap">
@@ -27,14 +27,15 @@
 :root{
   --bg:#eef2f8; --paper:#ffffff; --ink:#14213a; --muted:#56637a; --line:#d9e1ee;
   --blue:#0a3f94; --blue2:#1d5eb8; --soft:#e6eefb; --sign:#0f4fae; --sign-ink:#ffffff; --amber:#b86e00; --amber-soft:#fbefd9; --ok:#1f6e4a; --ok-soft:#e2f0e7;
+  --court:#7a3e10; --court-soft:#f6ebe0; --arb:#0a5c8f; --arb-soft:#e1eef7;
   --f-display:"Cairo","Tajawal",sans-serif; --f-body:"Tajawal",Tahoma,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0b1220; --paper:#121b2d; --ink:#e3e9f4; --muted:#9eabc0; --line:#26334b;
-  --blue:#7fb3ff; --blue2:#9cc8ff; --soft:#16294a; --sign:#164a9c; --sign-ink:#ffffff; --amber:#e8b863; --amber-soft:#342814; --ok:#6fcf9b; --ok-soft:#143024; color-scheme:dark}}
+  --blue:#7fb3ff; --blue2:#9cc8ff; --soft:#16294a; --sign:#164a9c; --sign-ink:#ffffff; --amber:#e8b863; --amber-soft:#342814; --ok:#6fcf9b; --ok-soft:#143024; --court:#e9a46c; --court-soft:#33231a; --arb:#7cc3ef; --arb-soft:#13293a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0b1220; --paper:#121b2d; --ink:#e3e9f4; --muted:#9eabc0; --line:#26334b;
-  --blue:#7fb3ff; --blue2:#9cc8ff; --soft:#16294a; --sign:#164a9c; --sign-ink:#ffffff; --amber:#e8b863; --amber-soft:#342814; --ok:#6fcf9b; --ok-soft:#143024; color-scheme:dark}
+  --blue:#7fb3ff; --blue2:#9cc8ff; --soft:#16294a; --sign:#164a9c; --sign-ink:#ffffff; --amber:#e8b863; --amber-soft:#342814; --ok:#6fcf9b; --ok-soft:#143024; --court:#e9a46c; --court-soft:#33231a; --arb:#7cc3ef; --arb-soft:#13293a; color-scheme:dark}
 *{box-sizing:border-box}[hidden]{display:none!important}
 html{direction:rtl}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75}
@@ -98,6 +99,61 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .share{margin:0 18px 18px;display:flex;gap:8px;flex-wrap:wrap}
 .share button{border:1.5px solid var(--blue2);background:transparent;color:var(--blue2);border-radius:8px;padding:4px 12px;cursor:pointer;min-height:38px}
 
+/* خطوة التحكيم: الميزان (من أداة المحكمة أو التحكيم) */
+.arbx{margin:4px 18px 18px;border:2px solid var(--arb);border-radius:16px;overflow:hidden;scroll-margin-top:12px}
+.arbx>.hd{background:var(--arb-soft);padding:12px 16px;display:grid;gap:2px}
+.arbx>.hd small{font-weight:700;color:var(--arb);font-size:.82rem}
+.arbx>.hd h3{font-size:1.15rem}
+.arbx>.hd p{font-size:.92rem;color:var(--muted)}
+.arbx .in{padding:14px 16px;display:grid;gap:14px}
+.aq{display:grid;gap:6px}.aq>span{font-weight:700;font-size:.95rem}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:5px 14px;cursor:pointer;min-height:40px;font-size:.93rem}
+.seg button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#0b1220}}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#0b1220}
+.amt{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.amt input{border:1.5px solid var(--line);border-radius:10px;padding:7px 12px;width:200px;background:var(--paper);color:var(--ink);direction:ltr;text-align:right}
+.beamwrap{position:relative;height:150px;max-width:520px;width:100%;margin:0 auto}
+.post{position:absolute;left:50%;top:22px;bottom:0;width:8px;margin-left:-4px;background:var(--muted);border-radius:4px}
+.post::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;height:10px;border-radius:6px;background:var(--muted)}
+.beam{position:absolute;left:16%;right:16%;top:16px;height:8px;background:var(--ink);border-radius:4px;transform-origin:50% 50%;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+.beam::before{content:"";position:absolute;left:50%;top:-8px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--ink)}
+.pan{position:absolute;top:4px;width:120px;margin-left:-60px;text-align:center;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+.pan.r{left:84%}.pan.l{left:16%}
+.pan i{display:block;width:2px;height:40px;margin:0 auto;background:var(--muted)}
+.pan b{display:block;border-radius:0 0 70px 70px;padding:8px 6px 14px;font-family:var(--f-display);font-size:1rem;color:#fff}
+.pan.r b{background:var(--court)}.pan.l b{background:var(--arb)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pan b{color:#0b1220}}
+:root[data-theme="dark"] .pan b{color:#0b1220}
+.verdict{border-radius:14px;padding:14px 16px;display:grid;gap:6px}
+.verdict small{font-weight:700;font-size:.85rem}
+.verdict h4{font-family:var(--f-display);font-size:1.3rem;margin:0;line-height:1.3}
+.v-court{background:var(--court-soft)}.v-court small{color:var(--court)}
+.v-arb{background:var(--arb-soft)}.v-arb small{color:var(--arb)}
+.v-exec{background:var(--ok-soft)}.v-exec small{color:var(--ok)}
+.v-sulh{background:var(--amber-soft)}.v-sulh small{color:var(--amber)}
+.verdict ul{font-size:.95rem}
+.arbx details{border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.arbx summary{cursor:pointer;font-family:var(--f-display);font-weight:700}
+.arbx details[open] summary{margin-bottom:10px}
+.cmph,.crow{display:grid;grid-template-columns:130px 1fr 1fr;gap:10px}
+.cmph div{font-family:var(--f-display);font-weight:800;text-align:center;padding:6px;border-radius:10px 10px 0 0;color:#fff}
+.cmph .hc{background:var(--court)}.cmph .ha{background:var(--arb)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cmph div{color:#0b1220}}
+:root[data-theme="dark"] .cmph div{color:#0b1220}
+.rows{display:grid;gap:8px}
+.crow{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 12px;align-items:start}
+.crow>b{font-family:var(--f-display);font-size:.98rem}
+.crow>div{font-size:.92rem;line-height:1.65}
+.crow>div strong{display:block;font-size:1rem}
+.crow .c{border-inline-start:3px solid var(--court);padding-inline-start:10px}
+.crow .a{border-inline-start:3px solid var(--arb);padding-inline-start:10px}
+.win{display:inline-block;font-size:.75rem;font-weight:700;background:var(--ok-soft);color:var(--ok);border-radius:6px;padding:0 6px;margin-inline-start:4px}
+.arbx .stp{margin:0;padding-inline-start:1.3em;columns:2;column-gap:30px;display:block}
+.arbx .sm{font-size:.9rem;color:var(--muted);margin-top:8px}
+@media (max-width:680px){.cmph{display:none}.crow{grid-template-columns:1fr}.crow .c::before{content:"المحكمة";display:block;font-weight:700;color:var(--court);font-size:.8rem}.crow .a::before{content:"التحكيم العقاري";display:block;font-weight:700;color:var(--arb);font-size:.8rem}.arbx .stp{columns:1}.arbx{margin-inline:10px}.pan{width:96px;margin-left:-48px}.pan.r{left:80%}.pan.l{left:20%}.beam{left:20%;right:20%}}
+
 .note{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:12px 16px;font-size:.92rem;color:var(--muted);margin-bottom:12px}
 footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--muted);font-size:.86rem;display:grid;gap:8px}
 @media (max-width:560px){.search{flex-wrap:wrap;padding:8px}.search label{width:100%}.sign b{font-size:1.15rem}}
@@ -108,8 +164,8 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
  <div class="wrap">
   <div class="acct"><svg aria-hidden="true" viewBox="0 0 400 400"><defs><linearGradient id="qg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a6fd0"/><stop offset="1" stop-color="#03398a"/></linearGradient></defs><circle cx="200" cy="200" r="200" fill="url(#qg)"/><path d="M95 400V120l70-30v310M235 400V60l80 35v305" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="10"/><text x="200" y="182" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">القانون</text><text x="200" y="282" text-anchor="middle" font-family="Cairo,Tajawal,sans-serif" font-weight="800" font-size="84" fill="#ffffff">العقاري</text></svg><div><b>القانون العقاري</b><span class="h"><a href="https://x.com/re_laws" target="_blank" rel="noopener" dir="ltr">@re_laws</a> · مصدرك الموثوق لأحدث القوانين والأنظمة العقارية</span></div></div>
   <h1>عندك مشكلة عقارية؟ <em>وين تروح؟</em></h1>
-  <p>المستأجر ما يدفع، المطور تأخر، جارك تعدّى، خطأ في صكك، خلاف بين الورثة.. اكتب مشكلتك أو اخترها، ونقولك الجهة المختصة، وقبلها وش لازم يكون عندك، وأول خطوة.</p>
-  <div class="facts"><span>٢٦ مشكلة شائعة</span><span>إيجار · ناجز · التنفيذ · الهيئة · التحكيم · السجل العقاري</span><span>آخر مراجعة: ١٦ نوفمبر ٢٠٢٦م</span></div>
+  <p>المستأجر ما يدفع، المطور تأخر، جارك تعدّى، خطأ في صكك، خلاف بين الورثة.. اكتب مشكلتك أو اخترها، ونقولك الجهة المختصة، وقبلها وش لازم يكون عندك، وأول خطوة. وإذا نزاعك يقبل التحكيم العقاري، يميل لك الميزان بين المحكمة والتحكيم.</p>
+  <div class="facts"><span>٢٧ مشكلة شائعة</span><span>ميزان المحكمة أو التحكيم</span><span>إيجار · ناجز · التنفيذ · الهيئة · التحكيم · السجل العقاري</span><span>آخر مراجعة: ١٦ نوفمبر ٢٠٢٦م</span></div>
  </div>
 </header>
 
@@ -128,8 +184,8 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
 
 <footer>
  <div class="wrap" style="display:grid;gap:8px">
-  <p>المراجع: نظام التنفيذ ولائحته، أحكام ضبط العلاقة الإيجارية، نظام الوساطة العقارية، نظام البيع على الخارطة، نظام ملكية الوحدات العقارية، نظام التسجيل العيني ولائحته، لائحة قسمة الأموال المشتركة، تنظيم مركز الإسناد والتصفية، لائحة القواعد الإجرائية للمركز السعودي للتحكيم العقاري، نظام رسوم الأراضي البيضاء، نظام نزع ملكية العقارات، نظام ضريبة التصرفات العقارية، وباب المنصات في كتاب «القانون العقاري سؤال وجواب».</p>
-  <p>أدوات أخرى: <a href="https://qw-sa.github.io/tahkeem/">المحكمة أو التحكيم العقاري؟</a> · <a href="https://qw-sa.github.io/evict/">هل يحق للمؤجر إخلاؤك؟</a> · <a href="https://qw-sa.github.io/mohal/">تقويم المهل النظامية</a></p>
+  <p>المراجع: نظام التنفيذ ولائحته، أحكام ضبط العلاقة الإيجارية، نظام الوساطة العقارية، نظام البيع على الخارطة، نظام ملكية الوحدات العقارية، نظام التسجيل العيني ولائحته، لائحة قسمة الأموال المشتركة، تنظيم مركز الإسناد والتصفية، لائحة القواعد الإجرائية للمركز السعودي للتحكيم العقاري (1444هـ) ودليل خدمات المركز، نظام التحكيم، نظام التكاليف القضائية، نظام المرافعات الشرعية، نظام رسوم الأراضي البيضاء، نظام نزع ملكية العقارات، نظام ضريبة التصرفات العقارية، وباب المنصات في كتاب «القانون العقاري سؤال وجواب».</p>
+  <p>أدوات أخرى: <a href="https://qw-sa.github.io/sijil/">هل عقارك مسجل عينياً؟</a> · <a href="https://qw-sa.github.io/evict/">هل يحق للمؤجر إخلاؤك؟</a> · <a href="https://qw-sa.github.io/mohal/">تقويم المهل النظامية</a></p>
  </div>
 </footer>
 
@@ -138,13 +194,14 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
 const NJ="<a href='https://najiz.sa' target='_blank' rel='noopener'>najiz.sa</a>",EJ="<a href='https://www.ejar.sa' target='_blank' rel='noopener'>ejar.sa</a>",RER="<a href='https://rer.sa' target='_blank' rel='noopener'>rer.sa</a>",REAC="<a href='https://reac.sa' target='_blank' rel='noopener'>reac.sa</a>",REGA="<a href='https://rega.gov.sa' target='_blank' rel='noopener'>rega.gov.sa</a> أو ١٩٩٠١١";
 const C=[["all","الكل"],["rent","إيجار"],["own","صكوك وملكية"],["nb","جيران وبناء"],["share","ورثة وشركاء"],["deal","وسطاء ومطورين ومزادات"],["gov","رسوم وجهات حكومية"]];
 const P=[
+ {id:"arb",c:"x",arb:"any",t:"ما أدري: أروح للمحكمة أو للتحكيم العقاري؟",k:"تحكيم محكمة مركز التحكيم العقاري مقارنة مشارطة شرط تحكيم صلح قضية دعوى",to:"المحكمة أو المركز السعودي للتحكيم العقاري",via:"جاوب على أسئلة الميزان تحت",pre:"",steps:["حدد نوع نزاعك، وهل عندكم اتفاق تحكيم مكتوب.","يميل الميزان للأنسب لك، وتحته مقارنة المدة والتكلفة والطعن والسرية."],ref:"لائحة القواعد الإجرائية للمركز السعودي للتحكيم العقاري، ونظام التحكيم، ونظام التكاليف القضائية"},
  {id:"nopay",c:"rent",t:"المستأجر ما يدفع الإيجار",k:"متأخر سداد ايجار اجرة فلوس مماطل",to:"محكمة التنفيذ",via:"طلب تنفيذ في ناجز "+NJ,pre:"عقد الإيجار مسجل في «إيجار»، فيكون سنداً تنفيذياً بلا دعوى.",steps:["ادخل ناجز ← طلب تنفيذ ← سند «عقد إيجار».","حدد المبالغ المتأخرة من العقد.","تبلّغ المحكمة المستأجر، وإن لم يسدد تتخذ إجراءات التنفيذ."],alt:["العقد مو مسجل؟","سجّله في إيجار أولاً، لأن المحاكم لا تنظر في عقد الإيجار غير المسجل."],ref:"نظام التنفيذ، المادة ٧ (عقد الإيجار المسجل في إيجار سند تنفيذي)",more:["https://qw-sa.github.io/evict/#nopay","حالة الإخلاء لتأخر السداد"]},
  {id:"stay",c:"rent",t:"العقد انتهى والمستأجر رافض يطلع",k:"اخلاء طرد انتهاء العقد رافض يخرج",to:"محكمة التنفيذ",via:"طلب تنفيذ إخلاء في ناجز "+NJ,pre:"عقد مسجل في إيجار، وإشعار عدم التجديد في مدته النظامية.",steps:["تأكد من إشعار عدم التجديد في إيجار (٦٠ يوماً على الأقل قبل نهاية العقد، وفي الرياض قيود على رفض التجديد).","قدّم طلب تنفيذ إخلاء في ناجز.","يُبلّغ المستأجر بأمر الإخلاء، فإن لم يُخلِ خلال ٥ أيام عمل أمرت المحكمة بالإخلاء بالقوة المختصة."],alt:["فيه خلاف على حقك في الإخلاء؟","المحكمة المختصة عبر ناجز، أو التحكيم إذا متفقين عليه."],ref:"نظام التنفيذ ولائحته، وأحكام ضبط العلاقة الإيجارية (البند ثامناً)",time:"المستأجر أمامه ٥ أيام عمل من التبليغ بأمر الإخلاء.",more:["https://qw-sa.github.io/evict/#order","تفاصيل أمر الإخلاء"]},
  {id:"landlord",c:"rent",t:"المؤجر يبي يطلعني أو رافض يجدد",k:"مالك يخرجني تجديد رفض اخلاء مستاجر",to:"منصة إيجار ثم المحكمة المختصة",via:"افحص حالتك أولاً، ثم إيجار "+EJ,pre:"اعرف هل يحق له نظاماً (في الرياض ما يرفض التجديد إلا لأسباب محددة).",steps:["افتح عقدك في إيجار وشوف الإشعار المسجل وتاريخه.","إذا ما يحق له: لا تخلي، ووثّق تواصلك كتابياً.","إذا وصلك أمر إخلاء من التنفيذ: ارجع لمحكمة التنفيذ في ناجز خلال المهلة."],alt:["متفقين على التحكيم؟","المركز السعودي للتحكيم العقاري "+REAC],ref:"أحكام ضبط العلاقة الإيجارية، ونظام المعاملات المدنية",more:["https://qw-sa.github.io/evict/","افحص حالتك: هل يحق للمؤجر إخلاؤك؟"]},
- {id:"rentfight",c:"rent",t:"خلاف مع المؤجر أو المستأجر على صيانة أو تأمين أو تعويض",k:"صيانة تأمين تلفيات تعويض ضرر خلاف ايجار",to:"المركز السعودي للتحكيم العقاري",via:"صلح أو تحكيم عبر "+REAC,pre:"عقد إيجار موثق في إيجار (سكني أو تجاري). والتحكيم يحتاج اتفاقاً مكتوباً عليه، والصلح ما يحتاج.",steps:["سجّل في منصة المركز.","اختر «صلح» لتسوية ودية، أو «تحكيم» إذا عندكم شرط أو مشارطة تحكيم.","ادفع التكاليف الإدارية وأرفق العقد والمستندات."],alt:["الطرف الثاني رافض الصلح وما فيه اتفاق تحكيم؟","المحكمة المختصة عبر ناجز "+NJ],ref:"لائحة القواعد الإجرائية للمركز، ودليل خدمات المركز",more:["https://qw-sa.github.io/tahkeem/","قارن: المحكمة أو التحكيم؟"]},
+ {id:"rentfight",c:"rent",t:"خلاف مع المؤجر أو المستأجر على صيانة أو تأمين أو تعويض",k:"صيانة تأمين تلفيات تعويض ضرر خلاف ايجار",to:"المركز السعودي للتحكيم العقاري",via:"صلح أو تحكيم عبر "+REAC,pre:"عقد إيجار موثق في إيجار (سكني أو تجاري). والتحكيم يحتاج اتفاقاً مكتوباً عليه، والصلح ما يحتاج.",steps:["سجّل في منصة المركز.","اختر «صلح» لتسوية ودية، أو «تحكيم» إذا عندكم شرط أو مشارطة تحكيم.","ادفع التكاليف الإدارية وأرفق العقد والمستندات."],alt:["الطرف الثاني رافض الصلح وما فيه اتفاق تحكيم؟","المحكمة المختصة عبر ناجز "+NJ],ref:"لائحة القواعد الإجرائية للمركز، ودليل خدمات المركز",arb:"rent"},
  {id:"ejardata",c:"rent",t:"عقد إيجار مسجل ببيانات غلط أو بدون علمي",k:"بيانات خاطئة عقد ايجار مزور سجل بدون علم اعتراض",to:"الهيئة العامة للعقار (منصة إيجار)",via:"اعتراض على بيانات العقد في إيجار "+EJ,pre:"",steps:["افتح العقد في إيجار من حسابك بالنفاذ الوطني.","قدّم اعتراضاً على البيانات مع ما يثبت الصحيح."],ref:"أحكام ضبط العلاقة الإيجارية (البند سابعاً)",time:"خلال ٦٠ يوماً من إبلاغك بالتسجيل، وبعدها تُعد بيانات العقد صحيحة."},
- {id:"hoafee",c:"nb",t:"مالك في العمارة ما يدفع رسوم جمعية الملاك",k:"اتحاد ملاك جمعية رسوم اشتراك صيانة عمارة مالك ما يدفع",to:"جمعية الملاك عبر منصة ملاك، ثم محكمة التنفيذ",via:"منصة ملاك، وطلب تنفيذ في ناجز",pre:"جمعية ملاك مسجلة، وقرار المدير بالمبلغ معتمد من الهيئة.",steps:["رئيس الجمعية أو المدير يطالب المالك عبر منصة ملاك.","قرارات المدير وعقوده بعد اعتمادها من الهيئة سند تنفيذي، فتُنفذ مباشرة عبر محكمة التنفيذ."],alt:["خلاف على المبلغ نفسه؟","صلح أو تحكيم في المركز السعودي للتحكيم العقاري لأعضاء الجمعية."],ref:"نظام ملكية الوحدات العقارية، المادة ٢١"},
- {id:"hoa",c:"nb",t:"خلاف مع جمعية الملاك أو مدير العقار",k:"جمعية ملاك مدير عقار قرار خلاف اتحاد",to:"المركز السعودي للتحكيم العقاري",via:"صلح أو تحكيم عبر "+REAC,pre:"جمعية ملاك مسجلة وأطراف النزاع أعضاء فيها.",steps:["ارفق شهادة تسجيل الجمعية السارية ونظامها الأساسي.","اختر صلح أو تحكيم، وادفع التكاليف الإدارية."],alt:["مخالفة من الجمعية أو مديرها للنظام؟","بلاغ للهيئة العامة للعقار "+REGA],ref:"دليل خدمات المركز، ونظام ملكية الوحدات العقارية"},
+ {id:"hoafee",arb:"hoa",c:"nb",t:"مالك في العمارة ما يدفع رسوم جمعية الملاك",k:"اتحاد ملاك جمعية رسوم اشتراك صيانة عمارة مالك ما يدفع",to:"جمعية الملاك عبر منصة ملاك، ثم محكمة التنفيذ",via:"منصة ملاك، وطلب تنفيذ في ناجز",pre:"جمعية ملاك مسجلة، وقرار المدير بالمبلغ معتمد من الهيئة.",steps:["رئيس الجمعية أو المدير يطالب المالك عبر منصة ملاك.","قرارات المدير وعقوده بعد اعتمادها من الهيئة سند تنفيذي، فتُنفذ مباشرة عبر محكمة التنفيذ."],alt:["خلاف على المبلغ نفسه؟","صلح أو تحكيم في المركز السعودي للتحكيم العقاري لأعضاء الجمعية."],ref:"نظام ملكية الوحدات العقارية، المادة ٢١"},
+ {id:"hoa",arb:"hoa",c:"nb",t:"خلاف مع جمعية الملاك أو مدير العقار",k:"جمعية ملاك مدير عقار قرار خلاف اتحاد",to:"المركز السعودي للتحكيم العقاري",via:"صلح أو تحكيم عبر "+REAC,pre:"جمعية ملاك مسجلة وأطراف النزاع أعضاء فيها.",steps:["ارفق شهادة تسجيل الجمعية السارية ونظامها الأساسي.","اختر صلح أو تحكيم، وادفع التكاليف الإدارية."],alt:["مخالفة من الجمعية أو مديرها للنظام؟","بلاغ للهيئة العامة للعقار "+REGA],ref:"دليل خدمات المركز، ونظام ملكية الوحدات العقارية"},
  {id:"encroach",c:"nb",t:"جاري تعدّى على أرضي أو حدودي",k:"تعدي جار حدود سور ارض بنى على ارضي",to:"المحكمة العامة",via:"صحيفة دعوى في ناجز "+NJ,pre:"صكك وما يثبت الحدود (تقرير مساحي من مكتب مرخص).",steps:["جهّز الصك والتقرير المساحي وصور التعدي.","ارفع دعوى في ناجز، وتحدد لك المحكمة المختصة (الدعاوى العينية على العقار للمحكمة العامة).","إذا العقار مسجل عينياً، يُؤشر بالدعوى في صحيفة العقار."],ref:"نظام المرافعات الشرعية، ونظام التسجيل العيني، المادة ١٦"},
  {id:"build",c:"nb",t:"جاري يبني مخالف أو فيه مبنى آيل للسقوط",k:"بناء مخالف رخصة بلدية مبنى خطر تشوه بصري ازعاج",to:"الأمانة أو البلدية",via:"بلاغ عبر تطبيق بلدي أو الرقم ٩٤٠",pre:"",steps:["صوّر المخالفة وحدد الموقع.","قدّم بلاغاً في «بلدي» أو اتصل على ٩٤٠، واحتفظ برقم البلاغ."],alt:["تضررت فعلاً وتبي تعويض؟","المحكمة المختصة عبر ناجز."],ref:"أنظمة البلديات واشتراطات البناء"},
  {id:"deederr",c:"own",t:"خطأ في صكي: الاسم أو المساحة أو الحدود",k:"خطا صك تصحيح مساحة حدود اسم",to:"السجل العقاري، أو جهة إصدار الصك",via:"إذا مسجل عينياً: "+RER+" · غير مسجل: ناجز",pre:"اعرف هل عقارك مسجل في السجل العقاري.",steps:["مسجل عينياً: الهيئة تصحح الأخطاء الكتابية والمادية بطلب منك، ولك الاعتراض على التصحيح خلال ٣٠ يوماً من إشعارك.","غير مسجل: اطلب التعديل من الجهة التي أصدرت الصك عبر ناجز.","ما عالجوه؟ اعترض أمام «لجنة معالجة أخطاء تسجيل الملكية» عبر منصة «ملكية»."],ref:"نظام التسجيل العيني، المادة ٥، واللائحة، المادة ٦، وباب المنصات",more:["https://qw-sa.github.io/sijil/","هل عقارك مسجل عينياً؟"]},
@@ -153,10 +210,10 @@ const P=[
  {id:"heirs",c:"share",t:"الورثة أو الشركاء مختلفين على قسمة العقار أو بيعه",k:"ورثة قسمة تركة شركاء بيع عقار مشترك مشاع خلاف",to:"المحكمة (دعوى قسمة)",via:"صحيفة دعوى في ناجز "+NJ,pre:"صك حصر الورثة، وصكوك العقار.",steps:["إذا اتفقتم: القسمة الرضائية ما تحتاج محكمة، وتوثقونها مباشرة.","إذا ما اتفقتم: دعوى قسمة، والمحكمة تقسم ما يقبل القسمة وتبيع ما لا يقبلها وتعطي كل شريك نصيبه من الثمن.","البيع والتصفية قد تُسند إلى مركز الإسناد والتصفية (إنفاذ)."],alt:["متفقين على البيع ونبي جهة تتولاه؟","مركز الإسناد والتصفية يتولى تصفية وبيع ما ليس فيه نزاع إذا طلب أصحاب الشأن."],ref:"لائحة قسمة الأموال المشتركة، وتنظيم مركز الإسناد والتصفية، المادة ٣. ودعاوى قسمة التركات معفاة من التكاليف القضائية."},
  {id:"estate",c:"share",t:"أبي أنقل عقار المتوفى للورثة",k:"ورث وفاة نقل ملكية حصر ورثة صك",to:"ناجز",via:"خدمة حصر الورثة ثم نقل الملكية في ناجز "+NJ,pre:"",steps:["أصدر صك حصر الورثة.","انقل ملكية العقار للورثة (وإذا العقار مسجل عينياً يُسجل الإرث في السجل العقاري).","بعدها: قسمة أو بيع بالاتفاق."],ref:"نظام التسجيل العيني، المادة ١٣ (الإرث لا ينفذ في حق الغير إلا بتسجيله)"},
  {id:"broker",c:"deal",t:"الوسيط خدعني أو غير مرخص أو الإعلان مضلل",k:"وسيط مكتب عقار سمسار غير مرخص اعلان مضلل احتيال اعلان بدون ترخيص",to:"الهيئة العامة للعقار",via:"بلاغ عبر "+REGA,pre:"",steps:["جهّز رقم الإعلان أو اسم الوسيط، والمحادثات والتحويلات.","قدّم البلاغ، وتنظره لجنة مخالفات الوساطة وتوقع العقوبة."],alt:["تبي ترجع فلوسك؟","المحكمة المختصة عبر ناجز. وإذا فيه احتيال: بلاغ جنائي."],ref:"نظام الوساطة العقارية ولائحته"},
- {id:"comm",c:"deal",t:"خلاف مع الوسيط على العمولة (السعي)",k:"عمولة سعي وسيط خلاف نسبة",to:"المركز السعودي للتحكيم العقاري (صلح)",via:REAC,pre:"عقد وساطة عقارية.",steps:["العمولة النظامية ٢٫٥٪ ما لم يُتفق كتابة على غيرها، ويدفعها الطرف المتعاقد مع الوسيط.","قدّم طلب صلح في المركز مع عقد الوساطة."],alt:["ما فيه اتفاق؟","المحكمة المختصة عبر ناجز."],ref:"نظام الوساطة العقارية، المادة ١٤، ودليل خدمات المركز"},
- {id:"offplan",c:"deal",t:"مطور البيع على الخارطة تأخر أو خالف المواصفات",k:"خارطة مطور تاخير تسليم مواصفات وافي مشروع",to:"الهيئة العامة للعقار (البيع على الخارطة)",via:"بلاغ عبر "+REGA+"، وصلح عبر "+REAC,pre:"عقد بيع على الخارطة.",steps:["تحقق من حالة المشروع وترخيصه في منصة البيع على الخارطة.","قدّم بلاغاً للهيئة.","للتسوية: صلح في المركز السعودي للتحكيم العقاري."],alt:["تبي تعويض أو فسخ؟","المحكمة المختصة عبر ناجز."],ref:"نظام البيع على الخارطة ولائحته، ودليل خدمات المركز"},
+ {id:"comm",arb:"deal",c:"deal",t:"خلاف مع الوسيط على العمولة (السعي)",k:"عمولة سعي وسيط خلاف نسبة",to:"المركز السعودي للتحكيم العقاري (صلح)",via:REAC,pre:"عقد وساطة عقارية.",steps:["العمولة النظامية ٢٫٥٪ ما لم يُتفق كتابة على غيرها، ويدفعها الطرف المتعاقد مع الوسيط.","قدّم طلب صلح في المركز مع عقد الوساطة."],alt:["ما فيه اتفاق؟","المحكمة المختصة عبر ناجز."],ref:"نظام الوساطة العقارية، المادة ١٤، ودليل خدمات المركز"},
+ {id:"offplan",arb:"deal",c:"deal",t:"مطور البيع على الخارطة تأخر أو خالف المواصفات",k:"خارطة مطور تاخير تسليم مواصفات وافي مشروع",to:"الهيئة العامة للعقار (البيع على الخارطة)",via:"بلاغ عبر "+REGA+"، وصلح عبر "+REAC,pre:"عقد بيع على الخارطة.",steps:["تحقق من حالة المشروع وترخيصه في منصة البيع على الخارطة.","قدّم بلاغاً للهيئة.","للتسوية: صلح في المركز السعودي للتحكيم العقاري."],alt:["تبي تعويض أو فسخ؟","المحكمة المختصة عبر ناجز."],ref:"نظام البيع على الخارطة ولائحته، ودليل خدمات المركز"},
  {id:"auction",c:"deal",t:"اشتريت من مزاد وطلع فيه مشكلة",k:"مزاد ترسية شاغل مستاجر مشكلة مزاد تنفيذ",to:"حسب نوع المزاد",via:"مزاد قضائي: محكمة التنفيذ في ناجز · مزاد خاص: الهيئة العامة للعقار",pre:"",steps:["مزاد تنفيذ (حجز على المالك): ارجع للدائرة التي باعت العقار عبر ناجز.","مزاد خاص: بلاغ للهيئة على منظم المزاد إذا خالف نشرة المزاد أو أخفى معلومة مؤثرة.","فيه شاغل؟ إن لم يكن عقده مسجلاً في إيجار فيُلزم بالإخلاء إذا طلبت."],ref:"لائحة المزادات العقارية، ونظام التنفيذ ولائحته",more:["https://qw-sa.github.io/evict/#sold","وش يصير للمستأجر بعد المزاد؟"]},
- {id:"contractor",c:"deal",t:"المقاول ما كمّل البناء أو نفّذ غلط",k:"مقاول بناء تشطيب عقد مقاولة غش",to:"المحكمة المختصة",via:"صحيفة دعوى في ناجز "+NJ,pre:"عقد المقاولة والمخططات والتحويلات.",steps:["وثّق الأعمال الناقصة بتقرير مكتب هندسي.","ارفع الدعوى في ناجز، وتحدد المحكمة (التجارية غالباً إذا المقاول منشأة)."],alt:["العقد فيه شرط تحكيم؟","يُحال النزاع للتحكيم حسب الشرط."],ref:"نظام المعاملات المدنية (عقد المقاولة)"},
+ {id:"contractor",arb:"other",c:"deal",t:"المقاول ما كمّل البناء أو نفّذ غلط",k:"مقاول بناء تشطيب عقد مقاولة غش",to:"المحكمة المختصة",via:"صحيفة دعوى في ناجز "+NJ,pre:"عقد المقاولة والمخططات والتحويلات.",steps:["وثّق الأعمال الناقصة بتقرير مكتب هندسي.","ارفع الدعوى في ناجز، وتحدد المحكمة (التجارية غالباً إذا المقاول منشأة)."],alt:["العقد فيه شرط تحكيم؟","يُحال النزاع للتحكيم حسب الشرط."],ref:"نظام المعاملات المدنية (عقد المقاولة)"},
  {id:"fraud",c:"deal",t:"نصب أو احتيال أو تزوير في صك أو وكالة",k:"نصب احتيال تزوير صك وكالة مزورة سرقة",to:"الشرطة ثم النيابة العامة",via:"بلاغ جنائي",pre:"",steps:["قدّم البلاغ فوراً مع كل المستندات والتحويلات.","إذا العقار مسجل عينياً: اطلب التأشير بالدعوى في السجل العقاري لحمايته."],ref:"نظام التسجيل العيني، المادة ١٦"},
  {id:"rett",c:"gov",t:"ضريبة التصرفات: إعفاء أو اعتراض",k:"ضريبة تصرفات ٥ اعفاء اعتراض زكاة",to:"هيئة الزكاة والضريبة والجمارك",via:"بوابة الهيئة",pre:"",steps:["اطلب الإعفاء أو سدد قبل الإفراغ من البوابة.","تعترض على التقييم أو الغرامة أمام لجان الفصل في المخالفات والمنازعات الضريبية."],ref:"نظام ضريبة التصرفات العقارية ولائحته",more:["https://qw-sa.github.io/rett/","هل تصرفك معفى؟"]},
  {id:"white",c:"gov",t:"جاتني فاتورة رسوم أراضي بيضاء أو عقار شاغر",k:"اراضي بيضاء رسوم شاغر فاتورة اعتراض",to:"وزارة البلديات والإسكان (برنامج الأراضي البيضاء)",via:"بوابة رسوم الأراضي البيضاء ← إدارة الاعتراضات",pre:"",steps:["ادخل حسابك ← إدارة الاعتراضات ← تقديم اعتراض.","اللجنة تبت خلال ٦٠ يوماً، وسكوتها يُعد رفضاً.","تتظلم من قرار اللجنة أمام المحكمة الإدارية."],ref:"نظام رسوم الأراضي البيضاء والعقارات الشاغرة، المادتان ٧ و٨",time:"الاعتراض خلال ٦٠ يوماً من إبلاغك."},
@@ -167,14 +224,84 @@ const P=[
 ];
 const $=s=>document.querySelector(s);
 const AR=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const fmt=n=>AR(Math.round(n).toLocaleString("en-US"));
 const N=s=>s.replace(/[ً-ْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/ؤ/g,"و").replace(/ئ/g,"ي").toLowerCase();
 const STOP=new Set(["في","من","على","او","و","ما","مو","عن","الى","مع","ابي","ابغى","عندي","لي","انا","هل","كيف","وش"]);
 let cat="all",cur=null;
+const AQ=[
+ {id:"type",q:"وش نوع النزاع؟",o:[["rent","إيجار (العقد موثق في إيجار)"],["hoa","جمعية ملاك"],["deal","وساطة أو بيع على الخارطة"],["other","ملكية، حدود، مقاولة، أو غيرها"]]},
+ {id:"claim",q:"وش تطالب فيه؟",o:[["unpaid","أجرة متأخرة"],["evict","إخلاء بعد انتهاء العقد"],["other","تعويض أو صيانة أو تأمين أو غيرها"]],show:a=>a.type==="rent"},
+ {id:"agree",q:"فيه اتفاق تحكيم مكتوب؟",o:[["yes","نعم، شرط في العقد أو مشارطة"],["maybe","لا، بس الطرف الثاني ممكن يوافق"],["no","لا، والطرف الثاني رافض"]]}
+];
+function decide(){
+ const amt=+String($("#amt").value).replace(/[^\d]/g,"")||0, cost=Math.min(amt*.05,1e6);
+ const centerArb=A.type==="rent"||A.type==="hoa";
+ if(A.type==="rent"&&A.claim!=="other") return {k:"exec",tilt:0,kick:"لا هذا ولا ذاك",t:"روح للتنفيذ مباشرة في ناجز",l:["عقد الإيجار المسجل في «إيجار» سند تنفيذي، فتطلب "+(A.claim==="unpaid"?"تنفيذ الأجرة المتأخرة":"تنفيذ الإخلاء")+" بدون دعوى ولا تحكيم.","وهذا مستثنى أصلاً من صلح الإيجار في المركز.","عقدك مو مسجل؟ سجّله أولاً، لأن المحاكم لا تنظر في عقد الإيجار غير المسجل."]};
+ if(A.agree==="yes"){
+  if(centerArb) return {k:"arb",tilt:1,kick:"الأنسب لك",t:"التحكيم في المركز السعودي للتحكيم العقاري",l:["عندك اتفاق تحكيم، وإذا رفعت دعوى في المحكمة وتمسك خصمك بالاتفاق قبل أي دفاع، تحكم المحكمة بعدم جواز نظرها.","الإجراءات إلكترونية ومواعيدها بالأيام: رد الخصم خلال ٥ أيام عمل، وأول جلسة خلال يومي عمل من تشكيل الهيئة.","الحكم نهائي وسند تنفيذي، ولا يُستأنف."]};
+  return {k:"arb",tilt:1,kick:"الأنسب لك",t:"التحكيم حسب الاتفاق",l:["عندك اتفاق تحكيم، فالنزاع يروح للتحكيم بحسب ما اتفقتوا عليه (المركز أو جهة تحكيم أخرى)، والمحكمة تحكم بعدم جواز نظر الدعوى إذا تمسك خصمك بالاتفاق.",A.type==="deal"?"المركز السعودي للتحكيم العقاري يقدم حالياً الصلح فقط لمنازعات الوساطة والخارطة، والتحكيم فيه لنزاعات إيجار وجمعيات الملاك.":"إذا الاتفاق يحيل للمركز السعودي للتحكيم العقاري، فتأكد أن نزاعك ضمن ما يقبله حالياً.","حكم المحكم سند تنفيذي، ولا يُطعن فيه إلا بدعوى بطلان."]};
+ }
+ if(A.agree==="maybe"){
+  if(centerArb) return {k:"arb",tilt:.6,kick:"يميل للتحكيم",t:"اقترح «مشارطة تحكيم» أو ابدأ بالصلح",l:["المشارطة من موقع المركز بدون رسوم، ويوقعها الطرفان إلكترونياً، وبعدها ترفع دعوى التحكيم.","التحكيم أسرع غالباً، وسري، وتختارون المحكّمين. لكن ما فيه استئناف، فالحكم نهائي.","المحكمة: التكاليف القضائية عليها تصل "+fmt(cost)+" ريال (٥٪ من المطالبة بحد مليون) يتحملها الخاسر."]};
+  return {k:"sulh",tilt:-.3,kick:"ابدأ بالصلح",t:A.type==="deal"?"الصلح في المركز، وإلا المحكمة":"المحكمة، إلا إذا اتفقتوا على التحكيم",l:[A.type==="deal"?"المركز يقدم الصلح لمنازعات الوساطة والبيع على الخارطة إذا عندك عقد وساطة أو عقد بيع على الخارطة.":"نزاعك خارج ما يحكم فيه المركز حالياً، لكن لكم الاتفاق على التحكيم وفق نظام التحكيم.","إذا ما نجح الصلح ولا اتفقتوا على التحكيم: المحكمة المختصة عبر ناجز.","التكاليف القضائية التقديرية: حتى "+fmt(cost)+" ريال يتحملها الخاسر."]};
+ }
+ return {k:"court",tilt:-1,kick:"الأنسب لك",t:"المحكمة عبر ناجز",l:["التحكيم ما يصير إلا باتفاق مكتوب، والطرف الثاني رافض.",A.type==="other"?"نزاعات الملكية والحدود ترفعها في ناجز، ويحدد لك المحكمة المختصة.":"قبلها جرّب الصلح في المركز إذا نزاعك من إيجار أو ملاك أو خارطة أو وساطة، ما يحتاج اتفاق تحكيم.","التكاليف القضائية التقديرية: حتى "+fmt(cost)+" ريال (٥٪ من المطالبة بحد مليون) يتحملها الخاسر، ولك الاستئناف خلال ٣٠ يوماً."]};
+}
+function rows(){
+ const amt=+String($("#amt").value).replace(/[^\d]/g,"")||0, cost=Math.min(amt*.05,1e6);
+ const R=[
+  ["متى أقدر ألجأ له؟","<strong>دائماً</strong>بدون موافقة الطرف الثاني.","<strong>باتفاق مكتوب فقط</strong>شرط في العقد أو مشارطة لاحقة. والمركز يحكم حالياً في نزاعات إيجار (عقد موثق) وجمعيات الملاك.","c"],
+  ["المدة","<strong>ما لها مدة نظامية محددة</strong>تعتمد على الجلسات والخبرة، ثم ٣٠ يوماً للاعتراض بالاستئناف (١٠ أيام في المستعجلة).","<strong>مواعيد قصيرة بالأيام</strong>رد الخصم خلال ٥ أيام عمل، تسمية المحكم خلال يوم عمل، وثيقة التحكيم خلال يوم عمل، أول جلسة خلال يومي عمل، والمذكرات خلال ٥ أيام عمل، والحكم ضمن الإطار الزمني المعتمد من المركز.","a"],
+  ["التكلفة","<strong>حتى "+fmt(cost)+" ريال</strong>تكاليف قضائية بحد أعلى ٥٪ من المطالبة ومليون ريال، يتحملها المحكوم عليه. وأتعاب المحامي إن وُجد.","<strong>رسوم تسجيل وتكاليف إدارية وأتعاب المحكمين</strong>تختلف بحسب المبلغ المتنازع عليه، وتُدفع مقدماً على مرحلتين، وتظهر في المنصة. وأتعاب الخبير تقررها الهيئة.",""],
+  ["من يحكم؟","<strong>القاضي المختص</strong>ما تختاره.","<strong>محكّم أو أكثر (عدد فردي)</strong>تختارونه، وإلا عيّنه المركز. ولك طلب رده خلال ٥ أيام إذا شككت في حياده.","a"],
+  ["الطعن","<strong>استئناف ثم نقض</strong>درجات تقاضٍ تحمي من الخطأ، لكنها تطوّل.","<strong>نهائي، لا يُستأنف</strong>يُطعن فيه بدعوى بطلان فقط وفق نظام التحكيم، ولمن يخسرها تكاليف ١٪ من المحكوم به. وتقدر تطلب تصحيح خطأ كتابي أو تفسير خلال ١٥ يوماً.",""],
+  ["السرية","<strong>الأصل علنية الجلسات</strong>","<strong>سري</strong>لا يطلع عليه إلا الأطراف والهيئة، ولا يُنشر الحكم إلا بموافقتكم كتابة.","a"],
+  ["المكان","<strong>إلكتروني عبر ناجز</strong>والجلسات غالباً عن بُعد.","<strong>كله على منصة المركز</strong>مكان التحكيم وجميع إجراءاته المنصة الإلكترونية، والمعاينة إذا رأت الهيئة.",""],
+  ["التنفيذ","<strong>الحكم النهائي سند تنفيذي</strong>","<strong>حكم المحكم سند تنفيذي</strong>ويُنفذ عبر محكمة التنفيذ.",""],
+  ["لو غاب الطرف الثاني؟","<strong>تستمر الدعوى</strong>وفق أحكام الغياب.","<strong>يستمر التحكيم</strong>عدم رده أو حضوره أو توقيعه على وثيقة التحكيم لا يوقف الإجراءات.",""]
+ ];
+ $("#arows").innerHTML=R.map(([k,c,a,w])=>`<div class="crow"><b>${k}</b><div class="c">${c}${w==="c"?'<span class="win">أفضل هنا</span>':""}</div><div class="a">${a}${w==="a"?'<span class="win">أفضل هنا</span>':""}</div></div>`).join("");
+}
+
+let A={type:"rent",claim:"other",agree:"maybe"},AX=null;
+function arbHTML(p){
+ const gen=p.arb==="any";
+ return `<div class="arbx" id="arbx"><div class="hd"><small>${gen?"الميزان":"خطوة إضافية"}</small><h3>${gen?"المحكمة أو التحكيم العقاري؟":"تقدر تروح للتحكيم بدل المحكمة؟"}</h3><p>${gen?"جاوب على الأسئلة، ويميل الميزان للأنسب لك.":"نزاعك ممكن يُنظر بالتحكيم. جاوب، ويميل الميزان بين المحكمة والتحكيم."}</p></div>
+ <div class="in"><div id="aqs" style="display:grid;gap:12px"></div>
+ <label class="amt"><span style="font-weight:700;font-size:.95rem">قيمة المطالبة (ريال)</span><input id="amt" inputmode="numeric" value="60,000"></label>
+ <div class="beamwrap" aria-hidden="true"><div class="post"></div><div class="beam" id="beam"></div><div class="pan r" id="panR"><i></i><b>المحكمة</b></div><div class="pan l" id="panL"><i></i><b>التحكيم</b></div></div>
+ <div class="verdict" id="verdict" aria-live="polite"><small id="vk"></small><h4 id="vh"></h4><ul id="vl"></ul></div>
+ <details><summary>المقارنة بندًا بندًا</summary><div class="cmph" aria-hidden="true"><span></span><div class="hc">المحكمة</div><div class="ha">التحكيم العقاري</div></div><div class="rows" id="arows"></div></details>
+ <details><summary>وقبل الاثنين: الصلح، وخطوات التحكيم</summary><p>المركز السعودي للتحكيم العقاري يقدم «الصلح» لمستفيدي إيجار وملاك والبيع على الخارطة والوساطة العقارية، ولا يحتاج اتفاق تحكيم. إذا تصالحتوا تُثبت التسوية، واتفاقات الصلح الموثقة سند تنفيذي. ويُستثنى من صلح الإيجار: سداد الأجرة والإخلاء المبني على عقد إيجار يمثل سنداً تنفيذياً، لأنهما يروحان للتنفيذ مباشرة.</p>
+ <p style="font-weight:700;margin-top:10px">خطوات دعوى التحكيم في المركز</p><ol class="stp"><li>التسجيل في منصة المركز reac.sa</li><li>تقديم الدعوى (صلح أو تحكيم)</li><li>سداد التكاليف الإدارية</li><li>التدقيق</li><li>اختيار عدد المحكّمين (وتر)</li><li>تشكيل هيئة التحكيم</li><li>سداد تكاليف التحكيم</li><li>ترشيح المحكّمين</li><li>بدء الإجراءات وعقد الجلسات عن بُعد</li><li>صدور الحكم</li></ol>
+ <p class="sm">ما عندك اتفاق تحكيم والطرف الثاني موافق؟ اطلبوا «مشارطة تحكيم» من موقع المركز: بدون رسوم، ويرسلها المركز للطرفين للتوقيع. ومبالغ تكاليف المركز تختلف بحسب المبلغ وتظهر في منصته قبل الدفع، والتكاليف القضائية تقدير بالحد الأعلى النظامي.</p></details></div></div>`;
+}
+function arbRender(){
+ const gen=AX==="any";
+ const vis=AQ.filter(q=>q.id==="agree"||(gen&&(q.id==="type"||(q.id==="claim"&&A.type==="rent"))));
+ $("#aqs").innerHTML=vis.map(q=>`<div class="aq" role="group" aria-label="${q.q}"><span>${q.q}</span><div class="seg">${q.o.map(([v,l])=>`<button type="button" data-q="${q.id}" data-v="${v}" aria-pressed="${A[q.id]===v}">${l}</button>`).join("")}</div></div>`).join("");
+ const v=decide();const deg=-v.tilt*12;
+ $("#beam").style.transform=`rotate(${deg}deg)`;
+ const dy=Math.sin(deg*Math.PI/180)*$("#beam").offsetWidth/2;
+ $("#panR").style.transform=`translateY(${dy}px)`;$("#panL").style.transform=`translateY(${-dy}px)`;
+ $("#verdict").className="verdict v-"+v.k;$("#vk").textContent=v.kick;$("#vh").textContent=v.t;$("#vl").innerHTML=v.l.map(x=>`<li>${x}</li>`).join("");
+ rows();
+ if(gen){try{history.replaceState(null,"","#arb-"+[A.type,A.claim,A.agree].join("-"))}catch(e){}}
+}
+function arbMount(p){
+ AX=p.arb||null;if(!AX)return;
+ if(AX!=="any"){A.type=AX;A.claim="other"}
+ $("#route .share").insertAdjacentHTML("beforebegin",arbHTML(p));
+ $("#amt").addEventListener("input",e=>{const v=e.target.value.replace(/[^\d]/g,"");e.target.value=v?(+v).toLocaleString("en-US"):"";arbRender()});
+ arbRender();
+}
+document.addEventListener("click",e=>{const b=e.target.closest("button[data-q]");if(!b)return;A[b.dataset.q]=b.dataset.v;arbRender();const nb=document.querySelector(`button[data-q="${b.dataset.q}"][data-v="${b.dataset.v}"]`);nb&&nb.focus()});
+
 $("#cats").innerHTML=C.map(([v,l])=>`<button type="button" data-c="${v}" aria-pressed="${v===cat}">${l}</button>`).join("");
 function score(p,words){const hay=N(p.t+" "+p.k);let s=0;for(const w of words){if(hay.includes(w))s+=2;else if(w.length>3&&hay.includes(w.slice(0,-1)))s+=1;else if(w.startsWith("ال")&&hay.includes(w.slice(2)))s+=1}return s}
 function renderList(){
  const raw=$("#q").value.trim();const words=N(raw).split(/\s+/).filter(w=>w&&!STOP.has(w));
- let L=P.filter(p=>cat==="all"||p.c===cat);
+ let L=P.filter(p=>cat==="all"||p.c===cat||p.c==="x");
  if(words.length){L=L.map(p=>[p,score(p,words)]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).map(x=>x[0])}
  $("#hint").textContent=words.length?(L.length?`${AR(L.length)} نتيجة قريبة من «${raw}». اختر الأقرب لمشكلتك.`:""):"اختر مشكلتك من القائمة، أو اكتبها بكلماتك.";
  $("#list").innerHTML=L.length?L.map(p=>`<button type="button" class="prob" data-id="${p.id}" aria-current="${cur===p.id}"><b>${p.t}</b><span>← ${p.to}</span></button>`).join(""):`<p class="empty">ما لقينا مشكلة مطابقة. جرّب كلمة ثانية (مثل: إيجار، صك، ورثة، وسيط)، أو اختر تصنيفاً.</p>`;
@@ -192,8 +319,9 @@ function show(id,scroll){
  <p class="ref">${p.ref}</p>
  <div class="share"><button type="button" id="cp">انسخ رابط هذي المشكلة</button></div>`;
  $("#x").onclick=()=>{r.hidden=true;cur=null;try{history.replaceState(null,"",location.pathname)}catch(e){}renderList()};
- $("#cp").onclick=e=>{const u=location.href.split("#")[0]+"#"+id;try{navigator.clipboard.writeText(u).then(()=>e.target.textContent="تم النسخ ✓",()=>e.target.textContent=u)}catch(_){e.target.textContent=u}};
+ $("#cp").onclick=e=>{const u=location.href.split("#")[0]+(id==="arb"?location.hash:"#"+id);try{navigator.clipboard.writeText(u).then(()=>e.target.textContent="تم النسخ ✓",()=>e.target.textContent=u)}catch(_){e.target.textContent=u}};
  try{history.replaceState(null,"","#"+id)}catch(e){}
+ arbMount(p);
  renderList();
  if(scroll)r.scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -201,7 +329,9 @@ $("#q").addEventListener("input",renderList);
 $("#cats").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;document.querySelectorAll("#cats button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList()});
 $("#list").addEventListener("click",e=>{const b=e.target.closest(".prob");if(b)show(b.dataset.id,true)});
 renderList();
-const h=location.hash.slice(1);if(h&&P.some(p=>p.id===h))show(h,false);
+const h=location.hash.slice(1);
+if(h.startsWith("arb")){const x=h.split("-");if(["rent","hoa","deal","other"].includes(x[1]))A.type=x[1];if(["unpaid","evict","other"].includes(x[2]))A.claim=x[2];if(["yes","maybe","no"].includes(x[3]))A.agree=x[3];show("arb",true)}
+else if(h&&P.some(p=>p.id===h))show(h,false);
 })();
 </script>
 </body>
