@@ -327,7 +327,7 @@ $("#icsBtn").addEventListener("click",()=>{
   const d=iso(cur._dl).replace(/-/g,""), n=iso(new Date(cur._dl.getTime()+DAY)).replace(/-/g,"");
   const pre=iso(new Date(cur._dl.getTime()-3*DAY)).replace(/-/g,"");
   const esc=s=>s.replace(/<[^>]+>/g,"").replace(/[,;\\]/g,m=>"\\"+m);
-  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//malomhagaryh//mohal//AR","BEGIN:VEVENT","UID:"+cur.id+"-"+d+"@qw-sa.github.io","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;VALUE=DATE:"+d,"DTEND;VALUE=DATE:"+n,"SUMMARY:"+esc((cur.k==="start"?"يبدأ: ":"آخر موعد: ")+cur.t),"DESCRIPTION:"+esc(cur.ref+" | "+cur.how),"BEGIN:VALARM","TRIGGER:-P3D","ACTION:DISPLAY","DESCRIPTION:"+esc("باقي ٣ أيام: "+cur.t),"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//re_laws//mohal//AR","BEGIN:VEVENT","UID:"+cur.id+"-"+d+"@qw-sa.github.io","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART;VALUE=DATE:"+d,"DTEND;VALUE=DATE:"+n,"SUMMARY:"+esc((cur.k==="start"?"يبدأ: ":"آخر موعد: ")+cur.t),"DESCRIPTION:"+esc(cur.ref+" | "+cur.how),"BEGIN:VALARM","TRIGGER:-P3D","ACTION:DISPLAY","DESCRIPTION:"+esc("باقي ٣ أيام: "+cur.t),"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="mohla-"+cur.id+".ics";document.body.appendChild(a);a.click();a.remove();
 });
 function renderIndex(f){
