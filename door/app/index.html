@@ -70,6 +70,13 @@
   .hint{color:var(--muted);font-size:13px;margin-top:4px}
   .save{width:100%;margin-top:18px;background:var(--brand);color:#fff;font-size:18px;padding:16px}
   .cancel{width:100%;margin-top:8px;background:transparent;color:var(--muted)}
+  .install{display:none;background:#fff8e6;border:1.5px solid #f5d38a;border-radius:18px;padding:14px 16px;margin:14px 0 0;line-height:1.75;font-size:15px}
+  .install.on{display:block}
+  .install b.h{display:block;font-size:17px;color:#92400e;margin-bottom:2px}
+  .install .row2{display:flex;gap:8px;margin-top:10px}
+  .install button{padding:10px 14px;font-size:15px}
+  .install .go{background:var(--brand);color:#fff}
+  .install .later{background:transparent;color:var(--muted)}
   .toast{position:fixed;top:calc(env(safe-area-inset-top) + 14px);left:50%;transform:translateX(-50%) translateY(-120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;transition:transform .25s;z-index:20;max-width:90%;text-align:center}
   .toast.on{transform:translateX(-50%) translateY(0)}
 </style>
@@ -85,7 +92,17 @@
     </div>
   </div>
 </header>
-<main id="list"></main>
+<main>
+  <div class="install" id="install">
+    <b class="h">📌 خطوة مهمة عشان تنحفظ عناوينك</b>
+    <span id="installTxt"></span>
+    <div class="row2">
+      <button class="go" id="installGo" style="display:none">إضافة الآن</button>
+      <button class="later" id="installLater">لاحقاً</button>
+    </div>
+  </div>
+  <div id="list"></div>
+</main>
 <button class="fab" id="addBtn">＋ إضافة عنوان</button>
 
 <div class="sheet" id="sheet">
@@ -345,7 +362,42 @@
     persist(); render(); closeForm(); toast('تم الحفظ ✅');
   });
 
-  openDB().then(load).then(render);
+  /* ---------- keep data safe: persistent storage + install prompt ---------- */
+  try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist(); }catch(e){}
+
+  var standalone = (window.navigator.standalone===true) ||
+    (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  var inApp = /FBAN|FBAV|Instagram|WhatsApp|Snapchat|Twitter|Line\//i.test(ua);
+  var deferred = null;
+
+  function showInstall(){
+    if(standalone) return;
+    var snooze=0; try{ snooze=+localStorage.getItem('door-install-later')||0; }catch(e){}
+    if(Date.now()<snooze) return;
+    var t;
+    if(inApp) t='افتح الرابط في '+(isIOS?'<b>Safari</b>':'<b>Chrome</b>')+' (من زر ⋯ اختر "فتح في المتصفح")، وبعدها أضفه للشاشة الرئيسية.';
+    else if(isIOS) t='اضغط زر المشاركة ⬆️ تحت، واختر <b>"إضافة إلى الشاشة الرئيسية"</b>. وبعدها افتح التطبيق دايماً من الأيقونة واحفظ عناوينك فيها.';
+    else t='اضغط النقاط الثلاث ⋮ فوق، واختر <b>"إضافة إلى الشاشة الرئيسية"</b> أو <b>"تثبيت التطبيق"</b>. وبعدها افتحه دايماً من الأيقونة.';
+    $('installTxt').innerHTML=t;
+    $('install').classList.add('on');
+  }
+  window.addEventListener('beforeinstallprompt',function(e){
+    e.preventDefault(); deferred=e; $('installGo').style.display='';
+  });
+  $('installGo').onclick=function(){
+    if(!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function(){ deferred=null; $('install').classList.remove('on'); });
+  };
+  $('installLater').onclick=function(){
+    try{ localStorage.setItem('door-install-later', Date.now()+3*24*3600*1000); }catch(e){}
+    $('install').classList.remove('on');
+  };
+  window.addEventListener('appinstalled',function(){ $('install').classList.remove('on'); });
+
+  openDB().then(load).then(function(){ render(); showInstall(); });
 })();
 </script>
 </body>
