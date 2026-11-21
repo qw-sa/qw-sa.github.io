@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سياسة الخصوصية — عنواني للمندوب</title>
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f4f1ea;--ink:#1c1917;--muted:#6b6560;--brand:#0f766e;--deep:#0b5e57;--line:#e7e2d8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Tajawal",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85}
+  header{background:linear-gradient(135deg,#14b8a6,var(--deep));color:#fff;padding:calc(env(safe-area-inset-top) + 26px) 20px 26px;border-radius:0 0 26px 26px}
+  header .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  header img{width:48px;height:48px;border-radius:13px;border:2px solid rgba(255,255,255,.35)}
+  header h1{margin:0;font-size:23px;font-weight:800}
+  header p{margin:0;opacity:.85;font-size:14px}
+  main{max-width:640px;margin:0 auto;padding:10px 20px 40px}
+  section{background:#fff;border-radius:18px;padding:16px 18px;margin:14px 0;box-shadow:0 1px 0 var(--line)}
+  h2{font-size:18px;margin:0 0 6px;color:var(--deep);font-weight:800}
+  p,li{font-size:15.5px;margin:0}
+  ul{margin:4px 0 0;padding-inline-start:20px}
+  input{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:13px;margin-top:8px}
+  button{font:inherit;border:0;border-radius:13px;padding:13px;font-size:16px;font-weight:800;background:var(--brand);color:#fff;width:100%;margin-top:10px;cursor:pointer}
+  .msg{font-size:14px;margin-top:8px;font-weight:700}
+  .back{display:block;text-align:center;color:var(--brand);font-weight:700;margin-top:18px}
+  .upd{color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="in"><img src="logo.svg" alt=""><div><h1>سياسة الخصوصية</h1><p>عنواني للمندوب</p></div></div></header>
+<main>
+  <section>
+    <h2>باختصار</h2>
+    <p>عناوينك وصور أبوابك محفوظة <b>في جوالك أنت فقط</b>، وما نقدر نشوفها ولا توصل لنا. ما نجمع منك بيانات شخصية إلا إذا سجّلت اهتمامك بنفسك.</p>
+  </section>
+
+  <section>
+    <h2>١. البيانات المحفوظة في جوالك</h2>
+    <p>العناوين، والمواقع، وصور الأبواب، وأرقام الأبواب والجوالات، والملاحظات اللي تضيفها، كلها تنحفظ داخل المتصفح في جهازك. ما ترتفع لأي سيرفر، وما يوصل منها شي لغيرك إلا اللي ترسله أنت بنفسك للمندوب. ولو حذفت التطبيق أو مسحت بيانات المتصفح تنحذف من جهازك.</p>
+  </section>
+
+  <section>
+    <h2>٢. إحصائيات استخدام مجهولة</h2>
+    <p>نسجّل أعداداً عامة بدون أي معلومة تعرّف بك، مثل: زيارة الصفحة، وإضافة التطبيق للشاشة الرئيسية، وحفظ عنوان، وإرسال عنوان للمندوب. ما نسجّل محتوى العنوان ولا الموقع ولا الصورة ولا رقمك. الهدف إننا نعرف حجم الاستخدام ونطوّر التطبيق.</p>
+  </section>
+
+  <section>
+    <h2>٣. التسجيل في النسخة المميزة (اختياري)</h2>
+    <ul>
+      <li><b>وش نجمع:</b> الاسم ورقم الجوال والمدينة، فقط إذا عبّيتها بنفسك ووافقت.</li>
+      <li><b>ليش:</b> عشان نتواصل معك بخصوص النسخة المميزة وعرضها.</li>
+      <li><b>وين تنحفظ:</b> في جدول خاص بإدارة التطبيق على خدمات Google، ولا يطّلع عليه غيرها.</li>
+      <li><b>ما نبيعها</b> ولا نشاركها مع أي جهة.</li>
+      <li><b>كم مدة:</b> لين ما تطلب حذفها، أو يتوقف المشروع.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>٤. حقك في حذف بياناتك</h2>
+    <p>إذا سجّلت رقمك وتبي نحذفه، اكتبه هنا ونحذفه من سجلاتنا.</p>
+    <form id="del">
+      <input id="d-phone" type="tel" inputmode="tel" placeholder="رقم الجوال المسجّل 05xxxxxxxx" dir="ltr" style="text-align:right" required>
+      <button type="submit">طلب حذف بياناتي</button>
+      <div class="msg" id="d-msg"></div>
+    </form>
+  </section>
+
+  <section>
+    <h2>٥. التعديلات</h2>
+    <p>ممكن نحدّث هذي السياسة مع تطوير التطبيق، ونعرض آخر نسخة دايماً في هذي الصفحة.</p>
+  </section>
+
+  <p class="upd">آخر تحديث: نوفمبر ٢٠٢٦</p>
+  <a class="back" href="app/">← الرجوع للتطبيق</a>
+</main>
+<script>
+document.getElementById('del').addEventListener('submit',function(e){
+  e.preventDefault();
+  var m=document.getElementById('d-msg');
+  var ph=document.getElementById('d-phone').value.replace(/[\s\-]/g,'').replace(/[٠-٩]/g,function(c){return '٠١٢٣٤٥٦٧٨٩'.indexOf(c);});
+  if(!/^(05\d{8}|\+?9665\d{8})$/.test(ph)){ m.style.color='#b45309'; m.textContent='اكتب رقم جوال صحيح'; return; }
+  var b=new URLSearchParams(); b.append('entry.814838570','طلب حذف بيانات'); b.append('entry.967858551',ph);
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSflfa8YZwiD1tz6lenpdqH4rkt1QT8Dxzmh4DfZ-gQI1jc9pA/formResponse',{method:'POST',mode:'no-cors',body:b})
+    .then(function(){ m.style.color='#0f766e'; m.textContent='✅ وصلنا طلبك، وبنحذف بياناتك.'; })
+    .catch(function(){ m.style.color='#b45309'; m.textContent='تعذّر الإرسال، جرّب مرة ثانية'; });
+});
+</script>
+</body>
+</html>

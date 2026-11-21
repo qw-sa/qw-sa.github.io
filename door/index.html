@@ -168,7 +168,7 @@
   <div class="final">
     <a class="cta" href="app/">ابدأ الآن مجاناً ←</a>
   </div>
-  <footer>عنواني للمندوب © 2026</footer>
+  <footer>عنواني للمندوب © 2026 • <a href="privacy.html">سياسة الخصوصية</a></footer>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -178,6 +178,14 @@
   var msg=document.getElementById('readyMsg').textContent;
   var wa=document.getElementById('waBtn');
   wa.href='https://wa.me/?text='+encodeURIComponent(msg);
+  try{
+    if(!sessionStorage.getItem('door-v')){
+      sessionStorage.setItem('door-v','1');
+      var b=new URLSearchParams(); b.append('entry.814838570','زيارة صفحة التعريف');
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSflfa8YZwiD1tz6lenpdqH4rkt1QT8Dxzmh4DfZ-gQI1jc9pA/formResponse',{method:'POST',mode:'no-cors',body:b}).catch(function(){});
+    }
+  }catch(e){}
+  wa.addEventListener('click',function(){ try{ var b=new URLSearchParams(); b.append('entry.814838570','نشر الرابط'); fetch('https://docs.google.com/forms/d/e/1FAIpQLSflfa8YZwiD1tz6lenpdqH4rkt1QT8Dxzmh4DfZ-gQI1jc9pA/formResponse',{method:'POST',mode:'no-cors',body:b,keepalive:true}).catch(function(){}); }catch(e){} });
   function toast(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on');},2200);}
   document.getElementById('copyBtn').addEventListener('click',function(){
     var done=function(){toast('تم النسخ ✅');};

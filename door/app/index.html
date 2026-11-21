@@ -70,6 +70,17 @@
   .hint{color:var(--muted);font-size:13px;margin-top:4px}
   .save{width:100%;margin-top:18px;background:var(--brand);color:#fff;font-size:18px;padding:16px}
   .cancel{width:100%;margin-top:8px;background:transparent;color:var(--muted)}
+  .join{display:none;background:linear-gradient(135deg,#ecfdf9,#fff);border:1.5px solid #a7e3d8;border-radius:20px;padding:16px;margin:18px 0 0}
+  .join.on{display:block}
+  .join .jt{font-size:19px;font-weight:800;color:var(--brand-d)}
+  .join .jp{margin:4px 0 10px;color:var(--muted);font-size:15px;line-height:1.6}
+  .join input:not([type=checkbox]){margin-top:8px}
+  .join .ck{display:flex;gap:8px;align-items:flex-start;font-weight:500;font-size:13.5px;color:var(--muted);line-height:1.6;margin:12px 0 0}
+  .join .ck input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--brand)}
+  .join .ck a{color:var(--brand)}
+  .jbtn{width:100%;margin-top:12px;background:var(--brand);color:#fff}
+  .foot{text-align:center;font-size:13px;margin:22px 0 0}
+  .foot a{color:var(--muted)}
   .install{display:none;background:#fff8e6;border:1.5px solid #f5d38a;border-radius:18px;padding:14px 16px;margin:14px 0 0;line-height:1.75;font-size:15px}
   .install.on{display:block}
   .install b.h{display:block;font-size:17px;color:#92400e;margin-bottom:2px}
@@ -102,6 +113,19 @@
     </div>
   </div>
   <div id="list"></div>
+  <form class="join" id="join" autocomplete="on">
+    <div class="jt">🎁 النسخة المميزة قادمة</div>
+    <p class="jp">سجّل رقمك الحين، وتحصل على <b>٣ أشهر مجاناً</b> أول ما تنطلق.</p>
+    <div id="joinFields">
+      <input id="j-name" placeholder="الاسم" autocomplete="name">
+      <input id="j-phone" type="tel" inputmode="tel" placeholder="رقم الجوال 05xxxxxxxx" dir="ltr" style="text-align:right" autocomplete="tel" required>
+      <input id="j-city" placeholder="المدينة" autocomplete="address-level2">
+      <label class="ck"><input type="checkbox" id="j-ok" required> أوافق على حفظ بياناتي للتواصل معي بخصوص التطبيق، حسب <a href="../privacy.html">سياسة الخصوصية</a>.</label>
+      <div id="joinErr" class="err"></div>
+      <button type="submit" class="jbtn">سجّلني</button>
+    </div>
+  </form>
+  <p class="foot"><a href="../privacy.html">سياسة الخصوصية</a></p>
 </main>
 <button class="fab" id="addBtn">＋ إضافة عنوان</button>
 
@@ -234,6 +258,8 @@
   /* ---------- render ---------- */
   function render(){
     setTimeout(prebuild, 50);
+    var joined=false; try{ joined=!!localStorage.getItem('door-joined'); }catch(e){}
+    $('join').classList.toggle('on', items.length>0 && !joined);
     var L=$('list');
     if(!items.length){
       L.innerHTML='<div class="empty"><div class="big">🏠</div><b>ما فيه عناوين محفوظة</b><br>اضغط "إضافة عنوان" تحت</div>';
@@ -261,8 +287,8 @@
   $('list').addEventListener('click', function(e){
     var b=e.target.closest('[data-a]'); if(!b) return;
     var i=+b.dataset.i, it=items[i], a=b.dataset.a;
-    if(a==='share') share(it);
-    else if(a==='copy') copy(message(it));
+    if(a==='share'){ share(it); track('إرسال للمندوب'); }
+    else if(a==='copy'){ copy(message(it)); track('نسخ'); }
     else if(a==='edit') openForm(i);
     else if(a==='del'){
       if(b.dataset.sure){ items.splice(i,1); persist(); render(); toast('تم الحذف'); }
@@ -443,8 +469,41 @@
       note:$('f-note').value.trim(),
       photo:draftPhoto, lat:draftLat, lng:draftLng
     };
-    if(editing==null) items.unshift(it); else items[editing]=it;
+    if(editing==null){ items.unshift(it); track('حفظ عنوان'); } else items[editing]=it;
     persist(); render(); closeForm(); toast('تم الحفظ ✅');
+  });
+
+  /* ---------- anonymous usage counts + interest sign-up (Google Form → Sheet) ---------- */
+  var FORM='https://docs.google.com/forms/d/e/1FAIpQLSflfa8YZwiD1tz6lenpdqH4rkt1QT8Dxzmh4DfZ-gQI1jc9pA/formResponse';
+  var E={type:'814838570', name:'1020080269', phone:'967858551', city:'1255482374'};
+  function sendForm(f){
+    try{
+      var b=new URLSearchParams();
+      Object.keys(f).forEach(function(k){ b.append('entry.'+E[k], f[k]); });
+      return fetch(FORM,{method:'POST',mode:'no-cors',body:b});
+    }catch(e){ return Promise.reject(e); }
+  }
+  function track(t){ sendForm({type:t}).catch(function(){}); }
+  function trackOnce(key,t){ try{ if(localStorage.getItem(key)) return; localStorage.setItem(key,'1'); }catch(e){ return; } track(t); }
+  function trackDaily(){
+    try{ var d=new Date().toISOString().slice(0,10); if(localStorage.getItem('door-t-day')===d) return; localStorage.setItem('door-t-day',d); }catch(e){ return; }
+    track('استخدام يومي');
+  }
+
+  $('join').addEventListener('submit',function(e){
+    e.preventDefault();
+    var ph=$('j-phone').value.replace(/[\s\-]/g,'').replace(/[٠-٩]/g,function(c){return '٠١٢٣٤٥٦٧٨٩'.indexOf(c);});
+    if(!/^(05\d{8}|\+?9665\d{8})$/.test(ph)){ $('joinErr').textContent='اكتب رقم جوال صحيح، مثل 0551234567'; return; }
+    if(!$('j-ok').checked){ $('joinErr').textContent='لازم توافق على حفظ البيانات'; return; }
+    $('joinErr').textContent='';
+    var btn=this.querySelector('.jbtn'); btn.disabled=true; btn.textContent='جاري التسجيل...';
+    sendForm({type:'تسجيل اهتمام', name:$('j-name').value.trim(), phone:ph, city:$('j-city').value.trim()})
+      .then(function(){
+        try{ localStorage.setItem('door-joined','1'); }catch(e){}
+        $('joinFields').innerHTML='<p class="ok" style="font-size:16px">✅ تم تسجيلك! بنتواصل معك أول ما تنطلق النسخة المميزة.</p>';
+        setTimeout(function(){ $('join').classList.remove('on'); }, 5000);
+      })
+      .catch(function(){ btn.disabled=false; btn.textContent='سجّلني'; $('joinErr').textContent='تعذّر الإرسال، تأكد من الإنترنت وجرّب مرة ثانية'; });
   });
 
   /* ---------- keep data safe: persistent storage + install prompt ---------- */
@@ -483,6 +542,9 @@
   window.addEventListener('appinstalled',function(){ $('install').classList.remove('on'); });
 
   openDB().then(load).then(function(){ render(); showInstall(); });
+  trackOnce('door-t-new','مستخدم جديد');
+  if(standalone) trackOnce('door-t-inst','تثبيت على الشاشة');
+  trackDaily();
 })();
 </script>
 </body>
