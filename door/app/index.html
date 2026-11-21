@@ -151,6 +151,7 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="qr.js"></script>
 <script>
 (function(){
   var KEY = 'door-addresses-v1';
@@ -232,6 +233,7 @@
 
   /* ---------- render ---------- */
   function render(){
+    setTimeout(prebuild, 50);
     var L=$('list');
     if(!items.length){
       L.innerHTML='<div class="empty"><div class="big">🏠</div><b>ما فيه عناوين محفوظة</b><br>اضغط "إضافة عنوان" تحت</div>';
@@ -281,21 +283,104 @@
     }
   }
 
-  function share(it){
-    var text=message(it);
-    if(navigator.share){
-      var data={text:text};
-      if(it.photo){
+  /* ---------- info card: one image that carries everything ---------- */
+  var cards = new WeakMap(), ready = new WeakMap();   // item -> Promise<File> / File
+  function loadImg(src){ return new Promise(function(res,rej){ var i=new Image(); i.onload=function(){res(i);}; i.onerror=rej; i.src=src; }); }
+  function wrap(ctx, text, maxW){
+    var words=String(text).split(/\s+/), lines=[], cur='';
+    words.forEach(function(w){
+      var t=cur?cur+' '+w:w;
+      if(ctx.measureText(t).width>maxW && cur){ lines.push(cur); cur=w; } else cur=t;
+    });
+    if(cur) lines.push(cur);
+    return lines;
+  }
+  function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+
+  function buildCard(it){
+    var W=1080, P=60, F='Tajawal, "Geeza Pro", system-ui, sans-serif';
+    var url=mapUrl(it);
+    var fontsReady = (document.fonts && document.fonts.load) ?
+      Promise.all([document.fonts.load('800 64px Tajawal'),document.fonts.load('700 44px Tajawal'),document.fonts.load('500 38px Tajawal')]).catch(function(){}) : Promise.resolve();
+    return Promise.all([fontsReady, it.photo?loadImg(it.photo):null]).then(function(r){
+      var img=r[1];
+      var photoH = img ? Math.round(W*0.75) : 0;
+      var qrS = url ? 300 : 0;
+      var textW = W-2*P-(qrS?qrS+40:0);
+
+      // measure text block
+      var m=document.createElement('canvas').getContext('2d');
+      m.direction='rtl';
+      var rows=[];
+      if(it.door) rows.push({t:'🚪 رقم الباب: '+it.door, f:'800 50px '+F, h:72, c:'#0b5e57'});
+      if(it.phone) rows.push({t:'📞 الجوال: '+it.phone, f:'700 44px '+F, h:64, c:'#1c1917'});
+      if(it.note){ m.font='500 38px '+F; wrap(m,'📝 '+it.note,textW).forEach(function(l){ rows.push({t:l,f:'500 38px '+F,h:54,c:'#57534e'}); }); }
+      if(!url) rows.push({t:'⚠️ بدون موقع', f:'500 38px '+F, h:54, c:'#b45309'});
+      var textH = 92 + rows.reduce(function(s,r){return s+r.h;},0);
+      var bodyH = Math.max(textH, qrS? qrS+64 : 0) + P*2;
+      var footH = 96;
+      var H = photoH + bodyH + footH;
+
+      var c=document.createElement('canvas'); c.width=W; c.height=H;
+      var x=c.getContext('2d'); x.direction='rtl'; x.textBaseline='top';
+      x.fillStyle='#ffffff'; x.fillRect(0,0,W,H);
+
+      if(img){
+        var s=Math.max(W/img.width, photoH/img.height), iw=img.width*s, ih=img.height*s;
+        x.save(); x.beginPath(); x.rect(0,0,W,photoH); x.clip(); x.drawImage(img,(W-iw)/2,(photoH-ih)/2,iw,ih); x.restore();
+        if(it.door){ // door number badge on the photo
+          x.font='800 64px '+F; var bw=Math.max(150, x.measureText(it.door).width+80);
+          x.fillStyle='rgba(15,118,110,.95)'; rr(x,W-P-bw,P,bw,110,26); x.fill();
+          x.fillStyle='#fff'; x.textAlign='center'; x.fillText(it.door, W-P-bw/2, P+22);
+        }
+      }
+
+      var y=photoH+P;
+      x.textAlign='right';
+      x.font='800 64px '+F; x.fillStyle='#1c1917'; x.fillText('📍 '+it.name, W-P, y); y+=92;
+      rows.forEach(function(r){ x.font=r.f; x.fillStyle=r.c; x.fillText(r.t, W-P, y); y+=r.h; });
+
+      if(url && window.qrcode){
         try{
-          var f=dataURLtoFile(it.photo,'باب-'+(it.door||'البيت')+'.jpg');
-          if(navigator.canShare && navigator.canShare({files:[f]})) data.files=[f];
+          var q=qrcode(0,'M'); q.addData(url); q.make();
+          var n=q.getModuleCount(), cell=Math.floor((qrS-24)/n), qs=cell*n, qx=P, qy=photoH+P;
+          x.fillStyle='#f4f1ea'; rr(x,qx,qy,qrS,qrS,22); x.fill();
+          var ox=qx+(qrS-qs)/2, oy=qy+(qrS-qs)/2;
+          x.fillStyle='#ffffff'; x.fillRect(ox-6,oy-6,qs+12,qs+12);
+          x.fillStyle='#111';
+          for(var i=0;i<n;i++) for(var j=0;j<n;j++) if(q.isDark(i,j)) x.fillRect(ox+j*cell, oy+i*cell, cell, cell);
+          x.font='700 30px '+F; x.fillStyle='#0b5e57'; x.textAlign='center';
+          x.fillText('امسح الكود للموقع 🗺️', qx+qrS/2, qy+qrS+16);
         }catch(e){}
       }
-      navigator.share(data).catch(function(err){
-        if(err && err.name==='AbortError') return;
-        wa(text);
+
+      var fy=H-footH, g=x.createLinearGradient(0,fy,W,H); g.addColorStop(0,'#14b8a6'); g.addColorStop(1,'#0b5e57');
+      x.fillStyle=g; x.fillRect(0,fy,W,footH);
+      x.fillStyle='#fff'; x.textAlign='center'; x.font='700 36px '+F;
+      x.fillText('عنواني للمندوب  •  qw-sa.github.io/door', W/2, fy+28);
+
+      return new Promise(function(res){
+        c.toBlob(function(b){ res(new File([b], 'عنوان-'+(it.door||it.name)+'.jpg', {type:'image/jpeg'})); }, 'image/jpeg', 0.88);
       });
-    } else wa(text);
+    });
+  }
+  function cardFor(it){
+    if(!cards.has(it)){ var p=buildCard(it); p.catch(function(){ cards.delete(it); }); cards.set(it,p); }
+    return cards.get(it);
+  }
+  function prebuild(){ items.forEach(function(it){ cardFor(it).then(function(f){ ready.set(it,f); }, function(){}); }); }
+
+  function share(it){
+    var text=message(it);
+    if(!navigator.share){ wa(text); return; }
+    var f=ready.get(it);
+    if(!f){ toast('ثانية… جاري تجهيز الصورة، اضغط مرة ثانية'); cardFor(it).then(function(x){ ready.set(it,x); }); return; }
+    var data={files:[f], text:text};
+    if(navigator.canShare && !navigator.canShare({files:[f]})) data={text:text};
+    navigator.share(data).catch(function(err){
+      if(err && err.name==='AbortError') return;
+      navigator.share({text:text}).catch(function(){ wa(text); });
+    });
   }
   function wa(text){ location.href='https://wa.me/?text='+encodeURIComponent(text); }
 
