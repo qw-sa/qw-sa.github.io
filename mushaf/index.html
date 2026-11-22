@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>المصحف الشريف</title>
+<title>مصحفي — المصحف الشريف</title>
 <meta name="description" content="المصحف الشريف برواية حفص عن عاصم: تصفح بصفحات مصحف المدينة، فهرس السور والأجزاء، بحث، علامات، واستماع لكبار القراء.">
+<meta property="og:title" content="مصحفي — المصحف الشريف">
+<meta property="og:description" content="مصحف كامل على جوالك: صفحات مصحف المدينة، بحث، علامات، وتلاوات كبار القراء. مجاني وبدون تسجيل.">
+<meta property="og:image" content="https://qw-sa.github.io/mushaf/og.png">
+<meta property="og:url" content="https://qw-sa.github.io/mushaf/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1f6b4f">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="المصحف">
+<meta name="apple-mobile-web-app-title" content="مصحفي">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
@@ -97,7 +103,7 @@ body.hide .top{transform:translateY(-110%)} body.hide .bot{transform:translateY(
 </style>
 </head>
 <body>
-<div id="splash"><div style="text-align:center"><img src="icon-192.png" alt="">المصحف الشريف<div style="font-size:14px;font-weight:500;opacity:.8;margin-top:6px">جاري التحميل…</div></div></div>
+<div id="splash"><div style="text-align:center"><img src="icon-192.png" alt="">مصحفي<div style="font-size:14px;font-weight:500;opacity:.8;margin-top:6px">جاري التحميل…</div></div></div>
 
 <header class="bar top">
   <button class="ib" id="bIndex" aria-label="الفهرس"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
@@ -148,6 +154,7 @@ body.hide .top{transform:translateY(-110%)} body.hide .bot{transform:translateY(
 <section class="sheet" id="shSet">
   <div class="grab"></div><h3>الإعدادات</h3>
   <div class="set">
+    <button id="share" style="width:100%;padding:13px;border-radius:12px;background:var(--brand);color:#fff;font-weight:800;font-size:16px;margin-top:6px">شارك «مصحفي» مع غيرك</button>
     <label>الذهاب إلى صفحة (١–٦٠٤)</label>
     <div class="go"><input id="goP" type="number" inputmode="numeric" min="1" max="604"><button id="goB">اذهب</button></div>
     <label>حجم الخط</label>
@@ -337,6 +344,8 @@ function stop(){au.pause();au.removeAttribute('src');playing=0;$('player').class
 $('pStop').onclick=stop;
 $('bListen').onclick=()=>{if(playing&&pageOf(playing)===page){$('pToggle').onclick();return}play(P[page])};
 
+$('share').onclick=()=>{const u='https://qw-sa.github.io/mushaf/',t='مصحفي — مصحف كامل على جوالك، مجاني وبدون تسجيل:\n'+u;
+  if(navigator.share){navigator.share({title:'مصحفي',text:t}).catch(()=>{})}else{const done=()=>toast('نُسخ الرابط، أرسله لمن تحب');(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done)):fallbackCopy(t,done)}};
 let tT;function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('show'),2000)}
 
 // boot

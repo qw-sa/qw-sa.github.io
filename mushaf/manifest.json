@@ -1,6 +1,6 @@
 {
-  "name": "المصحف الشريف",
-  "short_name": "المصحف",
+  "name": "مصحفي",
+  "short_name": "مصحفي",
   "start_url": "/mushaf/",
   "scope": "/mushaf/",
   "display": "standalone",
@@ -9,7 +9,15 @@
   "background_color": "#f7f1e3",
   "theme_color": "#1f6b4f",
   "icons": [
-    {"src": "/mushaf/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "/mushaf/icon-512.png", "sizes": "512x512", "type": "image/png"}
+    {
+      "src": "/mushaf/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/mushaf/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
