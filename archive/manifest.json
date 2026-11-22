@@ -1,0 +1,29 @@
+{
+  "name": "أرشيفي",
+  "short_name": "أرشيفي",
+  "description": "احفظ أي شي يعجبك من واتساب وتويتر وتيك توك وسناب ويوتيوب في مكان واحد",
+  "start_url": "/archive/",
+  "scope": "/archive/",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#f5f3ff",
+  "theme_color": "#3a2f9a",
+  "icons": [
+    {"src": "/archive/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "/archive/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ],
+  "share_target": {
+    "action": "/archive/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {"name": "files", "accept": ["video/*", "image/*", "audio/*", "application/pdf", "*/*"]}
+      ]
+    }
+  }
+}
