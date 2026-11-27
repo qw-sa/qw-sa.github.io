@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مسابقة الأعلام والعواصم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: لعبة مسابقة مرحة لكن مرتبة، مستوى متوسط
+   IDEA: بطاقة أطلس قديمة فوق بحر أزرق — كل سؤال بطاقة جغرافية
+   PICTURE: العلم الكبير أو اسم الدولة في قلب البطاقة مع خطوط طول وعرض
+   COLOUR and TYPE: أزرق المحيط + رملي الخرائط + مرجاني للتمييز؛ Tajawal
+   LAYOUT: عمود واحد هادئ: شريط التقدم، البطاقة، الخيارات، النتيجة */
+:root{color-scheme:light dark;
+--sea:light-dark(#0e4a63,#0a2533);--sea2:light-dark(#0b3a4e,#061a25);
+--sand:light-dark(#f6ecd4,#1d2e38);--sand2:light-dark(#eadbb6,#263b47);
+--ink:light-dark(#1d2a30,#eef3f2);--mute:light-dark(#5f6b6b,#9fb3b8);
+--coral:#ff6b4a;--ok:#1f9d6b;--bad:#d64541;--line:light-dark(#d8c79e,#34505e)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 80% -10%,#1b6c8a55,transparent),linear-gradient(var(--sea),var(--sea2));color:var(--ink);font:17px/1.55 Tajawal,system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#fff;margin-bottom:14px}
+h1{font-size:clamp(24px,6vw,34px);line-height:1.05;margin:0;font-weight:900;text-wrap:balance}
+.best{font-size:14px;opacity:.85;white-space:nowrap}
+.card{background:var(--sand);border-radius:22px;box-shadow:0 18px 40px #0005,inset 0 0 0 2px var(--line);padding:22px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+background:repeating-linear-gradient(0deg,transparent 0 47px,var(--line) 47px 48px),repeating-linear-gradient(90deg,transparent 0 47px,var(--line) 47px 48px)}
+.card>*{position:relative}
+.hud{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:var(--mute);gap:8px;flex-wrap:wrap}
+.hud b{color:var(--ink)}
+.bar{height:8px;background:var(--sand2);border-radius:9px;margin:10px 0 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--coral);width:0;transition:width .3s}
+.timer{height:5px;background:var(--sand2);border-radius:9px;overflow:hidden;margin-bottom:14px}
+.timer i{display:block;height:100%;background:var(--ok);width:100%}
+.tag{display:inline-block;font-size:13px;font-weight:700;background:var(--sea);color:#fff;padding:3px 12px;border-radius:99px}
+.q{font-size:clamp(20px,5vw,26px);font-weight:700;line-height:1.3;margin:12px 0 8px;text-wrap:balance}
+.big{font-size:clamp(90px,28vw,150px);line-height:1.1;text-align:center;margin:4px 0;filter:drop-shadow(0 8px 10px #0003)}
+.name{text-align:center;font-size:clamp(30px,8vw,44px);font-weight:900;color:var(--sea);margin:6px 0 10px}
+:root[data-theme=dark] .name{color:#7fd0ea}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .name{color:#7fd0ea}}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+@media(max-width:420px){.opts{grid-template-columns:minmax(0,1fr)}}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;min-height:52px}
+button:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.opt{background:#fff8;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line);padding:10px 14px;font-weight:700;font-size:18px;text-align:center;transition:transform .12s}
+:root[data-theme=dark] .opt{background:#ffffff10}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .opt{background:#ffffff10}}
+.opt:hover:not(:disabled){transform:translateY(-2px)}
+.opt.ok{background:var(--ok);color:#fff;box-shadow:none}
+.opt.bad{background:var(--bad);color:#fff;box-shadow:none}
+.opt:disabled{cursor:default}
+.fb{min-height:28px;margin-top:12px;font-weight:700;text-align:center}
+.main{background:var(--coral);color:#fff;font-weight:900;font-size:19px;width:100%;margin-top:12px}
+.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line);font-weight:700;width:100%;margin-top:10px}
+.modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 4px}
+.mode{background:#fff8;box-shadow:inset 0 0 0 2px var(--line);padding:12px;text-align:right;color:var(--ink)}
+:root[data-theme=dark] .mode{background:#ffffff10}
+.mode[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--coral)}
+.mode b{display:block;font-size:18px}.mode span{font-size:14px;color:var(--mute)}
+.globe{font-size:76px;text-align:center;line-height:1}
+.score{text-align:center;font-size:clamp(56px,16vw,84px);font-weight:900;color:var(--coral);line-height:1}
+.center{text-align:center}
+.rev{margin:14px 0 0;padding:0;list-style:none}
+.rev li{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.rev .e{font-size:30px;flex:none}
+.flagbig{display:flex;justify-content:center;align-items:center;min-height:150px;margin:8px 0}
+.flagbig img{max-width:min(260px,80%);max-height:170px;border-radius:8px;box-shadow:0 10px 22px #0004,0 0 0 1px #0002}
+.flagbig.emo{font-size:clamp(90px,28vw,150px);line-height:1}
+.flagsm{flex:none;width:46px;text-align:center}.flagsm img{width:46px;border-radius:4px;box-shadow:0 0 0 1px #0002}.flagsm.emo{font-size:30px}
+.rev small{color:var(--mute);display:block}
+.hide{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+.pop{animation:pop .35s ease-out}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1>مسابقة الأعلام والعواصم 🌍</h1><div class="best" id="best"></div></header>
+
+<section class="card" id="start">
+  <div class="globe">🗺️</div>
+  <p class="q center">جاهز تختبر معلوماتك الجغرافية؟</p>
+  <p class="center" id="info" style="color:var(--mute);margin:0">١٢ سؤالاً · ٢٠ ثانية لكل سؤال · مستوى متوسط</p>
+  <div class="modes" id="levels">
+    <button class="mode" data-l="mid" aria-pressed="true"><b>متوسط 🙂</b><span>دول مشهورة · ٢٠ ثانية</span></button>
+    <button class="mode" data-l="hard" aria-pressed="false"><b>صعب 🔥</b><span>دول نادرة وأعلام متشابهة · ١٢ ثانية</span></button>
+  </div>
+  <div class="modes" id="modes">
+    <button class="mode" data-m="mix" aria-pressed="true"><b>منوّعة</b><span>أعلام + عواصم + جغرافيا</span></button>
+    <button class="mode" data-m="flag" aria-pressed="false"><b>الأعلام</b><span>اعرف الدولة من علمها</span></button>
+    <button class="mode" data-m="cap" aria-pressed="false"><b>العواصم</b><span>دولة ↔ عاصمة</span></button>
+    <button class="mode" data-m="geo" aria-pressed="false"><b>جغرافيا عامة</b><span>أنهار، جبال، بحار…</span></button>
+  </div>
+  <button class="main" id="go">ابدأ المسابقة</button>
+</section>
+
+<section class="card hide" id="play">
+  <div class="hud"><span>السؤال <b id="qn">1</b> من <b id="qt">12</b></span><span>النقاط <b id="pts">0</b> · السلسلة <b id="stk">0</b>🔥</span></div>
+  <div class="bar"><i id="prog"></i></div>
+  <div class="timer"><i id="tm"></i></div>
+  <span class="tag" id="tag"></span>
+  <div id="qbox"></div>
+  <div class="opts" id="opts"></div>
+  <div class="fb" id="fb" aria-live="polite"></div>
+  <button class="main hide" id="next">التالي ←</button>
+</section>
+
+<section class="card hide" id="end">
+  <p class="q center" id="verdict"></p>
+  <div class="score" id="final"></div>
+  <p class="center" id="sub" style="color:var(--mute);margin:6px 0 0"></p>
+  <button class="main" id="again">العب مرة ثانية</button>
+  <button class="ghost" id="home">غيّر نوع المسابقة</button>
+  <ul class="rev" id="rev"></ul>
+</section>
+</div>
+
+<script>
+{
+const C=[
+// العالم العربي
+["السعودية","الرياض","SA","ar"],["مصر","القاهرة","EG","ar"],["الإمارات","أبوظبي","AE","ar"],["الكويت","الكويت","KW","ar"],["قطر","الدوحة","QA","ar"],["البحرين","المنامة","BH","ar"],["عُمان","مسقط","OM","ar"],["اليمن","صنعاء","YE","ar"],["الأردن","عمّان","JO","ar"],["العراق","بغداد","IQ","ar"],["سوريا","دمشق","SY","ar"],["لبنان","بيروت","LB","ar"],["فلسطين","القدس","PS","ar"],["المغرب","الرباط","MA","ar"],["الجزائر","الجزائر","DZ","ar"],["تونس","تونس","TN","ar"],["ليبيا","طرابلس","LY","ar"],["السودان","الخرطوم","SD","ar"],["موريتانيا","نواكشوط","MR","ar"],["الصومال","مقديشو","SO","ar"],["جيبوتي","جيبوتي","DJ","ar"],["جزر القمر","موروني","KM","ar"],
+// آسيا
+["تركيا","أنقرة","TR","as"],["إيران","طهران","IR","as"],["باكستان","إسلام آباد","PK","as"],["الهند","نيودلهي","IN","as"],["بنغلاديش","دكا","BD","as"],["إندونيسيا","جاكرتا","ID","as"],["ماليزيا","كوالالمبور","MY","as"],["اليابان","طوكيو","JP","as"],["الصين","بكين","CN","as"],["كوريا الجنوبية","سيول","KR","as"],["تايلاند","بانكوك","TH","as"],["فيتنام","هانوي","VN","as"],["الفلبين","مانيلا","PH","as"],["أفغانستان","كابل","AF","as"],["كازاخستان","أستانا","KZ","as"],["أوزبكستان","طشقند","UZ","as"],["نيبال","كاتماندو","NP","as"],["منغوليا","أولان باتور","MN","as"],["أذربيجان","باكو","AZ","as"],
+// أوروبا
+["بريطانيا","لندن","GB","eu"],["فرنسا","باريس","FR","eu"],["ألمانيا","برلين","DE","eu"],["إيطاليا","روما","IT","eu"],["إسبانيا","مدريد","ES","eu"],["البرتغال","لشبونة","PT","eu"],["هولندا","أمستردام","NL","eu"],["بلجيكا","بروكسل","BE","eu"],["سويسرا","برن","CH","eu"],["النمسا","فيينا","AT","eu"],["السويد","ستوكهولم","SE","eu"],["النرويج","أوسلو","NO","eu"],["فنلندا","هلسنكي","FI","eu"],["الدنمارك","كوبنهاغن","DK","eu"],["بولندا","وارسو","PL","eu"],["اليونان","أثينا","GR","eu"],["روسيا","موسكو","RU","eu"],["أوكرانيا","كييف","UA","eu"],["أيرلندا","دبلن","IE","eu"],["المجر","بودابست","HU","eu"],["رومانيا","بوخارست","RO","eu"],["البوسنة والهرسك","سراييفو","BA","eu"],
+// أفريقيا
+["نيجيريا","أبوجا","NG","af"],["كينيا","نيروبي","KE","af"],["إثيوبيا","أديس أبابا","ET","af"],["جنوب أفريقيا","بريتوريا","ZA","af"],["السنغال","داكار","SN","af"],["غانا","أكرا","GH","af"],["تنزانيا","دودوما","TZ","af"],["مالي","باماكو","ML","af"],["النيجر","نيامي","NE","af"],["تشاد","نجامينا","TD","af"],
+// الأمريكتان وأوقيانوسيا
+["الولايات المتحدة","واشنطن","US","am"],["كندا","أوتاوا","CA","am"],["المكسيك","مكسيكو سيتي","MX","am"],["البرازيل","برازيليا","BR","am"],["الأرجنتين","بوينس آيرس","AR","am"],["تشيلي","سانتياغو","CL","am"],["كولومبيا","بوغوتا","CO","am"],["بيرو","ليما","PE","am"],["فنزويلا","كاراكاس","VE","am"],["كوبا","هافانا","CU","am"],["أستراليا","كانبرا","AU","am"],["نيوزيلندا","ويلينغتون","NZ","am"]
+].map(([n,c,f,r])=>({n,c,f,r}));
+
+// المستوى الصعب: دول أقل شهرة + عواصم مخادعة + أعلام متشابهة
+const H=[
+["بوتان","تيمفو","BT","as"],["لاوس","فيينتيان","LA","as"],["ميانمار","نايبيداو","MM","as"],["كمبوديا","بنوم بنه","KH","as"],["بروناي","بندر سري بكاوان","BN","as"],["تركمانستان","عشق آباد","TM","as"],["قيرغيزستان","بيشكك","KG","as"],["طاجيكستان","دوشنبه","TJ","as"],["جورجيا","تبليسي","GE","as"],["أرمينيا","يريفان","AM","as"],["المالديف","ماليه","MV","as"],["تيمور الشرقية","ديلي","TL","as"],["كازاخستان","أستانا","KZ","as"],["باكستان","إسلام آباد","PK","as"],["تركيا","أنقرة","TR","as"],["إندونيسيا","جاكرتا","ID","as"],
+["سلوفينيا","ليوبليانا","SI","eu"],["سلوفاكيا","براتيسلافا","SK","eu"],["كرواتيا","زغرب","HR","eu"],["صربيا","بلغراد","RS","eu"],["ألبانيا","تيرانا","AL","eu"],["مقدونيا الشمالية","سكوبيه","MK","eu"],["الجبل الأسود","بودغوريتسا","ME","eu"],["مولدوفا","كيشيناو","MD","eu"],["ليتوانيا","فيلنيوس","LT","eu"],["لاتفيا","ريغا","LV","eu"],["إستونيا","تالين","EE","eu"],["بلغاريا","صوفيا","BG","eu"],["التشيك","براغ","CZ","eu"],["آيسلندا","ريكيافيك","IS","eu"],["مالطا","فاليتا","MT","eu"],["بيلاروس","مينسك","BY","eu"],["موناكو","موناكو","MC","eu"],["رومانيا","بوخارست","RO","eu"],["أيرلندا","دبلن","IE","eu"],["سويسرا","برن","CH","eu"],
+["رواندا","كيغالي","RW","af"],["أوغندا","كمبالا","UG","af"],["زامبيا","لوساكا","ZM","af"],["زيمبابوي","هراري","ZW","af"],["موزمبيق","مابوتو","MZ","af"],["مدغشقر","أنتاناناريفو","MG","af"],["أنغولا","لواندا","AO","af"],["الكاميرون","ياوندي","CM","af"],["ساحل العاج","ياموسوكرو","CI","af"],["بوركينا فاسو","واغادوغو","BF","af"],["إريتريا","أسمرة","ER","af"],["ناميبيا","ويندهوك","NA","af"],["بوتسوانا","غابورون","BW","af"],["الغابون","ليبرفيل","GA","af"],["بنين","بورتو نوفو","BJ","af"],["توغو","لومي","TG","af"],["غينيا","كوناكري","GN","af"],["ملاوي","ليلونغوي","MW","af"],["تشاد","نجامينا","TD","af"],["نيجيريا","أبوجا","NG","af"],["تنزانيا","دودوما","TZ","af"],["جنوب أفريقيا","بريتوريا","ZA","af"],
+["الأوروغواي","مونتيفيديو","UY","am"],["الباراغواي","أسونسيون","PY","am"],["الإكوادور","كيتو","EC","am"],["كوستاريكا","سان خوسيه","CR","am"],["هندوراس","تيغوسيغالبا","HN","am"],["نيكاراغوا","ماناغوا","NI","am"],["السلفادور","سان سلفادور","SV","am"],["جامايكا","كينغستون","JM","am"],["هايتي","بورت أو برنس","HT","am"],["الدومينيكان","سانتو دومينغو","DO","am"],["البرازيل","برازيليا","BR","am"],["كندا","أوتاوا","CA","am"],
+["فيجي","سوفا","FJ","oc"],["بابوا غينيا الجديدة","بورت مورسبي","PG","oc"],["أستراليا","كانبرا","AU","oc"],["نيوزيلندا","ويلينغتون","NZ","oc"],["ساموا","آبيا","WS","oc"],["فانواتو","بورت فيلا","VU","oc"]
+].map(([n,c,f,r])=>({n,c,f,r}));
+
+const GH=[
+["ما أعلى شلال في العالم؟","شلال أنجل",["شلالات نياغرا","شلالات فيكتوريا","شلالات إغوازو"],"💦"],
+["أي دولة لا يوجد فيها نهر دائم الجريان؟","السعودية",["مصر","تركيا","العراق"],"🏜️"],
+["ما أطول نهر في أوروبا؟","الفولغا",["الدانوب","الراين","اللوار"],"🏞️"],
+["ما أعلى قمة في أمريكا الجنوبية؟","أكونكاغوا",["شيمبورازو","كوتوباكسي","إل ميستي"],"🏔️"],
+["ما أكبر بحيرة في أفريقيا؟","بحيرة فيكتوريا",["بحيرة تنجانيقا","بحيرة ملاوي","بحيرة تشاد"],"💧"],
+["أي دولة تحيط بها جنوب أفريقيا من كل الجهات؟","ليسوتو",["إسواتيني","بوتسوانا","ناميبيا"],"🗺️"],
+["ما أعمق بحيرة في العالم؟","بحيرة بايكال",["بحيرة تنجانيقا","بحيرة سوبيريور","بحر قزوين"],"💧"],
+["كم عدد الدول الأعضاء في جامعة الدول العربية؟","22",["20","21","23"],"🤝"],
+["أي خط عرض يمر بالسعودية؟","مدار السرطان",["خط الاستواء","مدار الجدي","الدائرة القطبية الشمالية"],"🧭"],
+["أي نهر يمر بأكبر عدد من العواصم الأوروبية؟","الدانوب",["الراين","الفولغا","السين"],"🏞️"],
+["ما أطول دولة من الشمال إلى الجنوب في أمريكا الجنوبية؟","تشيلي",["الأرجنتين","البرازيل","بيرو"],"📏"],
+["ما أعلى بحيرة صالحة للملاحة في العالم؟","بحيرة تيتيكاكا",["بحيرة فيكتوريا","بحيرة بايكال","بحيرة جنيف"],"⛵"],
+["أي بحر لا تطل عليه تركيا؟","بحر قزوين",["البحر الأسود","بحر إيجه","البحر المتوسط"],"🌊"],
+["أي هذه الدول حبيسة (لا تطل على بحر)؟","بوليفيا",["بيرو","تشيلي","الإكوادور"],"🔒"],
+["مضيق بيرينغ يفصل بين…","روسيا وألاسكا",["كندا وغرينلاند","اليابان وروسيا","الصين وكوريا"],"⛴️"],
+["ما أكبر دولة أفريقية مساحةً؟","الجزائر",["الكونغو الديمقراطية","السودان","ليبيا"],"🌍"],
+["جزيرة سقطرى تتبع أي دولة؟","اليمن",["عُمان","الصومال","إريتريا"],"🏝️"],
+["أين يصب نهر الأمازون؟","المحيط الأطلسي",["المحيط الهادئ","البحر الكاريبي","خليج المكسيك"],"🏞️"],
+["ما أطول نهر في آسيا؟","اليانغتسي",["الميكونغ","الغانج","الأوب"],"🏞️"],
+["كم عدد الدول التي تحد السعودية برياً؟","7",["6","8","9"],"🗺️"],
+["ما المدينة التي كانت عاصمة البرازيل قبل برازيليا؟","ريو دي جانيرو",["ساو باولو","سلفادور","ريسيفي"],"🏙️"],
+["ما العاصمة السابقة لكازاخستان قبل أستانا؟","ألماتي",["شيمكنت","طشقند","بيشكك"],"🏙️"],
+["مضيق البوسفور يربط البحر الأسود بـ…","بحر مرمرة",["بحر إيجه","البحر المتوسط","بحر قزوين"],"🌉"],
+["ما الدولة التي يمر بها خط الاستواء وتحمل اسمه؟","الإكوادور",["كولومبيا","كينيا","الغابون"],"🧭"],
+["ما أكبر أرخبيل (مجموعة جزر) في العالم من حيث المساحة؟","الأرخبيل الإندونيسي",["الأرخبيل الفلبيني","جزر اليابان","جزر الكاريبي"],"🏝️"],
+["أي دولة عربية تطل على المحيط الأطلسي؟","المغرب",["تونس","ليبيا","الجزائر"],"🌊"]
+];
+
+const G=[
+["ما أطول نهر في العالم حسب أشهر التصنيفات؟","النيل",["الأمازون","المسيسيبي","اليانغتسي"],"🏞️"],
+["ما أعلى قمة جبلية في العالم؟","إيفرست",["كليمنجارو","K2","مون بلان"],"🏔️"],
+["ما أكبر المحيطات مساحةً؟","المحيط الهادئ",["المحيط الأطلسي","المحيط الهندي","المحيط المتجمد الشمالي"],"🌊"],
+["ما أكبر صحراء حارة في العالم؟","الصحراء الكبرى",["صحراء غوبي","صحراء كالاهاري","صحراء أتاكاما"],"🏜️"],
+["ما أكبر دولة في العالم مساحةً؟","روسيا",["كندا","الصين","الولايات المتحدة"],"📐"],
+["ما أصغر دولة في العالم مساحةً؟","الفاتيكان",["موناكو","سان مارينو","مالطا"],"⛪"],
+["ما أكبر دولة عربية مساحةً؟","الجزائر",["السعودية","السودان","ليبيا"],"🗺️"],
+["ما أكبر دولة عربية من حيث عدد السكان؟","مصر",["السعودية","الجزائر","العراق"],"👥"],
+["ما أكثر دولة في العالم سكاناً اليوم؟","الهند",["الصين","الولايات المتحدة","إندونيسيا"],"👥"],
+["ما أكبر القارات مساحةً؟","آسيا",["أفريقيا","أمريكا الشمالية","أوروبا"],"🌏"],
+["أي مضيق يفصل بين أوروبا وأفريقيا؟","جبل طارق",["البوسفور","باب المندب","هرمز"],"⛴️"],
+["مضيق هرمز يربط الخليج العربي بـ…","خليج عُمان",["البحر الأحمر","خليج عدن","البحر العربي مباشرة دون خليج"],"⛴️"],
+["مضيق باب المندب يربط البحر الأحمر بـ…","خليج عدن",["البحر المتوسط","خليج عُمان","الخليج العربي"],"⛴️"],
+["ما أكبر جزيرة في العالم؟","غرينلاند",["مدغشقر","بورنيو","غينيا الجديدة"],"🏝️"],
+["ما أعمق نقطة معروفة في محيطات العالم؟","خندق ماريانا",["خندق بورتوريكو","خندق جاوة","خندق تونغا"],"🌊"],
+["ما أطول سلسلة جبلية على اليابسة؟","جبال الأنديز",["جبال الهيمالايا","جبال الروكي","جبال الألب"],"⛰️"],
+["ما أكبر صحراء رملية متصلة في العالم؟","الربع الخالي",["صحراء النفود","صحراء الدهناء","صحراء ثار"],"🐪"],
+["قناة السويس تربط البحر المتوسط بـ…","البحر الأحمر",["البحر الأسود","الخليج العربي","المحيط الأطلسي"],"🚢"],
+["أي دولة تُلقّب بـ«بلاد الشمس المشرقة»؟","اليابان",["كوريا الجنوبية","الصين","تايلاند"],"🌅"],
+["في أي دولة يقع جبل كليمنجارو؟","تنزانيا",["كينيا","إثيوبيا","أوغندا"],"🏔️"],
+["يلتقي نهرا دجلة والفرات ليكوّنا…","شط العرب",["نهر الأردن","نهر العاصي","نهر الخابور"],"🏞️"],
+["أي مدينة تقع على قارتين (آسيا وأوروبا)؟","إسطنبول",["أنقرة","أثينا","موسكو"],"🌉"],
+["ما عملة اليابان؟","الين",["الوون","اليوان","الروبية"],"💴"],
+["ما عملة سويسرا؟","الفرنك",["اليورو","الكرونة","الجنيه"],"💶"],
+["كم عدد القارات المتعارف عليه عالمياً؟","7",["5","6","8"],"🌍"],
+["ما البحر الذي يُعدّ أخفض نقطة على اليابسة؟","البحر الميت",["بحر قزوين","البحر الأحمر","بحيرة طبريا"],"🧂"],
+["على أي نهر تقع مدينة بغداد؟","دجلة",["الفرات","النيل","الأردن"],"🏞️"],
+["ما أكبر بحيرة مغلقة في العالم؟","بحر قزوين",["بحيرة فيكتوريا","بحيرة سوبيريور","بحر آرال"],"💧"]
+];
+
+const $=id=>document.getElementById(id);
+// صورة العلم (تظهر على ويندوز أيضاً)، وإن تعذّر التحميل يُعرض رمز العلم
+function flagEl(c,cls){const w=document.createElement("div");w.className=cls;const im=new Image();im.alt="علم";im.src="https://flagcdn.com/w320/"+c.toLowerCase()+".png";
+  im.onerror=()=>{w.textContent=flag(c);w.classList.add("emo")};w.append(im);return w}
+const flag=c=>String.fromCodePoint(...[...c].map(ch=>0x1F1E6+ch.charCodeAt(0)-65));
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const N=12;let T=20,level="mid";
+let mode="mix",qs=[],i=0,pts=0,stk=0,right=0,timer=null,left=T,wrong=[];
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const showBest=()=>{const b=ls.get("geoBest_"+level);$("best").textContent=b?"أفضل نتيجة ("+(level==="hard"?"صعب":"متوسط")+"): "+b:""};
+showBest();
+
+let P=C;
+function distract(x,key){ // خيارات خاطئة من نفس المنطقة غالباً = مستوى متوسط
+  const same=sh(P.filter(o=>o!==x&&o.r===x.r&&o[key]!==x[key]));
+  const other=sh(P.filter(o=>o!==x&&o.r!==x.r&&o[key]!==x[key]));
+  const out=[];for(const o of [...same.slice(0,2),...other,...same.slice(2)]){if(!out.includes(o[key]))out.push(o[key]);if(out.length===3)break}
+  return out;
+}
+const mk={
+  flag:x=>({tag:"علم",q:"لأي دولة هذا العلم؟",fl:x.f,a:x.n,o:distract(x,"n"),f:x.f}),
+  cap:x=>({tag:"عاصمة",q:"ما عاصمة هذه الدولة؟",name:x.n,a:x.c,o:distract(x,"c"),f:x.f}),
+  capR:x=>({tag:"عاصمة",q:"هذه عاصمة أي دولة؟",name:x.c,a:x.n,o:distract(x,"n"),f:x.f}),
+  flagCap:x=>({tag:"علم وعاصمة",q:"ما عاصمة الدولة صاحبة هذا العلم؟",fl:x.f,a:x.c,o:distract(x,"c"),f:x.f}),
+  geo:g=>({tag:"جغرافيا",q:g[0],big:g[3],a:g[1],o:g[2],e:g[3]})
+};
+function build(){
+  P=level==="hard"?H:C;T=level==="hard"?12:20;
+  const cs=sh(P),gs=sh(level==="hard"?GH:G);let k=0;const take=()=>cs[k++];
+  let plan;
+  if(mode==="flag")plan=[...Array(9).fill("flag"),...Array(3).fill("flagCap")];
+  else if(mode==="cap")plan=[...Array(8).fill("cap"),...Array(4).fill("capR")];
+  else if(mode==="geo")plan=Array(N).fill("geo");
+  else plan=["flag","flag","flag","flag","cap","cap","cap","capR","flagCap","geo","geo","geo"];
+  let g=0;
+  return sh(plan).map(t=>{const q=t==="geo"?mk.geo(gs[g++]):mk[t](take());q.opts=sh([q.a,...q.o]);return q});
+}
+function start(){qs=build();i=0;pts=0;stk=0;right=0;wrong=[];
+  $("start").classList.add("hide");$("end").classList.add("hide");$("play").classList.remove("hide");$("qt").textContent=N;render()}
+function render(){
+  const q=qs[i];clearInterval(timer);left=T;
+  $("qn").textContent=i+1;$("pts").textContent=pts;$("stk").textContent=stk;
+  $("prog").style.width=(i/N*100)+"%";$("tag").textContent=q.tag;
+  const box=$("qbox");box.innerHTML="";
+  const p=document.createElement("p");p.className="q";p.textContent=q.q;box.append(p);
+  if(q.fl)box.append(flagEl(q.fl,"flagbig pop"));
+  if(q.big){const d=document.createElement("div");d.className="big pop";d.textContent=q.big;box.append(d)}
+  if(q.name){const d=document.createElement("div");d.className="name pop";d.textContent=q.name;box.append(d)}
+  const o=$("opts");o.innerHTML="";
+  q.opts.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>answer(t,b);o.append(b)});
+  $("fb").textContent="";$("next").classList.add("hide");
+  const tm=$("tm");tm.style.width="100%";tm.style.background="var(--ok)";
+  timer=setInterval(()=>{left-=.1;const r=Math.max(left,0)/T;tm.style.width=r*100+"%";
+    if(r<.3)tm.style.background="var(--bad)";else if(r<.6)tm.style.background="#e0a526";
+    if(left<=0)answer(null,null)},100);
+}
+function answer(t,btn){
+  clearInterval(timer);const q=qs[i];
+  [...$("opts").children].forEach(b=>{b.disabled=true;if(b.textContent===q.a)b.classList.add("ok")});
+  if(t===q.a){right++;stk++;const bonus=Math.ceil(Math.max(left,0)/2);const gain=10+bonus+(stk>=3?5:0);pts+=gain;
+    $("fb").style.color="var(--ok)";$("fb").textContent="إجابة صحيحة! +"+gain+(stk>=3?" (سلسلة 🔥)":"");}
+  else{stk=0;if(btn)btn.classList.add("bad");
+    $("fb").style.color="var(--bad)";$("fb").textContent=(t===null?"انتهى الوقت ⏰ — ":"خطأ — ")+"الصحيح: "+q.a;
+    wrong.push(q);}
+  $("pts").textContent=pts;$("stk").textContent=stk;
+  const n=$("next");n.textContent=i===N-1?"شوف النتيجة ←":"التالي ←";n.classList.remove("hide");n.focus();
+}
+function finish(){
+  $("play").classList.add("hide");$("end").classList.remove("hide");
+  $("final").textContent=right+" / "+N;
+  $("sub").textContent="مجموع النقاط: "+pts;
+  const v=right>=11?"عبقري جغرافيا! 🏆":right>=8?"ممتاز، معلوماتك قوية 👏":right>=5?"جيد، تقدر تتحسن 💪":"ولا يهمك، جرّب مرة ثانية 🌱";
+  $("verdict").textContent=v;
+  const b=+ls.get("geoBest_"+level)||0;if(pts>b){ls.set("geoBest_"+level,pts)}showBest();
+  const r=$("rev");r.innerHTML="";
+  if(wrong.length){const h=document.createElement("li");h.innerHTML="<b>راجع الأسئلة اللي أخطأت فيها:</b>";r.append(h)}
+  wrong.forEach(q=>{const li=document.createElement("li");const e=q.f?flagEl(q.f,"flagsm"):document.createElement("span");if(!q.f){e.className="e";e.textContent=q.e}
+    const d=document.createElement("div");d.textContent=q.q+(q.name?" ("+q.name+")":"");const s=document.createElement("small");s.textContent="الإجابة: "+q.a;d.append(s);li.append(e,d);r.append(li)});
+}
+$("next").onclick=()=>{i++;i<N?render():finish()};
+$("go").onclick=start;$("again").onclick=start;
+$("home").onclick=()=>{$("end").classList.add("hide");$("start").classList.remove("hide")};
+const setInfo=()=>{$("info").textContent="١٢ سؤالاً · "+(level==="hard"?"١٢":"٢٠")+" ثانية لكل سؤال · مستوى "+(level==="hard"?"صعب":"متوسط")};
+$("levels").addEventListener("click",e=>{const b=e.target.closest(".mode");if(!b)return;level=b.dataset.l;
+  [...$("levels").children].forEach(x=>x.setAttribute("aria-pressed",x===b));setInfo();showBest()});
+$("modes").addEventListener("click",e=>{const b=e.target.closest(".mode");if(!b)return;mode=b.dataset.m;
+  [...$("modes").children].forEach(x=>x.setAttribute("aria-pressed",x===b))});
+}
+</script>
+</body>
+</html>
